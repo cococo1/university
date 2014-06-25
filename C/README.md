@@ -9,6 +9,10 @@ Code written in C programming language
 
 --
 
+**programming_I** dir contains the labs for this course.
+
+--
+
 **sizeOfOperator** dir contains an example of usage of `<sizeof>` operator without paranthesis. 
 
 --
