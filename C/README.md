@@ -9,6 +9,10 @@ Code written in C programming language
 
 --
 
+**DSA** dir contains the labs for **Data Structures and Algorithms** course.
+
+--
+
 **programming_I** dir contains the labs for this course.
 
 --
