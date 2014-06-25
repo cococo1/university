@@ -9,7 +9,7 @@ This repo contains the code which I wrote at the university, during my Bachelor 
 
 --
 
-**C++** dir contains code written in C++, the course work for DSA - TTS program for Romanian language.
+**C++** dir contains code written in C++, the course work for DSA - TTS program for Romanian language and labs for **APA - Analysis of Algorithms**.
 
 --
 
