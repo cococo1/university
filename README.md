@@ -1,7 +1,7 @@
 University
 ==========
 
-This repo contains the code which I wrote during at the university, during my Bachelor studies (2010-2014). 
+This repo contains the code which I wrote at the university, during my Bachelor studies (2010-2014). 
 
 --
 
