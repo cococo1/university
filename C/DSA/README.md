@@ -42,12 +42,4 @@ Structure CAR with fields: model, country, date of manufacturing, capacity of th
 Variant No. 6 : 
 Structure CAR with fields: model, country, date of manufacturing, capacity of the engine, cost and the fields left and right with the addresses of other cars.
 
-
---
-**Lab 5**: 
-
-
---
-**Lab 6**: 
-
 --

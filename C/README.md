@@ -13,7 +13,7 @@ Code written in C programming language
 
 --
 
-**programming_I** dir contains the labs for this course.
+**programming_I** dir contains the labs for **Programming I** course.
 
 --
 

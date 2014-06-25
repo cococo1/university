@@ -9,6 +9,10 @@ This repo contains the code which I wrote at the university, during my Bachelor 
 
 --
 
+**C++** dir contains code written in C++, the course work for DSA - TTS program for Romanian language.
+
+--
+
 **MatLAB** dir contains code written in MatLAB at **Theory of Probability and Information** course.
 
 --
