@@ -5,18 +5,18 @@ Programming I
 
 --
 
-**Lab1**: To calculate and display argument values and function set value by several expressions, for the set interval хn ≤ x ≤ хk and dx step of argument variations. Parameters a, b, c – real numbers.
+**Lab 1**: To calculate and display argument values and function set value by several expressions, for the set interval хn ≤ x ≤ хk and dx step of argument variations. Parameters a, b, c – real numbers.
 
 --
 
-**Lab2**: For one-dimensional array from n elements, define the values and quantity of the minimal elements, and their positions in array.
+**Lab 2**: For one-dimensional array from n elements, define the values and quantity of the minimal elements, and their positions in array.
 
 --
 
-**Lab3**: Count up quantity of local minimums of array. The element of array is a local minimum, if it is strictly less than its neighbors.
+**Lab 3**: Count up quantity of local minimums of array. The element of array is a local minimum, if it is strictly less than its neighbors.
 
 --
-**Lab4**: For given bidimensional array from n lines and m columns, display the following operations menu:
+**Lab 4**: For given bidimensional array from n lines and m columns, display the following operations menu:
 
 1. Dynamic memory allocation for a bidimensional array 
 2. Input of array elements from keyboard 
@@ -30,11 +30,11 @@ Develop functions for realization of operations of the menu.
 
 
 --
-**Lab5**: For given set sort the words in alphabetic order.
+**Lab 5**: For given set sort the words in alphabetic order.
 
 
 --
-**Lab6**: For given array of elements of structure type (in variants) to display the following operations menu:
+**Lab 6**: For given array of elements of structure type (in variants) to display the following operations menu:
 
 1. Dynamic memory allocation for structure array. 
 2. Input of array elements from keyboard. 
