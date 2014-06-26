@@ -17,6 +17,10 @@ Code written in C programming language
 
 --
 
+**SIPC** contains an example of client and server implementation in C.
+
+--
+
 **sizeOfOperator** dir contains an example of usage of `sizeof` operator without paranthesis. 
 
 --

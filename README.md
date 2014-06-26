@@ -16,3 +16,11 @@ This repo contains the code which I wrote at the university, during my Bachelor 
 **MatLAB** dir contains code written in MatLAB at **Theory of Probability and Information** and **Numerical Methods** courses.
 
 --
+
+**Objective-C** dir contains code written for labs at **SIPC** course.
+
+--
+
+**python** dir contains code in Python written for **Communication Protocols and Information Security** course.
+
+--
