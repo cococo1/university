@@ -21,14 +21,19 @@ Windows Programming
 --
 
 **Lab 6**: Write a program which does the following:
+
 1. Displays a digital clock (Hour:Min:Sec); use a timer to update its time every second;
+
 2. Displays an analogic clock (draw the clock and its hands using GDI primitives); use a timer to update its time every second.
 
 --
 
 **Lab 7**: Write a program which displays three geometrical figures. The program should include:
+
 1. Three radio buttons, with just one selected at once. At validation of a radio button, a geometrical figure is displayed;
+
 2. Three checkboxes. When one is activated, the others are disabled. For each checkbox a corresponding colour should be assigned. At validation of a certain checkbox the geometrical figure is coloured in the corresponding colour; 
+
 3. Two push buttons. Pressing one of them, the figure starts movement over a circle and pressing the other stops the movement.
 
 --

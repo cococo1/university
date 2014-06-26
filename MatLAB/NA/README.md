@@ -10,11 +10,17 @@ Numerical Analysis.
 *Problem 1* Implement the given function and try to evaluate this function for x=10,100,1000. What do you get ? Why ? Find another way to compute this function. Be as precise as possible.
 
 *Problem 2* Implement the following procedures:
+
 ``Let t=0.1
+
 for n from 1 to 10 do
+
 e=n/10-n*t
+
 display results
+
 end do``
+
 Notice if anything strange happens. Explain the results.
 
 *Problem 3* Compute the integrals   for k=0,1,2,… . Using integration by parts show that 	
@@ -31,12 +37,19 @@ Form a matrix M 500x500 of escape velocities for random values of  and c.
 
 *Problem 1* Find the root of the function f(x) =  on the interval
 [0, 1.2] with error tolerance of .
+
 a) Apply the bisection method starting with a = 0 and b = 1.2;
+
 b) Apply the Newton’s method starting with  = 0.6;
+
 c) Apply the simplified Newton’s method starting with  = 0.6;
+
 d) Apply the secant method with  = 0.6 and = 1;
+
 For each method compute also the absolute errors    for each iterate.
+
 Note: the true zero  = 0.42630275100686; 
+
 Present results in a table. Discuss these results.
 
 *Problem 2* 

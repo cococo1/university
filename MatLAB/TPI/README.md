@@ -27,7 +27,9 @@ Labs from TPI.
 
 *Problem 2* 
 1. Write your own program that will list all the permutations of N objects.
+
 2. Write your own program that will list all binomial coefficients  (all the subsets of length M from a set of length N ).
+
 3. Estimate using Stirling’s formula.
 
 *Problem 3* Write a program that will compute the binomial probabilities b(n,p,j)=q=1-p;
