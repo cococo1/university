@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5052BA2F189FA1ED00B4F6F3 /* ReviewOrderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5052BA2E189FA1ED00B4F6F3 /* ReviewOrderTests.m */; };
+		5052BA33189FDC8900B4F6F3 /* IntegrationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5052BA32189FDC8900B4F6F3 /* IntegrationTests.m */; };
+		50AE8F07189BD5E30086DE57 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AE8F06189BD5E30086DE57 /* Cocoa.framework */; };
+		50AE8F11189BD5E30086DE57 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50AE8F0F189BD5E30086DE57 /* InfoPlist.strings */; };
+		50AE8F13189BD5E30086DE57 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE8F12189BD5E30086DE57 /* main.m */; };
+		50AE8F17189BD5E30086DE57 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 50AE8F15189BD5E30086DE57 /* Credits.rtf */; };
+		50AE8F1A189BD5E30086DE57 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE8F19189BD5E30086DE57 /* AppDelegate.m */; };
+		50AE8F1D189BD5E30086DE57 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50AE8F1B189BD5E30086DE57 /* MainMenu.xib */; };
+		50AE8F1F189BD5E30086DE57 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50AE8F1E189BD5E30086DE57 /* Images.xcassets */; };
+		50AE8F26189BD5E30086DE57 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AE8F25189BD5E30086DE57 /* XCTest.framework */; };
+		50AE8F27189BD5E30086DE57 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AE8F06189BD5E30086DE57 /* Cocoa.framework */; };
+		50AE8F2F189BD5E30086DE57 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50AE8F2D189BD5E30086DE57 /* InfoPlist.strings */; };
+		50AE8F43189BE7F90086DE57 /* OrderSystemWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE8F42189BE7F90086DE57 /* OrderSystemWindowController.m */; };
+		50AE8F45189BEEF70086DE57 /* WindowControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE8F44189BEEF70086DE57 /* WindowControllerTests.m */; };
+		50AE8F49189BF30D0086DE57 /* OrderSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE8F48189BF30D0086DE57 /* OrderSystem.m */; };
+		50AE8F4B189BF4AB0086DE57 /* OrderSystemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AE8F4A189BF4AB0086DE57 /* OrderSystemTests.m */; };
+		50C29FC7189D25BE0009CF3C /* OrderState.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C29FC6189D25BE0009CF3C /* OrderState.m */; };
+		50C29FCC189D2A7A0009CF3C /* InputNameState.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C29FCB189D2A7A0009CF3C /* InputNameState.m */; };
+		50C29FCF189D2E2A0009CF3C /* ComponentSelectionState.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C29FCE189D2E2A0009CF3C /* ComponentSelectionState.m */; };
+		50C29FD2189D2E980009CF3C /* ReviewOrderState.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C29FD1189D2E980009CF3C /* ReviewOrderState.m */; };
+		50C29FD7189D3B600009CF3C /* OrderStateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C29FD6189D3B600009CF3C /* OrderStateTests.m */; };
+		50C29FD9189D3E3F0009CF3C /* InputStateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C29FD8189D3E3F0009CF3C /* InputStateTests.m */; };
+		50C29FDB189D42A80009CF3C /* ComponentSelectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C29FDA189D42A80009CF3C /* ComponentSelectionTests.m */; };
+		50C29FDF189D842C0009CF3C /* PriceCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C29FDE189D842C0009CF3C /* PriceCalculator.m */; };
+		50C29FE1189D849B0009CF3C /* PriceCalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C29FE0189D849B0009CF3C /* PriceCalculatorTests.m */; };
+		50E09CCC189E5FC400C1E36F /* Pricelist.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E09CCB189E5FC400C1E36F /* Pricelist.m */; };
+		50E09CCE189E61CB00C1E36F /* PricelistTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50E09CCD189E61CB00C1E36F /* PricelistTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		50AE8F28189BD5E30086DE57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50AE8EFB189BD5E30086DE57 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50AE8F02189BD5E30086DE57;
+			remoteInfo = PizzaAdrianoOrderingSystem;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5052BA2E189FA1ED00B4F6F3 /* ReviewOrderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewOrderTests.m; sourceTree = "<group>"; };
+		5052BA32189FDC8900B4F6F3 /* IntegrationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegrationTests.m; sourceTree = "<group>"; };
+		50AE8F03189BD5E30086DE57 /* PizzaAdrianoOrderingSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaAdrianoOrderingSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		50AE8F06189BD5E30086DE57 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		50AE8F09189BD5E30086DE57 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		50AE8F0A189BD5E30086DE57 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		50AE8F0B189BD5E30086DE57 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		50AE8F0E189BD5E30086DE57 /* PizzaAdrianoOrderingSystem-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PizzaAdrianoOrderingSystem-Info.plist"; sourceTree = "<group>"; };
+		50AE8F10189BD5E30086DE57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		50AE8F12189BD5E30086DE57 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		50AE8F14189BD5E30086DE57 /* PizzaAdrianoOrderingSystem-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PizzaAdrianoOrderingSystem-Prefix.pch"; sourceTree = "<group>"; };
+		50AE8F16189BD5E30086DE57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		50AE8F18189BD5E30086DE57 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		50AE8F19189BD5E30086DE57 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		50AE8F1C189BD5E30086DE57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		50AE8F1E189BD5E30086DE57 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		50AE8F24189BD5E30086DE57 /* PizzaAdrianoOrderingSystemTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PizzaAdrianoOrderingSystemTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		50AE8F25189BD5E30086DE57 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		50AE8F2C189BD5E30086DE57 /* PizzaAdrianoOrderingSystemTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PizzaAdrianoOrderingSystemTests-Info.plist"; sourceTree = "<group>"; };
+		50AE8F2E189BD5E30086DE57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		50AE8F40189BDB430086DE57 /* defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defines.h; sourceTree = "<group>"; };
+		50AE8F41189BE7F90086DE57 /* OrderSystemWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderSystemWindowController.h; sourceTree = "<group>"; };
+		50AE8F42189BE7F90086DE57 /* OrderSystemWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderSystemWindowController.m; sourceTree = "<group>"; };
+		50AE8F44189BEEF70086DE57 /* WindowControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WindowControllerTests.m; sourceTree = "<group>"; };
+		50AE8F46189BF16D0086DE57 /* OrderSystemProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderSystemProtocol.h; sourceTree = "<group>"; };
+		50AE8F47189BF30D0086DE57 /* OrderSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderSystem.h; sourceTree = "<group>"; };
+		50AE8F48189BF30D0086DE57 /* OrderSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderSystem.m; sourceTree = "<group>"; };
+		50AE8F4A189BF4AB0086DE57 /* OrderSystemTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderSystemTests.m; sourceTree = "<group>"; };
+		50C29FC4189D24A40009CF3C /* StateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StateProtocol.h; sourceTree = "<group>"; };
+		50C29FC5189D25BE0009CF3C /* OrderState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderState.h; sourceTree = "<group>"; };
+		50C29FC6189D25BE0009CF3C /* OrderState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderState.m; sourceTree = "<group>"; };
+		50C29FCA189D2A7A0009CF3C /* InputNameState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputNameState.h; sourceTree = "<group>"; };
+		50C29FCB189D2A7A0009CF3C /* InputNameState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputNameState.m; sourceTree = "<group>"; };
+		50C29FCD189D2E2A0009CF3C /* ComponentSelectionState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentSelectionState.h; sourceTree = "<group>"; };
+		50C29FCE189D2E2A0009CF3C /* ComponentSelectionState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComponentSelectionState.m; sourceTree = "<group>"; };
+		50C29FD0189D2E980009CF3C /* ReviewOrderState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewOrderState.h; sourceTree = "<group>"; };
+		50C29FD1189D2E980009CF3C /* ReviewOrderState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewOrderState.m; sourceTree = "<group>"; };
+		50C29FD6189D3B600009CF3C /* OrderStateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderStateTests.m; sourceTree = "<group>"; };
+		50C29FD8189D3E3F0009CF3C /* InputStateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputStateTests.m; sourceTree = "<group>"; };
+		50C29FDA189D42A80009CF3C /* ComponentSelectionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComponentSelectionTests.m; sourceTree = "<group>"; };
+		50C29FDC189D83E60009CF3C /* PriceCalculatorProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceCalculatorProtocol.h; sourceTree = "<group>"; };
+		50C29FDD189D842C0009CF3C /* PriceCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceCalculator.h; sourceTree = "<group>"; };
+		50C29FDE189D842C0009CF3C /* PriceCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceCalculator.m; sourceTree = "<group>"; };
+		50C29FE0189D849B0009CF3C /* PriceCalculatorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceCalculatorTests.m; sourceTree = "<group>"; };
+		50E09CCA189E5FC400C1E36F /* Pricelist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pricelist.h; sourceTree = "<group>"; };
+		50E09CCB189E5FC400C1E36F /* Pricelist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pricelist.m; sourceTree = "<group>"; };
+		50E09CCD189E61CB00C1E36F /* PricelistTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PricelistTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		50AE8F00189BD5E30086DE57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50AE8F07189BD5E30086DE57 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50AE8F21189BD5E30086DE57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50AE8F27189BD5E30086DE57 /* Cocoa.framework in Frameworks */,
+				50AE8F26189BD5E30086DE57 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		504947DE189EA2B000ABF812 /* PriceCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				50E09CCA189E5FC400C1E36F /* Pricelist.h */,
+				50E09CCB189E5FC400C1E36F /* Pricelist.m */,
+				50C29FDC189D83E60009CF3C /* PriceCalculatorProtocol.h */,
+				50C29FDD189D842C0009CF3C /* PriceCalculator.h */,
+				50C29FDE189D842C0009CF3C /* PriceCalculator.m */,
+			);
+			name = PriceCalculator;
+			sourceTree = "<group>";
+		};
+		504947DF189EA2CD00ABF812 /* OrderStates */ = {
+			isa = PBXGroup;
+			children = (
+				50C29FC4189D24A40009CF3C /* StateProtocol.h */,
+				50C29FC5189D25BE0009CF3C /* OrderState.h */,
+				50C29FC6189D25BE0009CF3C /* OrderState.m */,
+				50C29FCA189D2A7A0009CF3C /* InputNameState.h */,
+				50C29FCB189D2A7A0009CF3C /* InputNameState.m */,
+				50C29FCD189D2E2A0009CF3C /* ComponentSelectionState.h */,
+				50C29FCE189D2E2A0009CF3C /* ComponentSelectionState.m */,
+				50C29FD0189D2E980009CF3C /* ReviewOrderState.h */,
+				50C29FD1189D2E980009CF3C /* ReviewOrderState.m */,
+			);
+			name = OrderStates;
+			sourceTree = "<group>";
+		};
+		504947E0189EA2F900ABF812 /* OrderSystem */ = {
+			isa = PBXGroup;
+			children = (
+				50AE8F46189BF16D0086DE57 /* OrderSystemProtocol.h */,
+				50AE8F47189BF30D0086DE57 /* OrderSystem.h */,
+				50AE8F48189BF30D0086DE57 /* OrderSystem.m */,
+				50AE8F41189BE7F90086DE57 /* OrderSystemWindowController.h */,
+				50AE8F42189BE7F90086DE57 /* OrderSystemWindowController.m */,
+			);
+			name = OrderSystem;
+			sourceTree = "<group>";
+		};
+		50AE8EFA189BD5E30086DE57 = {
+			isa = PBXGroup;
+			children = (
+				50AE8F0C189BD5E30086DE57 /* PizzaAdrianoOrderingSystem */,
+				50AE8F2A189BD5E30086DE57 /* PizzaAdrianoOrderingSystemTests */,
+				50AE8F05189BD5E30086DE57 /* Frameworks */,
+				50AE8F04189BD5E30086DE57 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		50AE8F04189BD5E30086DE57 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				50AE8F03189BD5E30086DE57 /* PizzaAdrianoOrderingSystem.app */,
+				50AE8F24189BD5E30086DE57 /* PizzaAdrianoOrderingSystemTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		50AE8F05189BD5E30086DE57 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				50AE8F06189BD5E30086DE57 /* Cocoa.framework */,
+				50AE8F25189BD5E30086DE57 /* XCTest.framework */,
+				50AE8F08189BD5E30086DE57 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		50AE8F08189BD5E30086DE57 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				50AE8F09189BD5E30086DE57 /* AppKit.framework */,
+				50AE8F0A189BD5E30086DE57 /* CoreData.framework */,
+				50AE8F0B189BD5E30086DE57 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		50AE8F0C189BD5E30086DE57 /* PizzaAdrianoOrderingSystem */ = {
+			isa = PBXGroup;
+			children = (
+				50AE8F1B189BD5E30086DE57 /* MainMenu.xib */,
+				50AE8F40189BDB430086DE57 /* defines.h */,
+				504947DE189EA2B000ABF812 /* PriceCalculator */,
+				504947DF189EA2CD00ABF812 /* OrderStates */,
+				504947E0189EA2F900ABF812 /* OrderSystem */,
+				50AE8F1E189BD5E30086DE57 /* Images.xcassets */,
+				50AE8F0D189BD5E30086DE57 /* Supporting Files */,
+			);
+			path = PizzaAdrianoOrderingSystem;
+			sourceTree = "<group>";
+		};
+		50AE8F0D189BD5E30086DE57 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				50AE8F18189BD5E30086DE57 /* AppDelegate.h */,
+				50AE8F19189BD5E30086DE57 /* AppDelegate.m */,
+				50AE8F0E189BD5E30086DE57 /* PizzaAdrianoOrderingSystem-Info.plist */,
+				50AE8F0F189BD5E30086DE57 /* InfoPlist.strings */,
+				50AE8F12189BD5E30086DE57 /* main.m */,
+				50AE8F14189BD5E30086DE57 /* PizzaAdrianoOrderingSystem-Prefix.pch */,
+				50AE8F15189BD5E30086DE57 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		50AE8F2A189BD5E30086DE57 /* PizzaAdrianoOrderingSystemTests */ = {
+			isa = PBXGroup;
+			children = (
+				5052BA32189FDC8900B4F6F3 /* IntegrationTests.m */,
+				5052BA2E189FA1ED00B4F6F3 /* ReviewOrderTests.m */,
+				50E09CCD189E61CB00C1E36F /* PricelistTests.m */,
+				50C29FE0189D849B0009CF3C /* PriceCalculatorTests.m */,
+				50C29FDA189D42A80009CF3C /* ComponentSelectionTests.m */,
+				50C29FD8189D3E3F0009CF3C /* InputStateTests.m */,
+				50C29FD6189D3B600009CF3C /* OrderStateTests.m */,
+				50AE8F4A189BF4AB0086DE57 /* OrderSystemTests.m */,
+				50AE8F44189BEEF70086DE57 /* WindowControllerTests.m */,
+				50AE8F2B189BD5E30086DE57 /* Supporting Files */,
+			);
+			path = PizzaAdrianoOrderingSystemTests;
+			sourceTree = "<group>";
+		};
+		50AE8F2B189BD5E30086DE57 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				50AE8F2C189BD5E30086DE57 /* PizzaAdrianoOrderingSystemTests-Info.plist */,
+				50AE8F2D189BD5E30086DE57 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		50AE8F02189BD5E30086DE57 /* PizzaAdrianoOrderingSystem */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50AE8F34189BD5E30086DE57 /* Build configuration list for PBXNativeTarget "PizzaAdrianoOrderingSystem" */;
+			buildPhases = (
+				50AE8EFF189BD5E30086DE57 /* Sources */,
+				50AE8F00189BD5E30086DE57 /* Frameworks */,
+				50AE8F01189BD5E30086DE57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PizzaAdrianoOrderingSystem;
+			productName = PizzaAdrianoOrderingSystem;
+			productReference = 50AE8F03189BD5E30086DE57 /* PizzaAdrianoOrderingSystem.app */;
+			productType = "com.apple.product-type.application";
+		};
+		50AE8F23189BD5E30086DE57 /* PizzaAdrianoOrderingSystemTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50AE8F37189BD5E30086DE57 /* Build configuration list for PBXNativeTarget "PizzaAdrianoOrderingSystemTests" */;
+			buildPhases = (
+				50AE8F20189BD5E30086DE57 /* Sources */,
+				50AE8F21189BD5E30086DE57 /* Frameworks */,
+				50AE8F22189BD5E30086DE57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50AE8F29189BD5E30086DE57 /* PBXTargetDependency */,
+			);
+			name = PizzaAdrianoOrderingSystemTests;
+			productName = PizzaAdrianoOrderingSystemTests;
+			productReference = 50AE8F24189BD5E30086DE57 /* PizzaAdrianoOrderingSystemTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		50AE8EFB189BD5E30086DE57 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Maxim Chetrusca";
+				TargetAttributes = {
+					50AE8F23189BD5E30086DE57 = {
+						TestTargetID = 50AE8F02189BD5E30086DE57;
+					};
+				};
+			};
+			buildConfigurationList = 50AE8EFE189BD5E30086DE57 /* Build configuration list for PBXProject "PizzaAdrianoOrderingSystem" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 50AE8EFA189BD5E30086DE57;
+			productRefGroup = 50AE8F04189BD5E30086DE57 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				50AE8F02189BD5E30086DE57 /* PizzaAdrianoOrderingSystem */,
+				50AE8F23189BD5E30086DE57 /* PizzaAdrianoOrderingSystemTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		50AE8F01189BD5E30086DE57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50AE8F11189BD5E30086DE57 /* InfoPlist.strings in Resources */,
+				50AE8F1F189BD5E30086DE57 /* Images.xcassets in Resources */,
+				50AE8F17189BD5E30086DE57 /* Credits.rtf in Resources */,
+				50AE8F1D189BD5E30086DE57 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50AE8F22189BD5E30086DE57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50AE8F2F189BD5E30086DE57 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		50AE8EFF189BD5E30086DE57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50C29FCC189D2A7A0009CF3C /* InputNameState.m in Sources */,
+				50AE8F43189BE7F90086DE57 /* OrderSystemWindowController.m in Sources */,
+				50C29FD2189D2E980009CF3C /* ReviewOrderState.m in Sources */,
+				50AE8F1A189BD5E30086DE57 /* AppDelegate.m in Sources */,
+				50AE8F49189BF30D0086DE57 /* OrderSystem.m in Sources */,
+				50C29FDF189D842C0009CF3C /* PriceCalculator.m in Sources */,
+				50C29FC7189D25BE0009CF3C /* OrderState.m in Sources */,
+				50AE8F13189BD5E30086DE57 /* main.m in Sources */,
+				50C29FCF189D2E2A0009CF3C /* ComponentSelectionState.m in Sources */,
+				50E09CCC189E5FC400C1E36F /* Pricelist.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50AE8F20189BD5E30086DE57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50C29FD9189D3E3F0009CF3C /* InputStateTests.m in Sources */,
+				50E09CCE189E61CB00C1E36F /* PricelistTests.m in Sources */,
+				50C29FDB189D42A80009CF3C /* ComponentSelectionTests.m in Sources */,
+				50C29FD7189D3B600009CF3C /* OrderStateTests.m in Sources */,
+				50AE8F4B189BF4AB0086DE57 /* OrderSystemTests.m in Sources */,
+				50AE8F45189BEEF70086DE57 /* WindowControllerTests.m in Sources */,
+				5052BA2F189FA1ED00B4F6F3 /* ReviewOrderTests.m in Sources */,
+				5052BA33189FDC8900B4F6F3 /* IntegrationTests.m in Sources */,
+				50C29FE1189D849B0009CF3C /* PriceCalculatorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		50AE8F29189BD5E30086DE57 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50AE8F02189BD5E30086DE57 /* PizzaAdrianoOrderingSystem */;
+			targetProxy = 50AE8F28189BD5E30086DE57 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		50AE8F0F189BD5E30086DE57 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50AE8F10189BD5E30086DE57 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		50AE8F15189BD5E30086DE57 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50AE8F16189BD5E30086DE57 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		50AE8F1B189BD5E30086DE57 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50AE8F1C189BD5E30086DE57 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		50AE8F2D189BD5E30086DE57 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50AE8F2E189BD5E30086DE57 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		50AE8F32189BD5E30086DE57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		50AE8F33189BD5E30086DE57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		50AE8F35189BD5E30086DE57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PizzaAdrianoOrderingSystem/PizzaAdrianoOrderingSystem-Prefix.pch";
+				INFOPLIST_FILE = "PizzaAdrianoOrderingSystem/PizzaAdrianoOrderingSystem-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		50AE8F36189BD5E30086DE57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PizzaAdrianoOrderingSystem/PizzaAdrianoOrderingSystem-Prefix.pch";
+				INFOPLIST_FILE = "PizzaAdrianoOrderingSystem/PizzaAdrianoOrderingSystem-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		50AE8F38189BD5E30086DE57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PizzaAdrianoOrderingSystem.app/Contents/MacOS/PizzaAdrianoOrderingSystem";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PizzaAdrianoOrderingSystem/PizzaAdrianoOrderingSystem-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PizzaAdrianoOrderingSystemTests/PizzaAdrianoOrderingSystemTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		50AE8F39189BD5E30086DE57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PizzaAdrianoOrderingSystem.app/Contents/MacOS/PizzaAdrianoOrderingSystem";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PizzaAdrianoOrderingSystem/PizzaAdrianoOrderingSystem-Prefix.pch";
+				INFOPLIST_FILE = "PizzaAdrianoOrderingSystemTests/PizzaAdrianoOrderingSystemTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		50AE8EFE189BD5E30086DE57 /* Build configuration list for PBXProject "PizzaAdrianoOrderingSystem" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50AE8F32189BD5E30086DE57 /* Debug */,
+				50AE8F33189BD5E30086DE57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50AE8F34189BD5E30086DE57 /* Build configuration list for PBXNativeTarget "PizzaAdrianoOrderingSystem" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50AE8F35189BD5E30086DE57 /* Debug */,
+				50AE8F36189BD5E30086DE57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50AE8F37189BD5E30086DE57 /* Build configuration list for PBXNativeTarget "PizzaAdrianoOrderingSystemTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50AE8F38189BD5E30086DE57 /* Debug */,
+				50AE8F39189BD5E30086DE57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 50AE8EFB189BD5E30086DE57 /* Project object */;
+}
