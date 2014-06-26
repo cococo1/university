@@ -20,3 +20,8 @@ Code written in C programming language
 **sizeOfOperator** dir contains an example of usage of `sizeof` operator without paranthesis. 
 
 --
+
+**Windows_Programming** contains the labs for the corresponding course.
+
+--
+
