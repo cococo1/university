@@ -21,6 +21,6 @@ This repo contains the code which I wrote at the university, during my Bachelor 
 
 --
 
-**python** dir contains code in Python written for **Communication Protocols and Information Security** course.
+**python** dir contains code in python written for **Communication Protocols and Information Security** course.
 
 --
