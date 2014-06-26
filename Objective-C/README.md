@@ -5,6 +5,10 @@ Code written in Objective-C during University.
 
 --
 
+**Calculator** is a simple calculator app for Mac OS X, done at MIDPS lab 3.
+
+--
+
 **SIPC** contains a lab in Objective-C for **Communication Protocols and Information Security**.
 
 The protocol

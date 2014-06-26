@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="fBD-nx-C4x">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+    </dependencies>
+    <scenes>
+        <!--Display View Controller - Menu-->
+        <scene sceneID="2mk-Av-aNB">
+            <objects>
+                <viewController id="Rgk-Qf-TJo" customClass="DisplayViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T4Y-fp-DXi">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="blonde.png" translatesAutoresizingMaskIntoConstraints="NO" id="mTm-K6-RUz">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="344" id="cFr-F3-3OU"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fn9-o9-4UK">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="111" id="6Ea-Nl-51j"/>
+                                    <constraint firstAttribute="height" constant="58" id="mQ7-xg-xTf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Scan">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ctk-jc-RuS" kind="push" identifier="toScannerView" id="dOW-CA-Eoz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mTm-K6-RUz" firstAttribute="leading" secondItem="T4Y-fp-DXi" secondAttribute="leading" type="default" id="4bx-9i-7cM"/>
+                            <constraint firstItem="mTm-K6-RUz" firstAttribute="top" secondItem="T4Y-fp-DXi" secondAttribute="top" priority="992" type="user" id="Qzi-MW-MGo"/>
+                            <constraint firstAttribute="bottom" secondItem="fn9-o9-4UK" secondAttribute="bottom" constant="9" id="X12-Vj-BEU"/>
+                            <constraint firstItem="mTm-K6-RUz" firstAttribute="trailing" secondItem="T4Y-fp-DXi" secondAttribute="trailing" type="default" id="a9k-Fu-81b"/>
+                            <constraint firstItem="fn9-o9-4UK" firstAttribute="centerX" secondItem="mTm-K6-RUz" secondAttribute="centerX" type="default" id="poW-Az-gMx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Menu" id="mfW-cp-SYk"/>
+                    <connections>
+                        <outlet property="imageView" destination="mTm-K6-RUz" id="DhW-PE-42V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ngc-br-mSU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="929" y="-177"/>
+        </scene>
+        <!--Display View Controller - Scanner-->
+        <scene sceneID="Ggf-nv-PmU">
+            <objects>
+                <viewController id="ctk-jc-RuS" customClass="DisplayViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8kx-hH-HMN">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HuT-Nz-W7N" customClass="ZBarReaderView">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HuT-Nz-W7N" firstAttribute="bottom" secondItem="8kx-hH-HMN" secondAttribute="bottom" type="default" id="RnV-LH-VWp"/>
+                            <constraint firstItem="HuT-Nz-W7N" firstAttribute="trailing" secondItem="8kx-hH-HMN" secondAttribute="trailing" type="default" id="k3I-2t-B67"/>
+                            <constraint firstItem="HuT-Nz-W7N" firstAttribute="leading" secondItem="8kx-hH-HMN" secondAttribute="leading" type="default" id="lSd-iG-7oJ"/>
+                            <constraint firstItem="HuT-Nz-W7N" firstAttribute="top" secondItem="8kx-hH-HMN" secondAttribute="top" type="default" id="t2u-19-knO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Scanner" id="2ij-ie-Ymf"/>
+                    <connections>
+                        <outlet property="readerView" destination="HuT-Nz-W7N" id="yJC-yD-j9S"/>
+                        <segue destination="k7K-ja-z62" kind="push" identifier="toWebView" id="xRm-Yh-qah"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8BW-wF-rxy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1460" y="-189"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="4az-JV-GWx">
+            <objects>
+                <viewController id="k7K-ja-z62" customClass="WebViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mwc-VU-ycg">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hLv-Qw-Lru">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hLv-Qw-Lru" firstAttribute="leading" secondItem="mwc-VU-ycg" secondAttribute="leading" type="default" id="PRc-pO-clW"/>
+                            <constraint firstItem="hLv-Qw-Lru" firstAttribute="top" secondItem="mwc-VU-ycg" secondAttribute="top" type="default" id="PTS-QV-hM3"/>
+                            <constraint firstItem="hLv-Qw-Lru" firstAttribute="trailing" secondItem="mwc-VU-ycg" secondAttribute="trailing" type="default" id="dlh-IK-Ijj"/>
+                            <constraint firstItem="hLv-Qw-Lru" firstAttribute="bottom" secondItem="mwc-VU-ycg" secondAttribute="bottom" type="default" id="f8t-3G-wUT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="mFV-RV-ckp"/>
+                    <connections>
+                        <outlet property="webView" destination="hLv-Qw-Lru" id="Ykd-eR-0zZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aeo-2m-EMK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1910" y="-189"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gVs-kV-cbQ">
+            <objects>
+                <navigationController id="fBD-nx-C4x" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g2D-Ef-aAO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Rgk-Qf-TJo" kind="relationship" relationship="rootViewController" id="uGb-LA-dmR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ak3-fP-nhi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="407" y="-189"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="blonde.png" width="341" height="490"/>
+    </resources>
+    <classes>
+        <class className="DisplayViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DisplayViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="readerView" candidateClass="ZBarReaderView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="WebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WebViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="ZBarReaderView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ZBarReaderView.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

@@ -29,7 +29,7 @@ This repo contains the code which I wrote at the university, during my Bachelor 
 
 --
 
-**Objective-C** dir contains code written for labs at **SIPC** course.
+**Objective-C** dir contains code written for labs at **SIPC** course, a Calculator app for Mac OS X and a BarCode Scanner app for iOS.
 
 --
 

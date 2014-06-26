@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1070" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="494" id="495"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <menu title="AMainMenu" systemMenu="main" autoenablesItems="NO" id="29">
+            <items>
+                <menuItem title="FAF Calculator" id="56">
+                    <menu key="submenu" title="FAF Calculator" systemMenu="apple" id="57">
+                        <items>
+                            <menuItem title="About FAF Calculator" id="58">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="orderFrontStandardAboutPanel:" target="-3" id="982"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="236">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Hide FAF Calculator" keyEquivalent="h" id="134">
+                                <connections>
+                                    <action selector="hide:" target="-1" id="367"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Hide Others" keyEquivalent="h" id="145">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="hideOtherApplications:" target="-1" id="368"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show All" id="150">
+                                <connections>
+                                    <action selector="unhideAllApplications:" target="-1" id="370"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="149">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Quit FAF Calculator" keyEquivalent="q" id="136">
+                                <connections>
+                                    <action selector="terminate:" target="-3" id="449"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="File" id="83">
+                    <menu key="submenu" title="File" id="81">
+                        <items>
+                            <menuItem title="New" keyEquivalent="n" id="82">
+                                <connections>
+                                    <action selector="newDocument:" target="-1" id="373"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Open…" keyEquivalent="o" id="72">
+                                <connections>
+                                    <action selector="openDocument:" target="-1" id="374"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Open Recent" id="124">
+                                <menu key="submenu" title="Open Recent" systemMenu="recentDocuments" id="125">
+                                    <items>
+                                        <menuItem title="Clear Menu" id="126">
+                                            <connections>
+                                                <action selector="clearRecentDocuments:" target="-1" id="127"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="79">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Close" keyEquivalent="w" id="73">
+                                <connections>
+                                    <action selector="performClose:" target="-1" id="193"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Save…" keyEquivalent="s" id="75">
+                                <connections>
+                                    <action selector="saveDocument:" target="-1" id="362"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Revert to Saved" id="112">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="revertDocumentToSaved:" target="-1" id="364"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="74">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Page Setup..." keyEquivalent="P" id="77">
+                                <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                                <connections>
+                                    <action selector="runPageLayout:" target="-1" id="87"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Print…" keyEquivalent="p" id="78">
+                                <connections>
+                                    <action selector="print:" target="-1" id="86"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Edit" id="217">
+                    <menu key="submenu" title="Edit" id="205">
+                        <items>
+                            <menuItem title="Undo" keyEquivalent="z" id="207">
+                                <connections>
+                                    <action selector="undo:" target="-1" id="223"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Redo" keyEquivalent="Z" id="215">
+                                <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                                <connections>
+                                    <action selector="redo:" target="-1" id="231"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="206">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Cut" keyEquivalent="x" id="199">
+                                <connections>
+                                    <action selector="cut:" target="-1" id="228"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Copy" keyEquivalent="c" id="197">
+                                <connections>
+                                    <action selector="copy:" target="-1" id="224"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Paste" keyEquivalent="v" id="203">
+                                <connections>
+                                    <action selector="paste:" target="-1" id="226"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Clear" id="202">
+                                <connections>
+                                    <action selector="delete:" target="-1" id="235"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Select All" keyEquivalent="a" id="198">
+                                <connections>
+                                    <action selector="selectAll:" target="-1" id="232"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Window" id="19">
+                    <menu key="submenu" title="Window" systemMenu="window" id="24">
+                        <items>
+                            <menuItem title="Minimize" keyEquivalent="m" id="23">
+                                <connections>
+                                    <action selector="performMiniaturize:" target="-1" id="37"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Zoom" id="239">
+                                <connections>
+                                    <action selector="performZoom:" target="-1" id="240"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="92">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Bring All to Front" id="5">
+                                <connections>
+                                    <action selector="arrangeInFront:" target="-1" id="39"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Help" id="490">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Help" systemMenu="help" id="491">
+                        <items>
+                            <menuItem title="FAF Calculator Help" keyEquivalent="?" id="492">
+                                <connections>
+                                    <action selector="showHelp:" target="-1" id="493"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+            </items>
+        </menu>
+        <window title="FAF Calculator" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="335" y="390" width="410" height="254"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <view key="contentView" id="372">
+                <rect key="frame" x="0.0" y="0.0" width="410" height="254"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="541">
+                        <rect key="frame" x="20" y="192" width="370" height="42"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="42" id="983"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" borderStyle="border" alignment="right" title="0" drawsBackground="YES" id="542">
+                            <font key="font" size="24" name="CambriaMath"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" red="1" green="0.99263865220000003" blue="0.66758241929999995" alpha="1" colorSpace="calibratedRGB"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="550">
+                        <rect key="frame" x="20" y="147" width="55" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="55" id="664"/>
+                            <constraint firstAttribute="height" constant="35" id="895"/>
+                        </constraints>
+                        <buttonCell key="cell" type="squareTextured" title="7" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="551">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="24" name="CambriaMath"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="digitPressed:" target="548" id="568"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="569">
+                        <rect key="frame" x="83" y="147" width="55" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="55" id="570"/>
+                        </constraints>
+                        <buttonCell key="cell" type="squareTextured" title="8" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="572">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="24" name="CambriaMath"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="digitPressed:" target="548" id="573"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="579">
+                        <rect key="frame" x="146" y="147" width="55" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="55" id="580"/>
+                        </constraints>
+                        <buttonCell key="cell" type="squareTextured" title="9" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="582">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="24" name="CambriaMath"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="digitPressed:" target="548" id="583"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="589">
+                        <rect key="frame" x="20" y="104" width="55" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="909"/>
+                        </constraints>
+                        <buttonCell key="cell" type="squareTextured" title="4" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="598">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="24" name="CambriaMath"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="digitPressed:" target="548" id="600"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="590">
+                        <rect key="frame" x="83" y="104" width="55" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="squareTextured" title="5" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="594">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="24" name="CambriaMath"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="digitPressed:" target="548" id="599"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="591">
+                        <rect key="frame" x="146" y="104" width="55" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="squareTextured" title="6" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="592">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="24" name="CambriaMath"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="digitPressed:" target="548" id="601"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="617">
+                        <rect key="frame" x="20" y="61" width="55" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="921"/>
+                        </constraints>
+                        <buttonCell key="cell" type="squareTextured" title="1" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="626">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="24" name="CambriaMath"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="digitPressed:" target="548" id="628"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="618">
+                        <rect key="frame" x="83" y="61" width="55" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="squareTextured" title="2" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="622">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="24" name="CambriaMath"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="digitPressed:" target="548" id="627"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="645">
+                        <rect key="frame" x="20" y="18" width="118" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="961"/>
+                        </constraints>
+                        <buttonCell key="cell" type="squareTextured" title="0" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="646">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="24" name="CambriaMath"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="digitPressed:" target="548" id="647"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="619">
+                        <rect key="frame" x="146" y="61" width="55" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="squareTextured" title="3" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="620">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="24" name="CambriaMath"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="digitPressed:" target="548" id="629"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="655">
+                        <rect key="frame" x="146" y="18" width="55" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="squareTextured" title="." bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="656">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="24" name="CambriaMath"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="digitPressed:" target="548" id="843"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="676">
+                        <rect key="frame" x="209" y="147" width="55" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="55" id="805"/>
+                        </constraints>
+                        <buttonCell key="cell" type="squareTextured" title="÷" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="677">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="24" name="CambriaMath"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="operationPressed:" target="548" id="693"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="694">
+                        <rect key="frame" x="209" y="104" width="55" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="squareTextured" title="×" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="696">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="24" name="CambriaMath"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="operationPressed:" target="548" id="697"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="706">
+                        <rect key="frame" x="209" y="61" width="55" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="squareTextured" title="−" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="710">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="24" name="CambriaMath"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="operationPressed:" target="548" id="711"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="727">
+                        <rect key="frame" x="272" y="61" width="55" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="squareTextured" title="x^y" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="733">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="24" name="CambriaMath"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="operationPressed:" target="548" id="735"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="728">
+                        <rect key="frame" x="272" y="18" width="55" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="squareTextured" title="√" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="731">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="24" name="CambriaMath"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="sqrtPressed:" target="548" id="860"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="729">
+                        <rect key="frame" x="272" y="104" width="55" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="squareTextured" title="±" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="730">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="24" name="CambriaMath"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="changeSignPressed:" target="548" id="859"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="707">
+                        <rect key="frame" x="209" y="18" width="55" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="squareTextured" title="+" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="708">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="24" name="CambriaMath"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="operationPressed:" target="548" id="712"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="755">
+                        <rect key="frame" x="335" y="18" width="55" height="81"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="squareTextured" title="=" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="756">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="24" name="CambriaMath"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="equalPressed:" target="548" id="821"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="806">
+                        <rect key="frame" x="272" y="147" width="55" height="38"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="55" id="853"/>
+                        </constraints>
+                        <buttonCell key="cell" type="squareTextured" title="c" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="807">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="24" name="CambriaMath"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="clearPressed:" target="548" id="841"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="541" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="20" symbolic="YES" id="543"/>
+                    <constraint firstItem="550" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="20" symbolic="YES" id="553"/>
+                    <constraint firstItem="569" firstAttribute="leading" secondItem="550" secondAttribute="trailing" constant="8" symbolic="YES" id="578"/>
+                    <constraint firstItem="579" firstAttribute="baseline" secondItem="569" secondAttribute="baseline" id="587"/>
+                    <constraint firstItem="579" firstAttribute="leading" secondItem="569" secondAttribute="trailing" constant="8" symbolic="YES" id="588"/>
+                    <constraint firstItem="591" firstAttribute="leading" secondItem="590" secondAttribute="trailing" constant="8" symbolic="YES" id="602"/>
+                    <constraint firstItem="589" firstAttribute="baseline" secondItem="590" secondAttribute="baseline" id="604"/>
+                    <constraint firstItem="590" firstAttribute="leading" secondItem="589" secondAttribute="trailing" constant="8" symbolic="YES" id="606"/>
+                    <constraint firstItem="591" firstAttribute="baseline" secondItem="590" secondAttribute="baseline" id="607"/>
+                    <constraint firstItem="589" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="20" symbolic="YES" id="610"/>
+                    <constraint firstItem="591" firstAttribute="leading" secondItem="579" secondAttribute="leading" id="613"/>
+                    <constraint firstItem="619" firstAttribute="leading" secondItem="618" secondAttribute="trailing" constant="8" symbolic="YES" id="630"/>
+                    <constraint firstItem="618" firstAttribute="baseline" secondItem="617" secondAttribute="baseline" id="631"/>
+                    <constraint firstItem="618" firstAttribute="leading" secondItem="617" secondAttribute="trailing" constant="8" symbolic="YES" id="632"/>
+                    <constraint firstItem="619" firstAttribute="baseline" secondItem="618" secondAttribute="baseline" id="634"/>
+                    <constraint firstItem="617" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="20" symbolic="YES" id="640"/>
+                    <constraint firstItem="618" firstAttribute="leading" secondItem="590" secondAttribute="leading" id="641"/>
+                    <constraint firstItem="619" firstAttribute="leading" secondItem="591" secondAttribute="leading" id="642"/>
+                    <constraint firstItem="645" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="20" symbolic="YES" id="663"/>
+                    <constraint firstItem="655" firstAttribute="leading" secondItem="619" secondAttribute="leading" id="670"/>
+                    <constraint firstItem="655" firstAttribute="leading" secondItem="645" secondAttribute="trailing" constant="8" symbolic="YES" id="672"/>
+                    <constraint firstItem="676" firstAttribute="leading" secondItem="579" secondAttribute="trailing" constant="8" symbolic="YES" id="678"/>
+                    <constraint firstItem="676" firstAttribute="baseline" secondItem="579" secondAttribute="baseline" id="685"/>
+                    <constraint firstItem="694" firstAttribute="baseline" secondItem="591" secondAttribute="baseline" id="701"/>
+                    <constraint firstItem="694" firstAttribute="leading" secondItem="591" secondAttribute="trailing" constant="8" symbolic="YES" id="703"/>
+                    <constraint firstItem="694" firstAttribute="leading" secondItem="676" secondAttribute="leading" id="704"/>
+                    <constraint firstItem="707" firstAttribute="leading" secondItem="706" secondAttribute="leading" id="716"/>
+                    <constraint firstItem="707" firstAttribute="leading" secondItem="655" secondAttribute="trailing" constant="8" symbolic="YES" id="721"/>
+                    <constraint firstItem="706" firstAttribute="leading" secondItem="619" secondAttribute="trailing" constant="8" symbolic="YES" id="723"/>
+                    <constraint firstItem="706" firstAttribute="baseline" secondItem="619" secondAttribute="baseline" id="724"/>
+                    <constraint firstItem="706" firstAttribute="leading" secondItem="694" secondAttribute="leading" id="726"/>
+                    <constraint firstItem="755" firstAttribute="leading" secondItem="728" secondAttribute="trailing" constant="8" symbolic="YES" id="799"/>
+                    <constraint firstItem="727" firstAttribute="leading" secondItem="706" secondAttribute="trailing" constant="8" symbolic="YES" id="801"/>
+                    <constraint firstItem="728" firstAttribute="leading" secondItem="707" secondAttribute="trailing" constant="8" symbolic="YES" id="802"/>
+                    <constraint firstItem="755" firstAttribute="leading" secondItem="727" secondAttribute="trailing" constant="8" symbolic="YES" id="804"/>
+                    <constraint firstItem="676" firstAttribute="baseline" secondItem="806" secondAttribute="baseline" id="818"/>
+                    <constraint firstItem="806" firstAttribute="leading" secondItem="676" secondAttribute="trailing" constant="8" symbolic="YES" id="819"/>
+                    <constraint firstItem="727" firstAttribute="baseline" secondItem="706" secondAttribute="baseline" id="822"/>
+                    <constraint firstItem="729" firstAttribute="trailing" secondItem="727" secondAttribute="trailing" id="833"/>
+                    <constraint firstItem="729" firstAttribute="leading" secondItem="694" secondAttribute="trailing" constant="8" symbolic="YES" id="834"/>
+                    <constraint firstItem="729" firstAttribute="trailing" secondItem="806" secondAttribute="trailing" id="839"/>
+                    <constraint firstItem="729" firstAttribute="baseline" secondItem="694" secondAttribute="baseline" id="840"/>
+                    <constraint firstItem="590" firstAttribute="leading" secondItem="550" secondAttribute="trailing" constant="8" symbolic="YES" id="847"/>
+                    <constraint firstItem="550" firstAttribute="baseline" secondItem="569" secondAttribute="baseline" id="854"/>
+                    <constraint firstItem="550" firstAttribute="top" secondItem="541" secondAttribute="bottom" constant="8" symbolic="YES" id="924"/>
+                    <constraint firstItem="569" firstAttribute="top" secondItem="541" secondAttribute="bottom" constant="8" symbolic="YES" id="925"/>
+                    <constraint firstItem="676" firstAttribute="top" secondItem="541" secondAttribute="bottom" constant="8" symbolic="YES" id="929"/>
+                    <constraint firstItem="579" firstAttribute="top" secondItem="541" secondAttribute="bottom" constant="8" symbolic="YES" id="930"/>
+                    <constraint firstItem="806" firstAttribute="top" secondItem="541" secondAttribute="bottom" constant="8" symbolic="YES" id="931"/>
+                    <constraint firstItem="694" firstAttribute="top" secondItem="676" secondAttribute="bottom" constant="8" symbolic="YES" id="940"/>
+                    <constraint firstItem="590" firstAttribute="top" secondItem="569" secondAttribute="bottom" constant="8" symbolic="YES" id="941"/>
+                    <constraint firstItem="591" firstAttribute="top" secondItem="579" secondAttribute="bottom" constant="8" symbolic="YES" id="945"/>
+                    <constraint firstItem="729" firstAttribute="top" secondItem="806" secondAttribute="bottom" constant="8" symbolic="YES" id="947"/>
+                    <constraint firstItem="589" firstAttribute="top" secondItem="550" secondAttribute="bottom" constant="8" symbolic="YES" id="948"/>
+                    <constraint firstItem="619" firstAttribute="top" secondItem="591" secondAttribute="bottom" constant="8" symbolic="YES" id="962"/>
+                    <constraint firstItem="617" firstAttribute="top" secondItem="589" secondAttribute="bottom" constant="8" symbolic="YES" id="963"/>
+                    <constraint firstItem="727" firstAttribute="top" secondItem="729" secondAttribute="bottom" constant="8" symbolic="YES" id="964"/>
+                    <constraint firstItem="618" firstAttribute="top" secondItem="590" secondAttribute="bottom" constant="8" symbolic="YES" id="966"/>
+                    <constraint firstItem="706" firstAttribute="top" secondItem="694" secondAttribute="bottom" constant="8" symbolic="YES" id="967"/>
+                    <constraint firstItem="645" firstAttribute="top" secondItem="617" secondAttribute="bottom" constant="8" symbolic="YES" id="970"/>
+                    <constraint firstItem="707" firstAttribute="top" secondItem="706" secondAttribute="bottom" constant="8" symbolic="YES" id="971"/>
+                    <constraint firstItem="655" firstAttribute="top" secondItem="619" secondAttribute="bottom" constant="8" symbolic="YES" id="973"/>
+                    <constraint firstItem="728" firstAttribute="top" secondItem="727" secondAttribute="bottom" constant="8" symbolic="YES" id="975"/>
+                    <constraint firstItem="806" firstAttribute="leading" secondItem="729" secondAttribute="leading" id="984"/>
+                    <constraint firstItem="727" firstAttribute="top" secondItem="755" secondAttribute="top" id="985"/>
+                    <constraint firstItem="727" firstAttribute="leading" secondItem="729" secondAttribute="leading" id="986"/>
+                    <constraint firstItem="728" firstAttribute="leading" secondItem="727" secondAttribute="leading" id="987"/>
+                    <constraint firstAttribute="bottom" secondItem="755" secondAttribute="bottom" constant="20" symbolic="YES" id="989"/>
+                    <constraint firstAttribute="bottom" secondItem="728" secondAttribute="bottom" constant="20" symbolic="YES" id="990"/>
+                    <constraint firstAttribute="bottom" secondItem="655" secondAttribute="bottom" constant="20" symbolic="YES" id="991"/>
+                    <constraint firstAttribute="trailing" secondItem="755" secondAttribute="trailing" constant="20" symbolic="YES" id="992"/>
+                    <constraint firstAttribute="bottom" secondItem="707" secondAttribute="bottom" constant="20" symbolic="YES" id="993"/>
+                    <constraint firstAttribute="bottom" secondItem="645" secondAttribute="bottom" constant="20" symbolic="YES" id="994"/>
+                    <constraint firstAttribute="trailing" secondItem="541" secondAttribute="trailing" constant="20" symbolic="YES" id="995"/>
+                </constraints>
+            </view>
+        </window>
+        <customObject id="494" customClass="AppDelegate">
+            <connections>
+                <outlet property="window" destination="371" id="532"/>
+            </connections>
+        </customObject>
+        <customObject id="420" customClass="NSFontManager"/>
+        <customObject id="548" customClass="CalculatorWindowController">
+            <connections>
+                <outlet property="resultTextField" destination="541" id="549"/>
+                <outlet property="window" destination="371" id="979"/>
+            </connections>
+        </customObject>
+    </objects>
+</document>
