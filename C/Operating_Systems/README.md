@@ -38,10 +38,10 @@ Have a simple multitasking implemented;
 
 Implement the following functions:
 
-``void sched_add_task(void* func_ptr)'' – add a task to scheduler by giving a function pointer;
+`void sched_add_task(void* func_ptr)` – add a task to scheduler by giving a function pointer;
 
-``void yield(void)'' – give control to scheduler in a task;
+`void yield(void)` – give control to scheduler in a task;
 
-``void sched_run(void)'' – start the scheduler.
+`void sched_run(void)` – start the scheduler.
 
 --

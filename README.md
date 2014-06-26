@@ -5,7 +5,7 @@ This repo contains the code which I wrote at the university, during my Bachelor 
 
 --
 
-**Assembly** contains the labs from **CPU** course, written in 8086 emulator.
+**Assembly** contains the labs from **CPU** and **EP** courses, written in 8086 emulator.
 
 --
 
@@ -26,6 +26,10 @@ This repo contains the code which I wrote at the university, during my Bachelor 
 --
 
 **python** dir contains code in python written for **Communication Protocols and Information Security** course.
+
+--
+
+**SQL** contains some query examples from **Databases** course.
 
 --
 
