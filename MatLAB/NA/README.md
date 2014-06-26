@@ -1,4 +1,4 @@
-NA
+Numerical Methods
 ==========
 
 Numerical Analysis.
@@ -11,7 +11,7 @@ Numerical Analysis.
 
 *Problem 2* Implement the following procedures:
 
-``Let t=0.1
+Let t=0.1
 
 for n from 1 to 10 do
 
@@ -19,7 +19,7 @@ e=n/10-n*t
 
 display results
 
-end do``
+end do
 
 Notice if anything strange happens. Explain the results.
 

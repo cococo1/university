@@ -1,7 +1,7 @@
 Windows Programming
 ==========
 
-3-rd year course at Computer Science. 
+2-nd year course at Computer Science. 
 
 --
 

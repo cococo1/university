@@ -5,6 +5,10 @@ This repo contains the code which I wrote at the university, during my Bachelor 
 
 --
 
+**Assembly** contains the labs from **CPU** course, written in 8086 emulator.
+
+--
+
 **C** dir contains code written in C programming language, at **Programming I**, **Data Structures and Algorithms**, **Windows Programming** courses and some other examples.
 
 --
