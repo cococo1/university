@@ -28,3 +28,7 @@ This repo contains the code which I wrote at the university, during my Bachelor 
 **python** dir contains code in python written for **Communication Protocols and Information Security** course.
 
 --
+
+**UML** presents examples of UML diagrams done at specific labs.
+
+--
