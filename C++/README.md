@@ -9,6 +9,10 @@ Code written in C++ programming language.
 
 --
 
+**Programming_II dir contains the labs for **Programming in C++** course, 2-nd year.
+
+--
+
 **TTS** is the course work for **Data Structures and Algorithms** course, Text-To-Speech program for Romanian language.
 
 --
