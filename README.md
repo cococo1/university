@@ -13,6 +13,6 @@ This repo contains the code which I wrote at the university, during my Bachelor 
 
 --
 
-**MatLAB** dir contains code written in MatLAB at **Theory of Probability and Information** course.
+**MatLAB** dir contains code written in MatLAB at **Theory of Probability and Information** and **Numerical Methods** courses.
 
 --
