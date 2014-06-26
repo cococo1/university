@@ -5,7 +5,15 @@ Code written in Objective-C during University.
 
 --
 
+**BarCode Scanner** is the iOS part of an identification system for employees, which works using bar codes.
+
+--
+
 **Calculator** is a simple calculator app for Mac OS X, done at MIDPS lab 3.
+
+--
+
+**IPP** contains the labs for **Software Engineering** course, both of iOS and OS X.
 
 --
 
