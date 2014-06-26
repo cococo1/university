@@ -9,6 +9,10 @@ Code written in C++ programming language.
 
 --
 
+**APPOO** contains a task of working with STL in C++ at **Object-Oriented Programming and Design**.
+
+--
+
 **Programming_II dir contains the labs for **Programming in C++** course, 2-nd year.
 
 --

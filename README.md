@@ -13,7 +13,15 @@ This repo contains the code which I wrote at the university, during my Bachelor 
 
 --
 
+**C#** contains only one lab for **APPOO** about Generics.
+
+--
+
 **C++** dir contains code written in C++, the course work for DSA - TTS program for Romanian language and labs for **APA - Analysis of Algorithms**, **Programming in C++** courses.
+
+--
+
+**Java** contains only one lab for **APPOO** about Generics.
 
 --
 
@@ -33,6 +41,6 @@ This repo contains the code which I wrote at the university, during my Bachelor 
 
 --
 
-**UML** presents examples of UML diagrams done at specific labs.
+**UML** presents examples of UML diagrams done at specific labs and for course project *The World*.
 
 --
