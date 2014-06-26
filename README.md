@@ -9,7 +9,7 @@ This repo contains the code which I wrote at the university, during my Bachelor 
 
 --
 
-**C** dir contains code written in C programming language, at **Programming I**, **Data Structures and Algorithms**, **Windows Programming** courses and some other examples.
+**C** dir contains code written in C programming language, at **Programming I**, **Data Structures and Algorithms**, **Windows Programming**, **Operating Systems** courses and some other examples.
 
 --
 

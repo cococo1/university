@@ -13,6 +13,10 @@ Code written in C programming language
 
 --
 
+**Operating_Systems** dir contains the labs for the corresponding course.
+
+--
+
 **Programming_I** dir contains the labs for **Programming I** course.
 
 --
