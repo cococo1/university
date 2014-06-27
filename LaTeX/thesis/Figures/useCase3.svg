@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Arial" font-size="13" width="431" height="322">
+	<desc>UML class diagram Head</desc>
+	<g id="_hHoSEc4gEDGwVeltw1dL2Q">
+		<defs>
+			<linearGradient id="greyGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#FFFFFF" stop-opacity="1" />
+				<stop offset="100%" stop-color="#E5E5E5" stop-opacity="1" />
+				
+			</linearGradient>
+			<linearGradient id="packageGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#FFFFFF" stop-opacity="1" />
+				<stop offset="100%" stop-color="#EFE9DE" stop-opacity="1" />
+				
+			</linearGradient>
+			
+		</defs>
+		<g id="_hhlDIM4gEDGwVeltw1dL2Q">
+			<ellipse cx="161" cy="36" rx="54" ry="34" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1.0" />
+			<text x="161" y="31" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">Detect Objects</text>
+			<line x1="123" y1="41" x2="198" y2="41" stroke-width="1.0" stroke="#CCCCCC" />
+			<text x="161" y="63" text-anchor="middle" font-style="normal" font-weight="normal" fill="black"> </text>
+			<text x="161" y="81" text-anchor="middle" font-style="normal" font-weight="normal" fill="black"> </text>
+			
+		</g>
+		<g id="_it99wM4gEDGwVeltw1dL2Q">
+			<ellipse cx="52" cy="134" rx="50" ry="28" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1.0" />
+			<text x="52" y="138" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">Stand up</text>
+			
+		</g>
+		<g id="_j0RegM4gEDGwVeltw1dL2Q">
+			<ellipse cx="147" cy="170" rx="50" ry="28" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1.0" />
+			<text x="147" y="174" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">Look down</text>
+			
+		</g>
+		<g id="_lK-ywM4gEDGwVeltw1dL2Q">
+			<ellipse cx="258" cy="175" rx="50" ry="28" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1.0" />
+			<text x="258" y="179" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">Get images</text>
+			
+		</g>
+		<g id="_mx6UUM4gEDGwVeltw1dL2Q">
+			<ellipse cx="184" cy="267" rx="50" ry="28" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1.0" />
+			<text x="184" y="271" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">Take a photo</text>
+			
+		</g>
+		<g id="_pP_gUM4gEDGwVeltw1dL2Q">
+			<ellipse cx="319" cy="275" rx="50" ry="28" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1.0" />
+			<text x="319" y="279" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">Open a file</text>
+			
+		</g>
+		<g id="_18LfEM4gEDGwVeltw1dL2Q">
+			<ellipse cx="361" cy="167" rx="50" ry="28" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1.0" />
+			<text x="361" y="171" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">Run detector</text>
+			
+		</g>
+		<g id="_vhtWAM4gEDGwVeltw1dL2Q">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="185,70 238,147" stroke-dasharray="10, 5" />
+			<g transform="translate(238,147)">
+				<g transform="rotate(145)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_yk7PYM4gEDGwVeltw1dL2Q">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="207,239 235,203" />
+			<g transform="translate(235,203)">
+				<g transform="rotate(38)">
+					<polygon fill="#FFFFFF" stroke-width="1" stroke="#000000" points="-6,10 0,0 6,10 -6,10" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_zFmTgM4gEDGwVeltw1dL2Q">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="302,247 275,203" />
+			<g transform="translate(275,203)">
+				<g transform="rotate(-32)">
+					<polygon fill="#FFFFFF" stroke-width="1" stroke="#000000" points="-6,10 0,0 6,10 -6,10" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_3f5UkM4gEDGwVeltw1dL2Q">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="214,70 318,139" stroke-dasharray="10, 5" />
+			<g transform="translate(318,139)">
+				<g transform="rotate(124)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_vYAdoM6zEDGGL7TJDjcAZw">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="123,70 83,106" stroke-dasharray="10, 5" />
+			<g transform="translate(83,106)">
+				<g transform="rotate(-132)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_v9XNcM6zEDGGL7TJDjcAZw">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="157,70 150,142" stroke-dasharray="10, 5" />
+			<g transform="translate(150,142)">
+				<g transform="rotate(-174)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<text x="156" y="124" fill="#000000">« include »</text>
+		<text x="266" y="93" fill="#000000">« include »</text>
+		<text x="48" y="77" fill="#000000">« include »</text>
+		<text x="88" y="112" fill="#000000">« include »</text>
+		
+	</g>
+	
+</svg>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Arial" font-size="13" width="487" height="415">
+	<desc>UML class diagram HeadDiagram</desc>
+	<g id="_j22U48VuEDGufNE58qJAmw">
+		<defs>
+			<linearGradient id="greyGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#FFFFFF" stop-opacity="1" />
+				<stop offset="100%" stop-color="#E5E5E5" stop-opacity="1" />
+				
+			</linearGradient>
+			<linearGradient id="packageGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#FFFFFF" stop-opacity="1" />
+				<stop offset="100%" stop-color="#EFE9DE" stop-opacity="1" />
+				
+			</linearGradient>
+			
+		</defs>
+		<g id="_Npp58MVuEDGHEva0EOt4zQ">
+			<rect x="154" y="301" width="221" height="94" rx="5" ry="5" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1" />
+			<text x="265" y="319" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">Speech</text>
+			<line x1="154" y1="325" x2="375" y2="325" stroke-width="1.0" stroke="#CCCCCC" />
+			<g id="_2yAXUMVuEDGHEva0EOt4zQ">
+				<image x="157" y="332" width="16" height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAG8dAAB6pAAA9NYAAIZwAAB37gAA9bAAADqjAAAVsi1zQqwAAAMAUExURQAAAP///8HBw6Ky1rfD3Ymh0au73Ku62Yag0aq72bPB27fD2b7J3YWh0Ieiz4ahzomk0Z2z2Ki72bPD3L7J23eXyIajz7TE27PD2rTD2maPxbvK38PP32OMwGSMvYamz7PE2LXE10V/vkh/v0d/vEiAvUh+vFGEu1OEvGaEpqC40kaBvUWAukd/ukmBvGGQvmSGqWOEpZ+61QA9cwA8cgA7cQI7cAM8czZ0rT16sEF9s0J9tUSBuE6GuVGFt2OGpmSHp2OEo2WGpWSFpAA8cAA9cAA7bwA8bgA9bgA7bQI8bgI8bD18slCGtWKFo2OGpGSHpQA9bAA7aDR3rAWBSUOcbHGxdf///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADH1d5AAAABYdFJOU////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wB4m8IIAAAA2UlEQVR42lSPzUoCURhAz/0cUrhjTYzuIu0PicZFy57ABxjQdxR8iQQJYmrTDYJZNEZQC2fGHPIndVyUkGdz4OyO6rCL/Mqkj//Ce8iR8Uge/sJzNUqG+etocH4PqA6TQEpfUzWvlBoOFDyKrsnOLnQi1weAEKRG37iTWWs8iJ9AqN9Ns/0sqL3oVf8YCl7UGO05lbKTDRer0FxZXNL8CE/tNMaHHgLx9+zkU9++gUDXgqK45Z8YH8DHAh3Z9tIGAWFtATUID2GNykFtb7vgq7y3vYV2G3JgMwDzTEnCPC8r9AAAAABJRU5ErkJggg==" />
+				<text x="175" y="344" font-style="normal" fill="#000000">say(std::string): void</text>
+				
+			</g>
+			<g id="_6G_WIMVuEDGHEva0EOt4zQ">
+				<image x="157" y="351" width="16" height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAG8dAAB6pAAA9NYAAIZwAAB37gAA9bAAADqjAAAVsi1zQqwAAAMAUExURQAAAP///8HBw6Ky1rfD3Ymh0au73Ku62Yag0aq72bPB27fD2b7J3YWh0Ieiz4ahzomk0Z2z2Ki72bPD3L7J23eXyIajz7TE27PD2rTD2maPxbvK38PP32OMwGSMvYamz7PE2LXE10V/vkh/v0d/vEiAvUh+vFGEu1OEvGaEpqC40kaBvUWAukd/ukmBvGGQvmSGqWOEpZ+61QA9cwA8cgA7cQI7cAM8czZ0rT16sEF9s0J9tUSBuE6GuVGFt2OGpmSHp2OEo2WGpWSFpAA8cAA9cAA7bwA8bgA9bgA7bQI8bgI8bD18slCGtWKFo2OGpGSHpQA9bAA7aDR3rAWBSUOcbHGxdf///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADH1d5AAAABYdFJOU////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wB4m8IIAAAA2UlEQVR42lSPzUoCURhAz/0cUrhjTYzuIu0PicZFy57ABxjQdxR8iQQJYmrTDYJZNEZQC2fGHPIndVyUkGdz4OyO6rCL/Mqkj//Ce8iR8Uge/sJzNUqG+etocH4PqA6TQEpfUzWvlBoOFDyKrsnOLnQi1weAEKRG37iTWWs8iJ9AqN9Ns/0sqL3oVf8YCl7UGO05lbKTDRer0FxZXNL8CE/tNMaHHgLx9+zkU9++gUDXgqK45Z8YH8DHAh3Z9tIGAWFtATUID2GNykFtb7vgq7y3vYV2G3JgMwDzTEnCPC8r9AAAAABJRU5ErkJggg==" />
+				<text x="175" y="363" font-style="normal" fill="#000000">recognizeSpeech(): std::string</text>
+				
+			</g>
+			<g id="_99_c4MVuEDGHEva0EOt4zQ">
+				<image x="157" y="370" width="16" height="16" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAG8dAAB6pAAA9NYAAIZwAAB37gAA9bAAADqjAAAVsi1zQqwAAAMAUExURQAAAP///8HBw6Ky1rfD3Ymh0au73Ku62Yag0aq72bPB27fD2b7J3YWh0Ieiz4ahzomk0Z2z2Ki72bPD3L7J23eXyIajz7TE27PD2rTD2maPxbvK38PP32OMwGSMvYamz7PE2LXE10V/vkh/v0d/vEiAvUh+vFGEu1OEvGaEpqC40kaBvUWAukd/ukmBvGGQvmSGqWOEpZ+61QA9cwA8cgA7cQI7cAM8czZ0rT16sEF9s0J9tUSBuE6GuVGFt2OGpmSHp2OEo2WGpWSFpAA8cAA9cAA7bwA8bgA9bgA7bQI8bgI8bD18slCGtWKFo2OGpGSHpQA9bAA7aDR3rAWBSUOcbHGxdf///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADH1d5AAAABYdFJOU////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wB4m8IIAAAA2UlEQVR42lSPzUoCURhAz/0cUrhjTYzuIu0PicZFy57ABxjQdxR8iQQJYmrTDYJZNEZQC2fGHPIndVyUkGdz4OyO6rCL/Mqkj//Ce8iR8Uge/sJzNUqG+etocH4PqA6TQEpfUzWvlBoOFDyKrsnOLnQi1weAEKRG37iTWWs8iJ9AqN9Ns/0sqL3oVf8YCl7UGO05lbKTDRer0FxZXNL8CE/tNMaHHgLx9+zkU9++gUDXgqK45Z8YH8DHAh3Z9tIGAWFtATUID2GNykFtb7vgq7y3vYV2G3JgMwDzTEnCPC8r9AAAAABJRU5ErkJggg==" />
+				<text x="175" y="382" font-style="normal" fill="#000000">localizeSoundSource(): Real[1..*]</text>
+				
+			</g>
+			
+		</g>
+		<g id="_RkySwMVuEDGHEva0EOt4zQ">
+			<rect x="7" y="305" width="74" height="82" rx="5" ry="5" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1" />
+			<text x="44" y="323" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">std::string</text>
+			<line x1="7" y1="329" x2="81" y2="329" stroke-width="1.0" stroke="#CCCCCC" />
+			
+		</g>
+		<g id="_dL8jIMVuEDGHEva0EOt4zQ">
+			<rect x="2" y="143" width="166" height="82" rx="5" ry="5" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1" />
+			<text x="85" y="161" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">AL::ALTextToSpeechProxy</text>
+			<line x1="2" y1="167" x2="168" y2="167" stroke-width="1.0" stroke="#CCCCCC" />
+			
+		</g>
+		<g id="_gv05kMVuEDGHEva0EOt4zQ">
+			<rect x="333" y="181" width="134" height="82" rx="5" ry="5" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1" />
+			<text x="400" y="199" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">AL::ALMemoryProxy</text>
+			<line x1="333" y1="205" x2="467" y2="205" stroke-width="1.0" stroke="#CCCCCC" />
+			
+		</g>
+		<g id="_kTyIgMVuEDGHEva0EOt4zQ">
+			<rect x="24" y="2" width="198" height="82" rx="5" ry="5" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1" />
+			<text x="123" y="20" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">AL::ALSpeechRecognitionProxy</text>
+			<line x1="24" y1="26" x2="222" y2="26" stroke-width="1.0" stroke="#CCCCCC" />
+			
+		</g>
+		<g id="_pDdjsMVuEDGHEva0EOt4zQ">
+			<rect x="201" y="91" width="232" height="82" rx="5" ry="5" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1" />
+			<text x="317" y="109" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">AL::ALAudioSourceLocalizationProxy</text>
+			<line x1="201" y1="115" x2="433" y2="115" stroke-width="1.0" stroke="#CCCCCC" />
+			
+		</g>
+		<g id="_fi7BkMVuEDGHEva0EOt4zQ">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="213,301 130,225" stroke-dasharray="10, 5" />
+			<g transform="translate(130,225)">
+				<g transform="rotate(-48)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_iEXqoMVuEDGHEva0EOt4zQ">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="315,301 356,263" stroke-dasharray="10, 5" />
+			<g transform="translate(356,263)">
+				<g transform="rotate(47)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_muhFkMVuEDGHEva0EOt4zQ">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="243,301 142,84" stroke-dasharray="10, 5" />
+			<g transform="translate(142,84)">
+				<g transform="rotate(-25)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_rtm1wMVuEDGHEva0EOt4zQ">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="276,301 307,173" stroke-dasharray="10, 5" />
+			<g transform="translate(307,173)">
+				<g transform="rotate(14)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_Eway8MVvEDGHEva0EOt4zQ">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="154,347 81,346" />
+			<g transform="translate(154,347)">
+				<g transform="rotate(91)">
+					<polygon fill="#000000" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8 0, 16" />
+					
+				</g>
+				
+			</g>
+			<g transform="translate(81,346)">
+				<g transform="rotate(-89)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<text x="103" y="364" fill="#000000">robotIp</text>
+		<text x="89" y="334" fill="#000000">1</text>
+		<text x="66" y="260" fill="#000000">« dependency »</text>
+		<text x="345" y="285" fill="#000000">« dependency »</text>
+		<text x="111" y="111" fill="#000000">« dependency »</text>
+		<text x="212" y="197" fill="#000000">« dependency »</text>
+		
+	</g>
+	
+</svg>

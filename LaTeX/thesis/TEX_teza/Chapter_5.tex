@@ -1,0 +1,272 @@
+\section{Economic Analysis}
+\phantomsection
+
+	\subsection{Project description}
+
+	Robotics and AI are at the edge of today's technology and most probably will play an important role in humans' lives in the close future. This is the reason why such projects have a high degree of importance from economical point of view. While today there not so many commercial products in these areas compared to other areas from IT, there are still bold investments and funding in research and commercial companies. Every day more and more new commercial products concerned with robots and AI appear. 
+  	The current project is concerned with creating a detailed analysis and research about interaction between the robot and the physical world around him. The robot has to sort some objects -- a task met by humans many times in everyday life. It has to identify them and group them. Even if this is not a fully-backed commercial app which can be placed on store, it still has economical insights. Moreover, NAO robot community is young but quickly-growing one, and has a software store as well. So even the research projects in this area can be made business projects. The project is concerned with different ``hot'' technologies, like Computer Vision or Machine Learning. OpenCV, with its image processing algorithms is actively supported by people all around the world, including big companies. Machine Learning specialists are hunt by major companies in the industry. Because of all of the above, this system requires an economical analysis as well.
+
+	\subsection{SWOT analysis}
+
+	SWOT analysis is the analysis of project’s strengths and weaknesses, opportunities and threats from different points of view, including economical one. It is important to predict how well a product would succeed on the market, in order to comply with revenue expectations and prepare for possible risks. A research can be judged in such a way as well. The analysis of this project is presented in table \ref{swot}.
+\begin{table}[ht!]
+\centering
+\caption{SWOT Analysis}
+{
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{ l|l }
+\hline           
+ \pbox{4cm}{\textbf{Strong points}} &\pbox{5cm}{\textbf{Weak points}} \\ \hline \hline
+ {-- sorts any objects;} & {-- works only in laboratory conditions;} \\ 
+ {-- works on any background;} & {-- there are mistakes in movement precision;} \\ 
+ {-- decides by himself how to group the objects;} & {-- the robot itself is still unpractical;} \\ 
+ {-- the robot interacts by voice;} & {-- has a low percentage of grasping.} \\ 
+  {-- the robot identifies the speaker position;} & { } \\ 
+  {-- correctly identifies the objects;} & { } \\ 
+  {-- correctly determines the object’s position.} & { } \\ \hline
+
+ {\textbf{Opportunities}} & {\textbf{Threats}} \\ \hline \hline
+ {-- can be easily extended or integrated;} & \pbox{8cm}{-- in rear cases, robot can fall down during his movements;} \\ 
+ \pbox{8cm}{-- the future versions can be used in practical tasks like cleaning the room;} & \pbox{8cm}{-- robot can group the objects in a way other than desired by humans;} \\ 
+ {-- modules are independent and reusable;} & \pbox{8cm}{-- the algorithms of movement can be upgraded to use real-time image processing.} \\ 
+ \pbox{8cm}{-- the clustering module in its generic form can be upgraded to make NAO learn independently the world around him.} & { } \\ \hline
+\end{tabular}
+}
+\label{swot}
+\end{table}
+
+By taking a look at SWOT analysis it can be concluded that the project has both strong and weak points, and the ability to tackle them and use of correct marketing techniques will help to present and sell the solution in a better way. Opportunities and threats present a superficial prediction of where this project is evolving, what possibilities for growth and downfalls it has.
+		
+
+	\subsection{Project time schedule}
+
+	Time is perhaps one of the main resources in any work. The expenses of manufacturing a product are directly proportional with the amount of time needed for that. This implies the importance of having a schedule. Because of lack of experience in general and especially in the field of robotics, it is difficult to predict how much time will this project need. There is also a probability that the result of the work would not satisfy the requirements (that is, how feasible the actions done by robot are). All these need to be taken into account to approximate the timeline of work. When computing how much time a project would require, it is useful to also leave some buffer zone -- reserve time -- just in case it is not fitting the schedule. The timeline depends on the activities there would be done. These activities are determined by objectives the project has. 
+  % These activities are determined by objectives the project has. These activities are determined by objectives the project has. 
+
+		\subsubsection{Objectives}
+
+		The main objective of this project is to make NAO robot sort a set of objects. This implies the steps that the robot needs first to identify the objects, then cluster them and finally move them. A secondary objective is to make NAO autonomous and independent, so that without human’s assistance he would be able to move around objects in the room as he wishes. From economical point of view, the main objective of this research is not to sell the solution, but to attract interested companies and get a positive feedback from the community, making this work useful and interesting.
+
+		\subsubsection{Schedule}
+
+		An IT project consists of five important phases:
+        \begin{enumerate}[topsep=0pt, partopsep=0pt,itemsep=0pt,parsep=1pt, itemindent=1cm]
+        \item Planning;
+        \item Research;
+        \item Implementation;
+        \item Validation;
+        \item Launch.
+        \end{enumerate}
+        Each one of such phases consists of many smaller steps, sub-blocks. In this project, the work was done in an iterative model, each time incrementing the complexity of the implemented solution.
+    	The people involved in the development are:
+    	\begin{enumerate}[topsep=0pt, partopsep=0pt,itemsep=0pt,parsep=1pt]
+        \item Project Manager (PM) — he will coordinate the work between the developer, product owner and the researcher;
+        \item Software Developer (SD) — he will design and develop the application, as specified by the requirements;
+        \item Researcher (R) — he will design the algorithms and approaches in human-robotic interaction, image processing and AI;
+        \item Product Owner (PO) — he is the main stakeholder, interested in the result of the project and research.
+        \end{enumerate}
+        The total duration of the project is represented by the formula \ref{duration}.
+      \begin{equation}
+      \label{duration}
+      	D = D_{S} - D_{E} + R,
+        \end{equation}
+        where \( D\) is the duration, \( D_{S}\) is the start date and \(D_{E}\) is the end date. \(R\) represents the reserve time.
+        Using the above information and formula, the initial schedule of the project is presented in table \ref{schedule}.
+        \begin{table}[hb!]
+\centering
+\caption{Project schedule}
+{
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{ c|c|r|c|c }
+\hline           
+ {\textbf{Nr.}} & \pbox{6cm}{\textbf{Activity name}} &\pbox{2cm}{\textbf{Duration \newline(days)}} &\pbox{2cm}{\textbf{Workers}} &\pbox{5cm}{\textbf{Resources Used}} \\ \hline \hline
+{1} & \pbox{6cm}{Analysis of tasks} & 2  & \pbox{2cm}{PM, SD, PO, R} & \pbox{5cm}{Internet, PC, office, inventory (paper, pen, etc.)} \\ \hline
+{2} & \pbox{6cm}{Requirements definition} & 1  & \pbox{2cm}{PM, PO} & \pbox{5cm}{PC, Internet, office} \\ \hline
+{3} & \pbox{6cm}{Study of existent solutions} & 5  & \pbox{2cm}{PM, PO, R, SD} & \pbox{5cm}{Internet, PC, office, books} \\ \hline
+{4} & \pbox{6cm}{Study of robot}  & 10  & {SD} & \pbox{5cm}{robot, PC, office, Internet, book, robot simulator} \\ \hline
+{5} & \pbox{6cm}{Functional design of the system (use-case diagrams)} & 1  & {PM, PO} & \pbox{5cm}{PC, office, UML tool, Internet} \\ \hline
+{6} & \pbox{6cm}{Interaction design of the system (sequence diagrams)} & 1  & {PM, SD} & \pbox{5cm}{PC, office, UML tool, Internet} \\ \hline
+{7} & \pbox{6cm}{System structural design (class diagrams)} & 2  & {PM, SD} & \pbox{5cm}{PC, office, UML tool, Internet} \\ \hline
+{8} & \pbox{6cm}{Workflow design (state and activity diagrams)} & 2  & {PM, SD} & \pbox{5cm}{PC, office, UML tool, Internet} \\ \hline
+{9} & \pbox{6cm}{Interface design} & 4  & {PM, SD} & \pbox{5cm}{PC, Internet, office} \\ \hline
+{10} & \pbox{6cm}{Choice of algorithms and techniques} & 5  & {R, SD, PM} & \pbox{5cm}{PC, Internet, office, books} \\ \hline
+{11} & \pbox{6cm}{System Implementation} & 20  & {SD} & \pbox{5cm}{PC, office, robot, robot simulator, Internet} \\ \hline
+{12} & \pbox{6cm}{Testing and adjustments} & 30  & {SD} & \pbox{5cm}{Robot, simulator, PC, office, test objects} \\ \hline
+{13} & \pbox{6cm}{Project documentation} & 10  & {PM, SD} & \pbox{5cm}{PC, Internet, office} \\ \hline
+{14} & \pbox{6cm}{Project presentation preparations} & 4  & {PM} & \pbox{5cm}{PC, Internet, office} \\ \hline
+\multicolumn{1}{c}{} & \multicolumn{1}{c|}{\pbox{6cm}{Total days to finish the system}} & {96} \\ \cline{1-3} %\multicolumn{2}{|c}
+\end{tabular}
+}
+\label{schedule}
+\end{table}
+The table \ref{schedule} depicts the actions necessary to realize the project, the time required for each action, and the workers and resources needed for that. The total time needed to complete the project is estimated to 96 days.
+\begin{itemize}[topsep=5pt, partopsep=0pt,itemsep=3pt,parsep=1pt]
+\item[--] PO (product owner): 9 days;
+\item[--] R (researcher): 12 days;
+\item[--] PM (project manager): 36 days;
+\item[--] D (developer): 90 days.
+\end{itemize}
+
+
+	\subsection{Economical proof}
+
+	To evaluate this project from economical point of view, the expenses of it should be computed. These expenses are divided in the following groups: tangible, intangible, salary and indirect expenses. This is a non-commercial project so there are no profit estimations, nor financial results. In this section all the expenses, including the salary for a developer, wear and depreciation of materials will be computed. The computing of the budget will include the money necessary to buy all tangible and intangible assets, indirect expenses as well as salaries.
+
+
+		\subsubsection{Tangible and intangible expenses}
+
+		To compute the budget that is needed for the project, it is required to estimate the tangible and intangible assets. The list of the material assets are presented in Table \ref{tangible}.
+\begin{table}[ht!]
+\centering
+\caption{Tangible asset expenses}
+{
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{ c|r|r|r }
+\hline           
+ {\textbf{Name}} & \pbox{4cm}{\textbf{Price (MDL)}} &\pbox{4cm}{\textbf{Quantity}} &\pbox{4cm}{\textbf{Sum (MDL)}} \\ \hline \hline
+{NAO H25 NEXT GEN robot} & {110262} & {1} & {110262} \\ \hline 
+{PC} & {9000} & {1} & {9000} \\ \hline 
+{Photo-camera} & {3000} & {1} & {3000} \\ \hline 
+\multicolumn{1}{c}{Total} & \multicolumn{2}{l|}{} & {122262} \\ \hline
+\end{tabular}
+}
+\label{tangible}
+\end{table}
+Because all the software, applications and programs are either free of charge, offer a trial license or come together with the NAO robot kit, there are no intangible assets.  These are summarized in Table \ref{direct}.
+%Besides these expenses, there are also some other direct expenses, logistic products that were used during development.
+\begin{table}[hb!]
+\centering
+\caption{Direct material costs}
+{
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{ c|c|r|r|r }
+\hline           
+ {\textbf{Nr.}} & {\textbf{Name}} & \pbox{3cm}{\textbf{Unit price \newline (MDL)}} &\pbox{3cm}{\textbf{Quantity}} &\pbox{2cm}{\textbf{Sum (MDL)}} \\ \hline \hline
+{1} & {copybook (60 pages)} & {15} & {1} & {15} \\ \hline 
+{2} & {rubber ducks} & {30} & {4} & {120} \\ \hline 
+{3} & {plastic big balls} & {25} & {4} & {100} \\ \hline 
+{4} & {rubber small balls} & {15} & {6} & {90} \\ \hline 
+{5} & {printing} & {0.5} & {200} & {100} \\ \hline 
+{6} & {pen} & {5} & {3} & {15} \\ \hline 
+{7} & {USB flash} & {200} & {1} & {200} \\ \hline 
+{8} & {meter} & {20} & {1} & {20} \\ \hline 
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{Total} &\multicolumn{2}{c}{} & \multicolumn{1}{|r}{680} \\ \hline
+\end{tabular}
+}
+\label{direct}
+\end{table}
+This concludes the direct expenses for the project which amounts to 122262 + 680 = 122942MDL.
+
+		\subsubsection{Salary expenses}
+
+		In this section, the expenses necessary to pay the labor personnel will be computed. In order to do that, certain considerations will be taken into account such as the current percentage for the various funds that need to be paid. Besides the wages the social fund and the medical insurance expenses are computed. The salaried are presented in Table \ref{salary}.
+\begin{table}[ht!]
+\centering
+\caption{Salary expenses}
+{
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{ c|c|r|r|r|r }
+\hline           
+ {\textbf{Nr.}} & \pbox{3cm}{\textbf{Position}} & \pbox{2cm}{\textbf{Number of \newline employees}} &\pbox{3cm}{\textbf{Amount of work(h)}} &\pbox{3cm}{\textbf{Sal/unit (MDL/h)}} &\pbox{3cm}{\textbf{FSB (MDL)}} \\ \hline \hline
+{1} & {Product owner} & {1} & {72} & {60} & {4320} \\ \hline 
+{2} & {Project Manager} & {1} & {288} & {50} & {14400} \\ \hline 
+{3} & {Software developer} & {1} & {720} & {90} & {64800} \\ \hline 
+{4} & {Researcher} & {1} & {96} &{120} & {11520} \\ \hline 
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{Total} & \multicolumn{3}{c}{} & \multicolumn{1}{|r}{95040} \\ \hline
+\end{tabular}
+}
+\label{salary}
+\end{table}
+Having the salary information, it is necessary to compute how much to pay to the social service fund, the medical insurance fund, and the total work expenses that will be obtained by summing those up. \( F_{re} \) stands for ``Fondul de Retribuire a Muncii'' and is equal to:
+      \begin{equation}
+      \label{duration}
+      	F_{re} = 4320 + 14400 + 64800 + 11520 = 95040
+        \end{equation}
+The social service expenses will be equal to:
+      \begin{equation}
+      \label{duration}
+      	FS = F_{re} \cdot T_{fs} = 95040 \cdot 0.23 = 21859,
+        \end{equation}
+where \( T_{fs} \) is the contribution quota for the state mandatory social insurance, approved each year by Law of Budget (in 2014 — 23\%). Now the medical insurance fund is computed as
+      \begin{equation}
+      \label{duration}
+      	MI = F_{re} \cdot T_{mi} = 95040 \cdot 0.04 = 3801,
+        \end{equation}
+where \( MI \) is medical insurance and \( T_{mi} \) is the medical insurance quota approved each year by the Law of Budget for state medical insurance (in 2014 — 4\%).
+\newline The total work expense fund can be computed as follows:
+      \begin{equation}
+      \label{duration}
+      \begin{split}
+      	WEF = F_{re} &+ FS + MI = \\ 95040 + 21859 &+ 3801 = 120700,
+        \end{split}
+        \end{equation}
+where \( WEF \) is the work expense fund.
+
+		\subsubsection{Indirect expenses}
+
+		The indirect expenses of the project are computed -- this includes the expenses that cannot be added to the direct ones and are things like electricity, internet, water, etc. The indirect expenses are shown in Table \ref{indirect}.
+\begin{table}[hb!]
+\centering
+\caption{Indirect expenses}
+{
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{ c|c|c|r|r|r }
+\hline           
+ {\textbf{Nr.}} & \pbox{3cm}{\textbf{Name}} & \pbox{4cm}{\textbf{Unit of measurement}} &\pbox{3cm}{\textbf{Quantity}} &\pbox{3cm}{\textbf{Tarif (MDL/unit)}} &\pbox{3cm}{\textbf{SUM (MDL)}} \\ \hline \hline
+{1} & {Power usage} & {kWh} & {480} & {1.58} & {758} \\ \hline 
+{2} & {Internet} & {month} & {4} & {120.00} & {480} \\ \hline 
+{3} & {Office rent} & {month} & {4} & {200.00} & {800} \\ \hline 
+{4} & {Cleaning} & {month} & {4} &{300.00} & {1200} \\ \hline 
+{5} & {Meals} & {month} & {4} &{600.00} & {2400} \\ \hline 
+\multicolumn{1}{c}{} & \multicolumn{1}{c}{Total} & \multicolumn{3}{c}{} & \multicolumn{1}{|r}{5638} \\ \hline
+\end{tabular}
+}
+\label{indirect}
+\end{table}
+
+		\subsubsection{Wear and project cost}
+
+		An important part of indirect expenses is the computation of wear and depreciation of assets. The depreciation should be computed uniformly for the project duration, so that there are no accountancy issues. That means that if a material is planned to be used for 3 years, it should be divided into 3 uniform parts for each year. The straight line depreciation method will be used. The wear is computed depending on the type of asset. For the notebook and camera, the period of use equals to 5 years. For robot it is 10 years. First the total expenses of the tangible assets are summed up and then the salvage costs of each of the items at the end of their period of use has to be subtracted:
+      \begin{equation}
+      \label{duration}
+      \begin{split}
+      	W_{y} = &\frac{C_{i} - C_{s}}{P} = \\ \frac{110262 - 11000}{10 years} + &\frac{9000 - 900}{5 years}  + \frac{3000 - 300}{5 years} =\\ 9926 + &1620 + 540 = 12086,
+      \end{split}
+    \end{equation}
+    where \( W_{y}\) represents the wear per year, \( C_{i}\) is the initial cost, \(C_{s}\) is the salvage cost and \( P\) is the period of use.
+        This includes 3 tangible assets — the robot, the PC and a camera. The initial asset value is equal to 122262MDL since no intangible assets are there. It is to be noted that because the project takes 96 days to complete (roughly 4 months), the wear value of the assets should take that period into consideration giving the following amount:
+      \begin{equation}
+      \label{duration}
+      \begin{split}
+      	W_{p} = &\frac{W_{y}}{D_{y}} \cdot P =\\ \frac{12086lei}{365days} \cdot 9&6days = 3178,
+      \end{split}
+    \end{equation}
+where \( W_{p}\) is the project wear value, \(D_{y}\) is days in year.
+		% \subsection{Project cost}
+
+		Now that the expenses of the project are done, it is possible to compute the product cost which includes direct and indirect expenses, the salary expenses, and the wear expenses. The detailed presentation of expenses is included in the Table \ref{project}. Summarizing, the total project cost is 252458MDL. The robot itself represents 48\% of these expenses.
+% \begin{table}[hb!]
+% \centering
+% \caption{Project cost}
+% {
+% \renewcommand{\arraystretch}{2}
+% \begin{tabular}{ c|r|r }
+% \hline           
+%  {\textbf{Expense}} & \pbox{3cm}{\textbf{SUM (MDL)}} & \pbox{4cm}{\textbf{Percentage (\%)}} \\ \hline \hline
+% {Direct expenses} & {122942} & {48.73} \\ \hline 
+% {Salary expenses} & {95040} & {37.64} \\ \hline 
+% {Social fund expenses} & {21859} & {8.65} \\ \hline 
+% {Indirect expenses} & {5638} & {2.23} \\ \hline 
+% {Medical insurance expenses} & {3801} & {1.5} \\ \hline 
+% {Asset wear expenses} & {3178} & {1.25} \\ \hline 
+% {\textbf{Total product cost}} & \pbox{3cm}{\textbf{252458}} & \pbox{3cm}{\textbf{100}} \\ \hline
+
+% \end{tabular}
+% }
+% \label{project}
+% \end{table}
+  		\subsection{Economic conclusion}
+  		
+  		Because this is a research project and does not result in a commercial product, no profit was computed. But even such a project requires an economic analysis in order to predict its cost and search for investors. A ready business plan can show what to expect and how much someone has to risk or pay to start something. The research was always a good purpose and its gain is not immediate. Instead, through scientific breakthroughs and innovations which happen once in a while the outcome of such projects is tremendous. Looking at the obtained data, it is clear that the main expense is the robot. At the same time, it has twice as long lifetime compared with other assets. Ten years of exploitation is a fair amount of time for technology. Besides that, many more project might be done on him. This project has a considerable cost. Big institutions, like universities or private companies can afford such a project.
+
+\clearpage

@@ -1,0 +1,102 @@
+% This is a small sample LaTeX input file (Version of 10 April 1994)
+%
+% Use this file as a model for making your own LaTeX input file.
+% Everything to the right of a  %  is a remark to you and is ignored by LaTeX.
+
+% The Local Guide tells how to run LaTeX.
+
+% WARNING!  Do not type any of the following 10 characters except as directed:
+%                &   $   #   %   _   {   }   ^   ~   \   
+
+\documentclass{article}        % Your input file must contain these two lines 
+\usepackage{standalone}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[romanian]{babel}
+\usepackage{combelow}
+\usepackage{newunicodechar}
+
+\usepackage{graphicx}
+
+\newunicodechar{Ș}{\cb{S}}
+\newunicodechar{ș}{\cb{s}}
+\newunicodechar{Ț}{\cb{T}}
+\newunicodechar{ț}{\cb{t}}
+
+\begin{document}               % plus the \end{document} command at the end.
+
+\input{titlepage}
+
+
+\section*{Objective:}          % This command makes a section title.
+
+Create an installer for your app.
+
+\section*{Tasks:}
+\begin{enumerate}
+\item Make an installer without using helper software that does everything for us;
+\item Make it multilingual.
+\end{enumerate}
+
+\section*{Workflow:} 
+
+	We need to create an installer for Mac OS X (in my case). Usually, the app is placed in the /Applications directory. There are two ways to create a basic installer - the easy way and the hard way. We will use the hard way.
+
+	The easy way in done through Xcode. The IDE provides means for both creating the installer, signing it so that it comes form a certified developer and distribute it, either through Mac App Store, or independently. The process is quite easy, but the problem is that Apple wants you to be a certified Mac OS developer, which I am not. Apple’s policy makes sense from one point of view, because in such a way they can control who was the author of a “bad” app and quickly ban all the apps done by such and such developer. At the same time, when you install an app which has no signing authority certificate, the OS warns you about that, so you can proceed at your own risk. 
+
+	Having said that, there is the not-so-hard way of creating an installer through command line. Under the hood, Xcode uses the same functionality to generate its installers.
+
+	So, let’s proceed. After a build, we get a Time.app file. It is the application bundle, an autonomous executable which contains all the necessary resources. First, we create the package:
+
+\vspace{0.3 cm}
+ {
+\fontfamily{pcr}\selectfont 
+pkgbuild --component ./Time.app --identifier ``com.test.pkg.Time'' --install-location /Applications ./Time.pkg
+}
+\vspace{0.3 cm}
+
+The above command creates a package Time.pkg at location ./, including the component ./Time.app (our bundle), generating a unique identifier for the app and specifying the install location to /Applications.
+
+For basic purposes, this is enough. We have an installer. 
+
+In order to customize it, we need a .xml file where we can specify different options, like text for welcome screen, or background images for installer, etc. We generate a draft for our .xml with the following command:
+
+\vspace{0.3 cm}
+{
+\fontfamily{pcr}\selectfont
+productbuild --synthesize --package Time.pkg Distribution.xml
+}
+\vspace{0.3 cm}
+
+Next, we do some sort of reverse engineering, exploring the iTunes installer that comes from Apple. There we find a nested structure of multiple bundles and additional files used by installer. Among them we find a Distribution.xml file, where we can check some options. We also have a Resources directory, where Apple placed a multitude of dirs for localization - every language with its own text.
+
+Inspired by that, we create and place into the Resources dir two versions of the welcome screen text, one in English and the other in Romanian. We edit our Distribution.xml file to include the corresponding specifications. We finally run
+
+\vspace{0.3 cm}
+{
+\fontfamily{pcr}\selectfont
+productbuild --distribution ./Distribution.xml --package-path . ./Installer.pkg
+}
+\vspace{0.3 cm}
+
+which includes the distribution file, takes the current package from the package path and creates a new package Installer.pkg.
+
+\section*{Result:}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{screen.png}
+\caption{Installer screen in Ro}
+\label{screen}
+\end{figure}
+
+	After we did that, we can run our installer. The picture above shows the Romanian version of it. After we go through necessary steps, we will have our application installed in Applications directory. 
+
+
+\section*{Conclusion:}
+	Installation differs on various platforms. While both visual and command line tools for creating an installer exist on most of them, the CLI offers the widest range of options and configurations for creating it. At the same time, this way is not so straight forward and it needed quite a bit of googling before figuring out how everything works. 
+
+	On Mac OS an application is a self-contained bundle, executable, which resides in one file (but the concept of file is relative on Unix-like OS-es). In order to delete the application, we just delete the .app file. 
+
+\end{document}                 % The input file ends with this command.

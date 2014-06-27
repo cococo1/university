@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Arial" font-size="13" width="251" height="530">
+	<desc>UML class diagram Head</desc>
+	<g id="_dNQ40c4hEDGwVeltw1dL2Q">
+		<defs>
+			<linearGradient id="greyGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#FFFFFF" stop-opacity="1" />
+				<stop offset="100%" stop-color="#E5E5E5" stop-opacity="1" />
+				
+			</linearGradient>
+			<linearGradient id="packageGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#FFFFFF" stop-opacity="1" />
+				<stop offset="100%" stop-color="#EFE9DE" stop-opacity="1" />
+				
+			</linearGradient>
+			
+		</defs>
+		<g id="_lGVG0M4hEDGwVeltw1dL2Q">
+			<ellipse cx="119" cy="12" rx="10" ry="10" fill="#4D4D4D" stroke="#000" stroke-width="1.0" />
+			
+		</g>
+		<g id="_UcETgM4iEDGwVeltw1dL2Q">
+			<rect x="52" y="54" width="131" height="37" rx="10" ry="10" fill="url(#packageGradient)" stroke="#c2b79f" stroke-width="1" />
+			<text x="118" y="76" text-anchor="middle" font-style="normal" fill="#806221">Extract foreground</text>
+			
+		</g>
+		<g id="_Vc0l4M4iEDGwVeltw1dL2Q">
+			<rect x="54" y="124" width="127" height="37" rx="10" ry="10" fill="url(#packageGradient)" stroke="#c2b79f" stroke-width="1" />
+			<text x="118" y="146" text-anchor="middle" font-style="normal" fill="#806221">Preprocess image</text>
+			
+		</g>
+		<g id="_k3I-0M4iEDGwVeltw1dL2Q">
+			<rect x="62" y="193" width="114" height="37" rx="10" ry="10" fill="url(#packageGradient)" stroke="#c2b79f" stroke-width="1" />
+			<text x="119" y="215" text-anchor="middle" font-style="normal" fill="#806221">Detect contours</text>
+			
+		</g>
+		<g id="_wbGKMM4iEDGwVeltw1dL2Q">
+			<rect x="2" y="263" width="229" height="37" rx="10" ry="10" fill="url(#packageGradient)" stroke="#c2b79f" stroke-width="1" />
+			<text x="117" y="285" text-anchor="middle" font-style="normal" fill="#806221">Approximate contours to rectangles</text>
+			
+		</g>
+		<g id="_yKQasM4iEDGwVeltw1dL2Q">
+			<rect x="38" y="338" width="154" height="37" rx="10" ry="10" fill="url(#packageGradient)" stroke="#c2b79f" stroke-width="1" />
+			<text x="115" y="360" text-anchor="middle" font-style="normal" fill="#806221">Select good rectangles</text>
+			
+		</g>
+		<g id="_2IOFEM4iEDGwVeltw1dL2Q">
+			<rect x="14" y="415" width="201" height="37" rx="10" ry="10" fill="url(#packageGradient)" stroke="#c2b79f" stroke-width="1" />
+			<text x="115" y="437" text-anchor="middle" font-style="normal" fill="#806221">Create objects from rectangles</text>
+			
+		</g>
+		<g id="_8_p28M4iEDGwVeltw1dL2Q">
+			<ellipse cx="114" cy="500" rx="10" ry="10" fill="#FFF" stroke="#888" stroke-width="1.0" />
+			<ellipse cx="114" cy="500" rx="6" ry="6" fill="#4D4D4D" stroke-width="0.0" />
+			
+		</g>
+		<g id="_4d6KEM4iEDGwVeltw1dL2Q">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="118,231 118,263" />
+			<g transform="translate(118,263)">
+				<g transform="rotate(-180)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_40_0YM4iEDGwVeltw1dL2Q">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="116,301 116,338" />
+			<g transform="translate(116,338)">
+				<g transform="rotate(-180)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_5IAP8M4iEDGwVeltw1dL2Q">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="115,376 115,415" />
+			<g transform="translate(115,415)">
+				<g transform="rotate(-180)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_9riFgM4iEDGwVeltw1dL2Q">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="115,453 114,490" />
+			<g transform="translate(114,490)">
+				<g transform="rotate(-178)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_kmHy8M60EDGGL7TJDjcAZw">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="119,22 118,54" />
+			<g transform="translate(118,54)">
+				<g transform="rotate(-178)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_lT--gM60EDGGL7TJDjcAZw">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="118,92 118,124" />
+			<g transform="translate(118,124)">
+				<g transform="rotate(-180)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_lr8LgM60EDGGL7TJDjcAZw">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="118,162 119,193" />
+			<g transform="translate(119,193)">
+				<g transform="rotate(178)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		
+	</g>
+	
+</svg>

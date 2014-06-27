@@ -1,0 +1,127 @@
+\documentclass[12pt,a4paper,titlepage]{article}
+\usepackage{License_style}
+
+% \usepackage{graphicx}
+% for inputs
+% \usepackage{standalone}
+% for figures
+% \usepackage{subfig}
+% for code
+% for math formulas
+% \usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{epstopdf}
+\epstopdfsetup{outdir=./}
+
+% \usepackage{listings}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+
+% \usepackage{array}
+
+% \usepackage{mwe}
+% \usepackage{rotating}
+% \usepackage[top=25mm, bottom=25mm, left=30mm, right=15mm]{geometry}
+
+
+
+% \usepackage{algorithmic}
+\usepackage{amsmath}
+% \newcommand{\swapped}{\ensuremath{\mathit{swapped}}}
+% \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% the document should be compiled with pdfLaTex
+  
+\begin{document}
+
+% \numberwithin{lstlisting}{section}
+
+\setcounter{page}{6}
+ 
+% \phantomsection
+% %\addcontentsline{toc}{section}{SUMMARY}
+\input{Abstract.tex}{\protect\thispagestyle{empty}}
+\cleardoublepage
+
+% \phantomsection
+% %\addcontentsline{toc}{section}{АННОТАЦИЯ}
+\input{Rezumat.tex}{\protect\thispagestyle{empty}}
+\cleardoublepage
+
+
+\tableofcontents
+\addtocontents{toc}{\protect\thispagestyle{empty}} % no page number on the table of contents page
+\cleardoublepage
+
+%LISTA FIGURILOR. Este recomandabila daca in text ai peste cel putin 10-15 FIGURI
+\listoffigures
+\addcontentsline{toc}{section}{List of figures}
+\clearpage
+
+%LISTA TABELELOR. Este recomandabila daca in text ai peste cel putin 10-15 tabele
+% \listoftables
+% \addcontentsline{toc}{section}{List of tables}
+% \clearpage
+
+\lstlistoflistings
+\addcontentsline{toc}{section}{Listings}
+\clearpage
+
+%ABREVIERI. Este recomandabila doar daca utilizezi in text peste 10-15 abrevieri
+% \phantomsection
+% \addcontentsline{toc}{section}{Abbreviations}
+% \input{Abbreviations.tex}
+% \cleardoublepage
+
+%INTRODUCERE
+%\setcounter{page}{17} 
+\phantomsection
+\addcontentsline{toc}{section}{Introduction}
+\input{Introduction.tex}
+\cleardoublepage
+
+% CAPITOLUL 1
+\input{Chapter_1.tex}
+\cleardoublepage
+
+%CAPITOLUL2
+\input{Chapter_2.tex}
+\cleardoublepage
+
+%CAPITOLUL 3
+\input{Chapter_3.tex}
+\cleardoublepage
+\addtocontents{toc}{\protect\thispagestyle{empty}} % no page number on the table of contents page
+
+						%CAPITOLUL 4
+						% \input{Chapter_4.tex}
+						% \cleardoublepage
+
+%CAPITOLUL 5
+\input{Chapter_5.tex}
+\cleardoublepage
+
+% IMPORTANT REMARK  
+% If your table of contents need to be splitted in two parts (in order to accomodate the frame used for TOC)
+% within the body text, right before the chapter/section that you want to be started on anew page, 
+% you should add:     \addtocontents{toc}{\protect\newpage}
+
+%CONCLUZII
+\phantomsection
+\addcontentsline{toc}{section}{Conclusions}
+\input{Conclusions.tex}
+\cleardoublepage
+
+\cleardoublepage
+\addcontentsline{toc}{section}{References}
+\input{biblio.tex}
+\cleardoublepage
+   
+\phantomsection
+%\setcounter{page}{235}
+\addcontentsline{toc}{section}{Appendix}
+\input{Appendix.tex}
+\cleardoublepage
+ 
+ 
+\end{document}

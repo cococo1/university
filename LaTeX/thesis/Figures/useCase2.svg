@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Arial" font-size="13" width="337" height="239">
+	<desc>UML class diagram Head</desc>
+	<g id="_80VfIM4fEDGwVeltw1dL2Q">
+		<defs>
+			<linearGradient id="greyGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#FFFFFF" stop-opacity="1" />
+				<stop offset="100%" stop-color="#E5E5E5" stop-opacity="1" />
+				
+			</linearGradient>
+			<linearGradient id="packageGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#FFFFFF" stop-opacity="1" />
+				<stop offset="100%" stop-color="#EFE9DE" stop-opacity="1" />
+				
+			</linearGradient>
+			
+		</defs>
+		<g id="_9_Xu4M4fEDGwVeltw1dL2Q">
+			<ellipse cx="166" cy="191" rx="56" ry="29" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1.0" />
+			<text x="166" y="194" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">Cluster objects</text>
+			
+		</g>
+		<g id="_BwZJcM4gEDGwVeltw1dL2Q">
+			<ellipse cx="55" cy="159" rx="53" ry="29" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1.0" />
+			<text x="55" y="162" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">Detect objects</text>
+			
+		</g>
+		<g id="_EmIAcM4gEDGwVeltw1dL2Q">
+			<ellipse cx="156" cy="31" rx="52" ry="29" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1.0" />
+			<text x="156" y="34" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">Group objects</text>
+			
+		</g>
+		<g id="_NFsNwM4gEDGwVeltw1dL2Q">
+			<ellipse cx="267" cy="166" rx="50" ry="28" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1.0" />
+			<text x="267" y="170" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">Move objects</text>
+			
+		</g>
+		<g id="_RHDKYM4gEDGwVeltw1dL2Q">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="133,60 78,130" stroke-dasharray="10, 5" />
+			<g transform="translate(78,130)">
+				<g transform="rotate(-142)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_R_WEUM4gEDGwVeltw1dL2Q">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="158,60 164,162" stroke-dasharray="10, 5" />
+			<g transform="translate(164,162)">
+				<g transform="rotate(177)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_TBqc8M4gEDGwVeltw1dL2Q">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="180,60 244,138" stroke-dasharray="10, 5" />
+			<g transform="translate(244,138)">
+				<g transform="rotate(141)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<text x="52" y="69" fill="#000000">« include »</text>
+		<text x="97" y="119" fill="#000000">« include »</text>
+		<text x="207" y="75" fill="#000000">« include »</text>
+		
+	</g>
+	
+</svg>

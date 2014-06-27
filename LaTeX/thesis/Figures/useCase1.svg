@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Arial" font-size="13" width="458" height="384">
+	<desc>UML class diagram Head</desc>
+	<g id="_pyA6MM4eEDGwVeltw1dL2Q">
+		<defs>
+			<linearGradient id="greyGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#FFFFFF" stop-opacity="1" />
+				<stop offset="100%" stop-color="#E5E5E5" stop-opacity="1" />
+				
+			</linearGradient>
+			<linearGradient id="packageGradient" x1="0%" y1="0%" x2="0%" y2="100%" spreadMethod="pad">
+				<stop offset="0%" stop-color="#FFFFFF" stop-opacity="1" />
+				<stop offset="100%" stop-color="#EFE9DE" stop-opacity="1" />
+				
+			</linearGradient>
+			
+		</defs>
+		<g id="_qe2LAM4eEDGwVeltw1dL2Q">
+			<ellipse cx="229" cy="17" rx="10" ry="10" fill="white" stroke="black" stroke-width="1.5" />
+			<line x1="229" y1="27" x2="229" y2="61" stroke-width="1.5" stroke="black" />
+			<line x1="229" y1="61" x2="242" y2="82" stroke-width="1.5" stroke="black" />
+			<line x1="229" y1="61" x2="216" y2="82" stroke-width="1.5" stroke="black" />
+			<line x1="242" y1="44" x2="216" y2="44" stroke-width="1.5" stroke="black" />
+			<text x="229" y="97" text-anchor="middle" font-style="normal" font-weight="normal" fill="black">user</text>
+			
+		</g>
+		<g id="_rgDJUM4eEDGwVeltw1dL2Q">
+			<ellipse cx="228" cy="211" rx="51" ry="37" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1.0" />
+			<text x="228" y="205" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">Use robot</text>
+			<line x1="192" y1="215" x2="264" y2="215" stroke-width="1.0" stroke="#CCCCCC" />
+			<text x="228" y="237" text-anchor="middle" font-style="normal" font-weight="normal" fill="black"> </text>
+			<text x="228" y="255" text-anchor="middle" font-style="normal" font-weight="normal" fill="black"> </text>
+			<text x="228" y="273" text-anchor="middle" font-style="normal" font-weight="normal" fill="black"> </text>
+			
+		</g>
+		<g id="_0i9UQM4eEDGwVeltw1dL2Q">
+			<ellipse cx="52" cy="211" rx="50" ry="28" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1.0" />
+			<text x="52" y="215" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">Turn it on</text>
+			
+		</g>
+		<g id="_7bFpsM4eEDGwVeltw1dL2Q">
+			<ellipse cx="87" cy="283" rx="63" ry="29" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1.0" />
+			<text x="87" y="286" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">Connect remotely</text>
+			
+		</g>
+		<g id="_A_j-4M4fEDGwVeltw1dL2Q">
+			<ellipse cx="388" cy="240" rx="50" ry="28" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1.0" />
+			<text x="388" y="244" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">Talk</text>
+			
+		</g>
+		<g id="_C3RHYM4fEDGwVeltw1dL2Q">
+			<ellipse cx="321" cy="315" rx="50" ry="28" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1.0" />
+			<text x="321" y="319" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">Move</text>
+			
+		</g>
+		<g id="_Ip2xEM4fEDGwVeltw1dL2Q">
+			<ellipse cx="187" cy="336" rx="52" ry="29" fill="url(#greyGradient)" stroke="#CCCCCC" stroke-width="1.0" />
+			<text x="187" y="339" text-anchor="middle" font-style="normal" font-weight="bold" fill="#033656">Group objects</text>
+			
+		</g>
+		<g id="_4XmDgM4eEDGwVeltw1dL2Q">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="177,211 102,211" stroke-dasharray="10, 5" />
+			<g transform="translate(102,211)">
+				<g transform="rotate(-90)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_9b5q4M4eEDGwVeltw1dL2Q">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="177,237 144,254" stroke-dasharray="10, 5" />
+			<g transform="translate(144,254)">
+				<g transform="rotate(-117)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_SmKCIM4fEDGwVeltw1dL2Q">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="338,231 279,220" stroke-dasharray="10, 5" />
+			<g transform="translate(279,220)">
+				<g transform="rotate(-79)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_WG0sgM4fEDGwVeltw1dL2Q">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="296,287 261,248" stroke-dasharray="10, 5" />
+			<g transform="translate(261,248)">
+				<g transform="rotate(-42)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_W-KkMM4fEDGwVeltw1dL2Q">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="197,307 216,248" stroke-dasharray="10, 5" />
+			<g transform="translate(216,248)">
+				<g transform="rotate(18)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<g id="_YmzV8M4fEDGwVeltw1dL2Q">
+			<polyline fill="none" stroke-width="1" stroke="#000000" points="229,102 228,174" />
+			<g transform="translate(228,174)">
+				<g transform="rotate(-179)">
+					<polyline fill="none" stroke-width="1" stroke="#000000" points="-4,8 0,0 4,8" />
+					
+				</g>
+				
+			</g>
+			
+		</g>
+		<text x="105" y="187" fill="#000000">« include »</text>
+		<text x="107" y="237" fill="#000000">« include »</text>
+		<text x="293" y="213" fill="#000000">« extend »</text>
+		<text x="220" y="284" fill="#000000">« extend »</text>
+		<text x="146" y="270" fill="#000000">« extend »</text>
+		
+	</g>
+	
+</svg>

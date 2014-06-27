@@ -25,6 +25,10 @@ This repo contains the code which I wrote at the university, during my Bachelor 
 
 --
 
+**LaTeX** contains an example of lab report and my Bachelor thesis.
+
+--
+
 **MatLAB** dir contains code written in MatLAB at **Theory of Probability and Information** and **Numerical Methods** courses.
 
 --
