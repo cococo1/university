@@ -1,0 +1,29 @@
+key:
+    ReceivedData: 
+        1, 2: pack
+        3, 4: be_pack
+        5, 6: le_pack
+        7, 8: be_eval_pack
+        9, 10: le_eval_pack
+        11, 12: return
+        13, 14: retry
+    CmdInfo: str
+    SetUp:
+        port: /dev/ttyUSB0
+        baudrate: 50
+        bytesize: 8
+        parity: N
+        stopbits: 1
+        EOF: 0
+        error: 0
+        break: 0
+        event: 0
+        xonxoff: True
+        XON: 0
+        XOF: 0
+        rtscts: True
+        dsrdtr: True
+        timeout: 0
+        writeTimeout: 0
+        interCharTimeout: 0
+    SendDataStr: str
