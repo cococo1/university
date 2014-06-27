@@ -29,7 +29,7 @@ This repo contains the code which I wrote at the university, during my Bachelor 
 
 --
 
-**MatLAB** dir contains code written in MatLAB at **Theory of Probability and Information** and **Numerical Methods** courses.
+**MatLAB** dir contains code written in MatLAB at **Theory of Probability and Information** and **Numerical Methods** courses. It also contains the practical tasks from **Machine Learning** online course.
 
 --
 
