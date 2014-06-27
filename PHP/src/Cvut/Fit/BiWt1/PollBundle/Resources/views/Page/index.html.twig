@@ -1,0 +1,19 @@
+{# src/Cvut\Fit\BiWt1\PollBundle/Resources/views/Page/index.html.twig #}
+{% extends '::base.html.twig' %}
+
+
+    {% block mainActions %}
+        {% if app.session.hasFlash('surveys-notice') %}
+        <div class="blogger-notice">
+        {{ app.session.flash('surveys-notice') }}
+        </div>
+        {% endif %}
+   
+        <section class="mainActions">
+        <h4> 
+            <a href="{{ path('PollBundle_createSurvey') }}">Create a survey</a> 
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <a href="{{ path('PollBundle_listSurveys', {'display' : "false"}) }}">Take a survey</a>  
+        </h4>
+        </section>
+    {% endblock %}

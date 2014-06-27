@@ -1,0 +1,29 @@
+{# src/Cvut/Fit/BiWt1/PollBundle/Resources/views/Page/question.html.twig #}
+{% extends 'PollBundle::layout.html.twig' %}
+
+{% block title %}Question{% endblock%}
+
+{% block body %}
+    <header>
+        <h1>Question</h1>
+    </header>
+
+{% if app.session.hasFlash('question-notice') %}
+    <div class="blogger-notice">
+        {{ app.session.flash('question-notice') }}
+    </div>
+{% endif %}
+
+    <p>Select the type of the question:</p>
+    <form action="{{ path('PollBundle_question') }}" method="post" {{ form_enctype(form) }} class="blogger">
+
+
+        {% for choiceFormView in form.typeOfQuestion %}
+        {{ form_widget(choiceFormView) }}
+        {{ form_label(choiceFormView) }}
+        {% endfor %}
+
+
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock %}

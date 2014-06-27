@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>http://webdev.fit.cvut.cz/~chetrmax/BI-WT1/html/</loc>
+  <lastmod>2013-12-25T16:13:32+00:00</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://webdev.fit.cvut.cz/~chetrmax/BI-WT1/html/productFeatures.html</loc>
+  <lastmod>2013-12-25T14:32:42+00:00</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://webdev.fit.cvut.cz/~chetrmax/BI-WT1/html/userGuide.html</loc>
+  <lastmod>2013-12-25T15:37:55+00:00</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://webdev.fit.cvut.cz/~chetrmax/BI-WT1/html/dataModel.html</loc>
+  <lastmod>2014-01-03T13:36:17+00:00</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://webdev.fit.cvut.cz/~chetrmax/BI-WT1/html/index.html</loc>
+  <lastmod>2013-12-25T16:13:32+00:00</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>0.64</priority>
+</url>
+</urlset>

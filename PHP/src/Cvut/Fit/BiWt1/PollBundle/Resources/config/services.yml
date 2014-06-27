@@ -1,0 +1,7 @@
+parameters:
+#    poll.example.class: Cvut\Fit\BiWt1\PollBundle\Example
+
+services:
+#    poll.example:
+#        class: %poll.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

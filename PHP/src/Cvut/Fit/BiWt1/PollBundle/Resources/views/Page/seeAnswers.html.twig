@@ -1,0 +1,30 @@
+{# src/Cvut/Fit/BiWt1/PollBundle/Resources/views/Page/seeAnswers.html.twig #}
+{% extends 'PollBundle::layout.html.twig' %}
+
+{% block title %}Selected Question{% endblock%}
+
+{% block body %}
+    <header>
+        <h1> {{ survey.getTitle() }} </h1>
+    </header>
+    
+
+
+    <p id="description">
+        {{ question.getQuestion() }}
+    </p>
+
+    <p id="questions"> Answers: </p>
+
+    {% for a in answers %}
+        <p id="question">{{ loop.index }}. {{ a }} 
+        </p>
+
+    {% endfor %}
+
+{% endblock %}
+{% block sidebar %}
+    <p class="links"> <a href="{{ path('PollBundle_displaySurvey', { 'id' : survey.getId() }) }}">Back to survey</a> </p>
+
+
+{% endblock%}

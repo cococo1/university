@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="en-gb" />
+    <link rel="stylesheet" title="Main style" type="text/css" href="mystyle.css"/>
+    <link rel="stylesheet" title="Alternative style" type="text/css" href="alternative.css"/>
+    
+    <title>Online surveys - Data Model</title>
+    </head>
+    <body>
+      <h1>Data Model</h1>
+      <div>
+        <a href="http://webdev.fit.cvut.cz/~chetrmax/BI-WT1/html/index.html">Home</a>
+        <a href="http://webdev.fit.cvut.cz/~chetrmax/BI-WT1/html/productFeatures.html">Product Features</a>
+        <a href="http://webdev.fit.cvut.cz/~chetrmax/BI-WT1/html/userGuide.html">User Guide</a>
+      </div>
+      <p>These are the tables of our database:</p>
+      
+      <table id="mainTable">
+        <tr>
+
+
+
+          <td class="mainTd">    
+            <table>
+              <tr>
+                <th>Users</th>
+              </tr>
+              <tr class="header">
+                <td>Column</td> <td>Datatype</td> <td>Primary key</td> <td>Not null</td> <td>Unique</td> <td>Unsigned</td> <td>Autoincrement</td>
+              </tr>
+              <tr>
+                <td>idUsers</td> <td>INT</td> <td>&#x2713;</td> <td>&#x2713;</td> <td>&#x2713;</td> <td>&#x2713;</td> <td>&#x2713;</td>
+              </tr>
+              <tr>
+                <td>type</td> <td>VARCHAR(45)</td> <td> </td> <td>&#x2713;</td> <td> </td> <td> </td> <td> </td>
+              </tr>
+              <tr>
+                <td>email</td> <td>VARCHAR(45)</td> <td> </td> <td>&#x2713;</td> <td> </td> <td> </td> <td> </td>
+              </tr>
+              <tr>
+                <td>password</td> <td>VARCHAR(45)</td> <td> </td> <td>&#x2713;</td> <td> </td> <td> </td> <td> </td>
+              </tr>
+            </table>  
+          </td>
+
+
+
+
+
+
+          <td class="mainTd">    
+            <table>
+              <tr>
+                <th>Surveys</th>
+              </tr>
+              <tr class="header">
+                <td>Column</td> <td>Datatype</td> <td>Primary key</td> <td>Not null</td> <td>Unique</td> <td>Unsigned</td> <td>Autoincrement</td>
+              </tr>
+              <tr>
+                <td>idSurveys</td> <td>INT</td> <td>&#x2713;</td> <td>&#x2713;</td> <td>&#x2713;</td> <td>&#x2713;</td> <td>&#x2713;</td>
+              </tr>
+              <tr>
+                <td>name</td> <td>VARCHAR(45)</td> <td> </td> <td>&#x2713;</td> <td> </td> <td> </td> <td> </td>
+              </tr>
+              <tr>
+                <td>userID</td> <td>INT</td> <td> </td> <td>&#x2713;</td> <td> </td> <td>&#x2713;</td> <td> </td>
+              </tr>
+            </table>  
+          </td>
+        </tr>
+
+
+
+
+
+
+
+
+        <tr>
+
+
+
+
+          <td class="mainTd">    
+            <table>
+              <tr>
+                <th>Questions</th>
+              </tr>
+              <tr class="header">
+                <td>Column</td> <td>Datatype</td> <td>Primary key</td> <td>Not null</td> <td>Unique</td> <td>Unsigned</td> <td>Autoincrement</td>
+              </tr>
+              <tr>
+                <td>idQuestions</td> <td>INT</td> <td>&#x2713;</td> <td>&#x2713;</td> <td>&#x2713;</td> <td>&#x2713;</td> <td>&#x2713;</td>
+              </tr>
+              <tr>
+                <td>type</td> <td>VARCHAR(45)</td> <td> </td> <td>&#x2713;</td> <td> </td> <td> </td> <td> </td>
+              </tr>
+              <tr>
+                <td>text</td> <td>VARCHAR(45)</td> <td> </td> <td>&#x2713;</td> <td> </td> <td> </td> <td> </td>
+              </tr>
+              <tr>
+                <td>surveyID</td> <td>INT</td> <td> </td> <td>&#x2713;</td> <td> </td> <td>&#x2713;</td> <td> </td>
+              </tr>
+              <tr>
+                <td>userID</td> <td>INT</td> <td> </td> <td>&#x2713;</td> <td> </td> <td>&#x2713;</td> <td> </td>
+              </tr>
+            </table>  
+          </td>
+
+
+
+
+
+
+            <td class="mainTd">    
+            <table>
+              <tr>
+                <th>Answers</th>
+              </tr>
+              <tr class="header">
+                <td>Column</td> <td>Datatype</td> <td>Primary key</td> <td>Not null</td> <td>Unique</td> <td>Unsigned</td> <td>Autoincrement</td>
+              </tr>
+              <tr>
+                <td>idAnswers</td> <td>INT</td> <td>&#x2713;</td> <td>&#x2713;</td> <td> </td> <td>&#x2713;</td> <td>&#x2713;</td>
+              </tr>
+              <tr>
+                <td>text</td> <td>VARCHAR(45)</td> <td> </td> <td>&#x2713;</td> <td> </td> <td> </td> <td> </td>
+              </tr>
+              <tr>
+                <td>nrOfTimesAnswered</td> <td>INT</td> <td> </td> <td> </td> <td> </td> <td> </td> <td> </td>
+              </tr>
+              <tr>
+                <td>questionID</td> <td>INT</td> <td> </td> <td> &#x2713;</td> <td>  </td> <td>&#x2713;</td> <td> </td>
+              </tr>
+            </table>  
+          </td>
+
+
+
+        </tr>
+      </table>
+
+      <p>The following diagram describes the data stored in our database:</p>
+      <div>
+        <img src="scheme.png" alt="dbDiagram"/>
+      </div>
+      <h2>Short Description</h2>
+      <p>Users' type might be either "author" or "respondent". Questions' type might be: text question, single choice question and multiple choice question. Users table has as a foreign key the user which created the survey. It is a one-to-many relationship - an author can have many surveys, but each survey has only one author. We can see similar realtionships between Surveys and Questions tables, Users-Questions and Questions-Answers.</p>
+    </body>
+</html>

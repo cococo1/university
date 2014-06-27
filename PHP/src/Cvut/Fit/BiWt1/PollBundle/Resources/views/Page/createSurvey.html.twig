@@ -1,0 +1,73 @@
+{# src/Cvut/Fit/BiWt1/PollBundle/Resources/views/Page/createSurvey.html.twig #}
+{% extends 'PollBundle::layout.html.twig' %}
+
+{% block title %}Create Survey{% endblock%}
+
+{% block body %}
+
+    <header>
+        <h1>Create a survey</h1>
+    </header>
+
+    {% if app.session.hasFlash('surveys-notice') %}
+    <div class="blogger-notice">
+        {{ app.session.flash('surveys-notice') }}
+    </div>
+{% endif %}
+
+    <p>Let's get started:</p>
+    <form action="{{ path('PollBundle_createSurvey') }}" method="post" {{ form_enctype(form) }} class="blogger">
+        {{ form_errors(form) }}
+
+          
+
+        {{ form_row(form.title, {'label' : 'Title*'}) }}       
+          
+        {{ form_row(form.description) }}
+
+        <input class="blogger1" name="saveTitle" type="submit" value="Save title & description" />
+
+        {{ form_rest(form) }}
+
+        <p id="questions"> Questions: </p>
+
+
+
+
+
+        {% for q in createdQuestions %}
+            <p>{{ loop.index }}. {{ q.getQuestion() }} 
+                <input class="deleteButton" type="button" onclick=location.href="{{ path('PollBundle_deleteQuestion', { 'id' : q.getId() }) }}" value="Delete me" />  
+                <input class="modifyButton" type="button" onclick=location.href="{{ path('PollBundle_modifyQuestion', { 'id' : q.getId() }) }}" value="Modify me" />  
+            </p>
+            <p>
+                {% if q.getType() is sameas("singleChoiceQuestion") %}
+                    {% for o in q.getOptions() %}
+                       <input type="radio" name={{ o.getOption() }}     disabled> {{ o.getOption() }}
+                    {% endfor %}
+                {% endif %}
+                {% if q.getType() is sameas("multipleChoiceQuestion") %}
+                    {% for o in q.getOptions() %}
+                       <input type="checkbox" name={{ o.getOption() }}     disabled> {{ o.getOption() }}
+                    {% endfor %}
+                {% endif %}
+            </p>
+        {% endfor %}
+
+    
+    <section class="addQuestions">
+        <input type="button" onclick=location.href="{{ path('PollBundle_textQuestion', { 'id' : "0" }) }}" value="Add a text question..." />
+        <input type="button" onclick=location.href="{{ path('PollBundle_choiceQuestion', { 'id' : "0" , 'type' : "single"}) }}" value="Add single choice question..." />
+        <input type="button" onclick=location.href="{{ path('PollBundle_choiceQuestion', { 'id' : "0" , 'type' : "multiple"}) }}" value="Add multiple choice question..." />
+    </section class="addQuestions">
+
+      <input class="blogger1" type="submit" value="Save survey" />
+    </form>
+
+{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,83 @@
+PollBundle_homepage:
+    pattern:  /
+    defaults: { _controller: PollBundle:Page:index }
+    requirements:
+        _method:  GET
+
+PollBundle_about:
+    pattern:  /about
+    defaults: { _controller: PollBundle:Page:about }
+    requirements:
+        _method:  GET
+
+PollBundle_createSurvey:
+    pattern:  /createSurvey
+    defaults: { _controller: PollBundle:Page:createSurvey }
+    requirements:
+        _method:  GET|POST
+
+PollBundle_takeSurvey:
+    pattern:  /takeSurvey/{id}
+    defaults: { _controller: PollBundle:Page:takeSurvey }
+    requirements:
+        _method:  GET|POST
+
+PollBundle_textQuestion:
+    pattern:  /textQuestion/{id}
+    defaults: { _controller: PollBundle:Page:textQuestion }
+    requirements:
+        _method:  GET|POST
+
+PollBundle_choiceQuestion:
+    pattern:  /choiceQuestion/{type}/{id}
+    defaults: { _controller: PollBundle:Page:choiceQuestion }
+    requirements:
+        _method:  GET|POST
+
+PollBundle_deleteQuestion:
+    pattern:  /deleteQuestion/{id}
+    defaults: { _controller: PollBundle:Page:deleteQuestion }
+    requirements:
+        _method:  GET|POST
+
+PollBundle_modifyQuestion:
+    pattern:  /modifyQuestion/{id}
+    defaults: { _controller: PollBundle:Page:modifyQuestion }
+    requirements:
+        _method:  GET|POST
+
+PollBundle_saveTitle:
+    pattern:  /saveTitle/{title}
+    defaults: { _controller: PollBundle:Page:saveTitle }
+    requirements:
+        _method:  GET|POST
+
+PollBundle_saveDescription:
+    pattern:  /saveDescription/{description}
+    defaults: { _controller: PollBundle:Page:saveDescription }
+    requirements:
+        _method:  GET|POST
+
+PollBundle_listSurveys:
+    pattern:  /listSurveys/{display}
+    defaults: { _controller: PollBundle:Page:listSurveys }
+    requirements:
+        _method:  GET|POST
+
+PollBundle_displaySurvey:
+    pattern:  /displaySurvey/{id}
+    defaults: { _controller: PollBundle:Page:displaySurvey }
+    requirements:
+        _method:  GET|POST
+
+PollBundle_deleteSurvey:
+    pattern:  /deleteSurvey/{id}
+    defaults: { _controller: PollBundle:Page:deleteSurvey }
+    requirements:
+        _method:  GET|POST
+
+PollBundle_seeAnswers:
+    pattern:  /seeAnswers/{surveyId}/{id}
+    defaults: { _controller: PollBundle:Page:seeAnswers }
+    requirements:
+        _method:  GET|POST

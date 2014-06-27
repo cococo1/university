@@ -1,0 +1,25 @@
+{# src/Cvut/Fit/BiWt1/PollBundle/Resources/views/Page/textQuestion.html.twig #}
+{% extends 'PollBundle::layout.html.twig' %}
+
+{% block title %}Text Question{% endblock%}
+
+{% block body %}
+    <header>
+        <h1>Create a text question</h1>
+    </header>
+
+    <p>Write the question:</p>
+    <form action="{{ path('PollBundle_textQuestion', { 'id' : app.request.get('id') }) }}" method="post" {{ form_enctype(form) }} class="blogger">
+        {{ form_errors(form) }}
+
+        {{ form_row(form.question, {'label' : 'Question*'}) }}
+
+        {{ form_rest(form) }}
+
+    <input class="blogger1" type="submit" value="Add" />
+    </form>
+
+{% endblock %}
+{% block sidebar %}
+    <p class="links"> <a href="{{ path('PollBundle_createSurvey') }}">Back to survey</a> </p>
+{% endblock %}

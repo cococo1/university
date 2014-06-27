@@ -1,0 +1,55 @@
+{# src/Cvut/Fit/BiWt1/PollBundle/Resources/views/Page/displaySurvey.html.twig #}
+{% extends 'PollBundle::layout.html.twig' %}
+
+{% block title %}Selected Survey{% endblock%}
+
+{% block body %}
+    <input class="deleteButton"  type="button" onclick=location.href="{{ path('PollBundle_deleteSurvey', { 'id' : survey.getId() }) }}" value="Delete survey" />  
+
+    <header>
+        <h1> {{ survey.getTitle() }} </h1>
+    </header>
+    
+
+
+    <p id="description">
+        {{ survey.getDescription() }}
+    </p>
+
+    <p id="questions"> Questions: </p>
+
+    {% for q in createdQuestions %}
+        <p id="question">{{ loop.index }}. {{ q.getQuestion() }} 
+            {% if q.getType() is sameas("textQuestion") %}
+                <input class="modifyButton"  type="button" onclick=location.href="{{ path('PollBundle_seeAnswers', { 'surveyId' : survey.getId(), 'id' : q.getId() }) }}" value="See answers" />
+            {% endif %}
+        </p>
+        <p>
+            {% if q.getType() is sameas("singleChoiceQuestion") %}
+                {% for o in q.getOptions() %}
+                <p class="options">
+                   <input type="radio" name={{ o.getOption() }}     disabled> {{ o.getOption() }}
+                  <input type="button" class="votes"  name={{ o.getOption() }} value='{{ o.getAnswers().count() }} votes'     disabled> 
+                </p>
+                {% endfor %}
+            {% endif %}
+            {% if q.getType() is sameas("multipleChoiceQuestion") %}
+                {% for o in q.getOptions() %}
+                <p class="options">
+                    <input type="checkbox" name={{ o.getOption() }}     disabled> {{ o.getOption() }}
+                    <input type="button" class="votes"  name={{ o.getOption() }} value='{{ o.getAnswers().count() }} votes'     disabled> 
+                </p>
+                {% endfor %}
+            {% endif %}
+        </p>
+
+    {% endfor %}
+
+{% endblock %}
+{% block sidebar %}
+    <p class="links"> <a href="{{ path('PollBundle_listSurveys', { 'display' : "true" }) }}">Back to list</a> </p>
+    <p class="links"> <a href="{{ path('PollBundle_createSurvey') }}">Edit this survey</a> </p>
+    <p class="links"> <a href="{{ path('PollBundle_takeSurvey', {'id' : survey.getId() }) }}">Take this survey</a> </p>
+
+
+{% endblock%}

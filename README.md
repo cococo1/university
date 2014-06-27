@@ -37,6 +37,10 @@ This repo contains the code which I wrote at the university, during my Bachelor 
 
 --
 
+**PHP** contains a course work at **Web Technologies I** course.
+
+--
+
 **python** dir contains code in python written for **Communication Protocols and Information Security** course.
 
 --

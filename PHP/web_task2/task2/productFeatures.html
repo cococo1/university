@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="en-gb" />
+    <link rel="stylesheet" title="Main style" type="text/css" href="mystyle.css"/>
+    <link rel="stylesheet" title="Alternative style" type="text/css" href="alternative.css"/>
+
+
+    <title>Online surveys - Product Features</title>
+    </head>
+    <body>
+    <h1>Product Features</h1>
+    <div>
+      <a href="http://webdev.fit.cvut.cz/~chetrmax/BI-WT1/html/index.html">Home</a>
+      <a href="http://webdev.fit.cvut.cz/~chetrmax/BI-WT1/html/userGuide.html">User Guide</a>
+      <a href="http://webdev.fit.cvut.cz/~chetrmax/BI-WT1/html/dataModel.html">Data Model</a>
+    </div>
+
+
+
+
+      <h2>Goal description</h2>
+        <p>The goal of this project is to get an online site which is able to create/edit/delete surveys and store all this data on a database.</p>
+
+
+
+
+
+      <h2>User roles</h2>
+        <p>We can have the following types of users:</p>
+        <ul>
+          <li>Anonymous user;</li>
+          <li>Registered user:
+            <ul>
+              <li>Author;</li>
+              <li>Respondent.</li>
+            </ul>
+          </li>
+        </ul>
+        <p>An anonymous user is not registered on the web site and cannot take a survey. A registred user authenticates against the local user database (in this case against MySQL) and can be of two types. First, an author is the one which creates surveys and writes the questions. He can save his data, edit or delete it. Second, a respondent is a registered user which can answer the questions or complete some surveys.</p>
+
+
+
+
+
+      <h2>Requirements</h2>
+
+        <h3>Functional requirements</h3>
+          <p>We are going to define the requirements as a list of actions which should be implemented and accessible for a end user.</p>
+          <ul>
+            <li>User authentication:
+              <ul>
+                <li>User logs in;</li>
+                <li>User logs out;</li>
+              </ul>
+            </li>
+
+            <li>Writing surveys:
+              <ul>
+                <li>Create a survey;</li>
+                <li>List all created surveys;</li>
+                <li>Select a survey with identifier;</li>
+                <li>Edit selected survey;</li>
+                <li>Delete a survey;</li>
+                <li>Display results of a survey;</li>
+              
+
+                <li>Writing questions:
+                  <ul>
+                    <li>Create a question - specify the type, may be possible answers;</li>
+                    <li>Modify a question;</li>
+                    <li>Delete a question;</li>
+                    <li>Assign a question to a survey / group of questions;</li>
+                    <li>Remove a question from a survey / group of questions;</li>
+                    <li>Display results of a question;</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li>Filling a survey:
+              <ul>
+                <li>Fill a question;</li>
+                <li>Fill a group of question (optional);</li>
+                <li>Display filled values of a respondent;</li>
+              </ul>
+            </li>
+
+          </ul>
+
+        <h3>Non-functional requirements</h3>
+          <p>Non-functional requirements represent the technologies and frameworks behind our Survey service. These are summarized below:</p>
+          <ul>
+            <li>PHP programming language;</li>
+            <li>MySQL database for storing data;</li>
+            <li>Web-based user interface:
+              <ul>
+                <li>HTML;</li>
+                <li>CSS;</li>
+              </ul>
+            </li>
+            <li>Application deployment on the server webdev.fit.cvut.cz.</li>
+          </ul>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+{# src/Cvut/Fit/BiWt1/PollBundle/Resources/views/Page/takeSurvey.html.twig #}
+{% extends 'PollBundle::layout.html.twig' %}
+
+
+{% block title %}Take Survey{% endblock%}
+
+{% block body %}
+
+    <header>
+        <h1>{{ survey.getTitle() }}</h1>
+    </header>
+    {% if app.session.hasFlash('surveys-notice') %}
+        <div class="blogger-notice">
+            {{ app.session.flash('surveys-notice') }}
+        </div>
+    {% endif %}
+
+    <p id="description">
+        {{ survey.getDescription() }}
+    </p>
+
+    <p id="questions"> Questions: </p>
+
+<form class="blogger" action="{{ path('PollBundle_takeSurvey', {'id' : survey.getId() }) }}"  method="post" >
+    {% for q in createdQuestions %}
+        <p id="question">{{ loop.index }}. {{ q.getQuestion() }} 
+        </p>
+        <p>
+            {% if q.getType() is sameas("textQuestion") %}
+                <input type="text" name={{ q.getId() }} >
+            {% endif %}
+            {% if q.getType() is sameas("singleChoiceQuestion") %}
+                {% for o in q.getOptions() %}
+                   <input type="radio" name={{ q.getId() }} value="{{ o.getId() }}"> {{ o.getOption() }}
+                {% endfor %}
+            {% endif %}
+            {% if q.getType() is sameas("multipleChoiceQuestion") %}
+                {% for o in q.getOptions() %}
+                   <input type="checkbox" name='{{ q.getId() }}[]' value={{ o.getId() }}> {{ o.getOption() }}
+                {% endfor %}
+            {% endif %}
+        </p>
+    {% endfor %}
+  <input class="blogger1" type="submit" value="Save survey" />
+
+</form>
+
+{% endblock %}
+{% block sidebar %}
+    <p class="links"> <a href="{{ path('PollBundle_listSurveys', {'display' : "false"}) }}">Back to list</a> </p>
+
+
+{% endblock%}

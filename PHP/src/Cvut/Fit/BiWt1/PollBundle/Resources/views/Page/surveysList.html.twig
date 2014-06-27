@@ -1,0 +1,46 @@
+{# src/Cvut/Fit/BiWt1/PollBundle/Resources/views/Page/surveysList.html.twig #}
+{% extends '::base.html.twig' %}
+
+{% block title %}List of Surveys{% endblock%}
+
+{% block body %}
+    <header>
+        <h1>List of Surveys</h1>
+    </header>
+    {% if app.session.hasFlash('surveys-notice') %}
+        <div class="blogger-notice">
+            {{ app.session.flash('surveys-notice') }}
+        </div>
+    {% endif %}
+    <p>Select one:</p>
+    <table id="surveys">
+        <tr>
+            <th>Surveys</th>
+        </tr>
+
+      {% for survey in surveys %}
+        {% if display is sameas("true") %}
+            <tr>
+              <td
+                onmouseover="this.bgColor='#F9EDA9'"
+                onmouseout="this.bgColor='white'"
+                onclick=location.href="{{ path('PollBundle_displaySurvey' , { 'id' : survey.getId() }) }}"
+              >
+                    {{ survey.getTitle() }}
+              </td>
+            </tr>
+        {% else %}
+            <tr>
+              <td
+                onmouseover="this.bgColor='#F9EDA9'"
+                onmouseout="this.bgColor='white'"
+                onclick=location.href="{{ path('PollBundle_takeSurvey' , { 'id' : survey.getId() }) }}"
+              >
+                    {{ survey.getTitle() }}
+              </td>
+            </tr>
+        {% endif %}
+      {% endfor %}
+    </table>
+
+{% endblock %}
