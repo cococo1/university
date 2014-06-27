@@ -17,7 +17,7 @@ This repo contains the code which I wrote at the university, during my Bachelor 
 
 --
 
-**C++** dir contains code written in C++, the course work for DSA - TTS program for Romanian language and labs for **APA - Analysis of Algorithms**, **Programming in C++** courses.
+**C++** dir contains code written in C++, the course work for DSA - TTS program for Romanian language and labs for **APA - Analysis of Algorithms**, **Programming in C++** courses. It also contains the course work for **Parallel Programming**, written using OpenMPI.
 
 --
 
