@@ -13,6 +13,10 @@ Code written in C programming language
 
 --
 
+**limits** contains an example how to find the *_MAX and *_MIN for different data types and also their format specifiers.
+
+--
+
 **Operating_Systems** dir contains the labs for the corresponding course.
 
 --
@@ -26,6 +30,10 @@ Code written in C programming language
 --
 
 **sizeOfOperator** dir contains an example of usage of `sizeof` operator without paranthesis. 
+
+--
+
+**usingMake** contains a simple example of how to build .c files using a makefile.
 
 --
 
