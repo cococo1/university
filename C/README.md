@@ -3,6 +3,11 @@ C
 
 Code written in C programming language
 
+
+--
+
+**cmdArguments** dir shows an example of how to parse cmd line options using getopt() function.
+
 --
 
 **complexTypeC99** dir shows an example of usage of `complex` type added to C99 standard.
