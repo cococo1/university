@@ -42,6 +42,10 @@ Code written in C programming language
 
 --
 
+**variadicFunctions** show an example how to create functions with variable number of parameters.
+
+--
+
 **Windows_Programming** contains the labs for the corresponding course.
 
 --
