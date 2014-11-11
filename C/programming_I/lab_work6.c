@@ -1,5 +1,6 @@
 // Copyright Max Chetrusca, modified Nov 11 2014
 // lab_work6.c
+// Programming I, 2010
 
 #include <assert.h>
 #include <stdio.h>

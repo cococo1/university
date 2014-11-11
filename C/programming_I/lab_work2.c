@@ -1,5 +1,6 @@
 // Copyright Max Chetrusca, modified syle on Nov 10 2014
 // lab_work2.c
+// Programming I, 2010
 
 #include <assert.h>
 #include <stdio.h>

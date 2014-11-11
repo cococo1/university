@@ -1,5 +1,6 @@
 // Copyright Max Chetrusca, modified style Nov 10 2014
 // lab_work1.c
+// Programming I, 2010
 
 #include <assert.h>
 #include <math.h>
