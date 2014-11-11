@@ -6,11 +6,13 @@ Code written in C programming language
 
 --
 
-**cmdArguments** dir shows an example of how to parse cmd line options using getopt() function.
+**cmdArguments** dir shows an example of how to parse cmd line options using
+getopt() function.
 
 --
 
-**complexTypeC99** dir shows an example of usage of `complex` type added to C99 standard.
+**complexTypeC99** dir shows an example of usage of `complex` type added to C99
+standard.
 
 --
 
@@ -18,7 +20,8 @@ Code written in C programming language
 
 --
 
-**limits** contains an example how to find the *_MAX and *_MIN for different data types and also their format specifiers.
+**limits** contains an example how to find the *_MAX and *_MIN for different
+data types and also their format specifiers.
 
 --
 
@@ -34,15 +37,18 @@ Code written in C programming language
 
 --
 
-**sizeOfOperator** dir contains an example of usage of `sizeof` operator without paranthesis. 
+**sizeOfOperator** dir contains an example of usage of `sizeof` operator without
+paranthesis. 
 
 --
 
-**usingMake** contains a simple example of how to build .c files using a makefile.
+**usingMake** contains a simple example of how to build .c files using a
+makefile.
 
 --
 
-**variadicFunctions** show an example how to create functions with variable number of parameters.
+**variadicFunctions** show an example how to create functions with variable
+number of parameters.
 
 --
 
