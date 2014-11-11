@@ -17,19 +17,19 @@ typedef struct {
 
 // input from keyboard an array of n cars:
 // car should not be NULL, n != 0
-void input(CAR *cars, int n);
+void input(const int n, CAR *cars);
 // output the array o cars to the stdout:
-void output(CAR *cars, int n);
+void output(const int n, const CAR *cars);
 // search for the wanted car:
-int search(CAR* cars, int n, char *wanted);
+int search(const int n, const char *wanted, const CAR *cars);
 // sort cars by cost:
-void sort(CAR* cars, int n);
+void sort(const int n, CAR* cars);
 // edit the data about the car k:
-void edit(CAR* cars, int n, int k);
+void edit(const int n, const int k, CAR *cars);
 // add a car at given pos:
-void add(CAR* cars, int *n, int pos);
+void add(const int pos, CAR* cars, int *n);
 // read cars from file, setting n as well:
-CAR* read_file(CAR* cars, int *n, char *filename);
+CAR* read_file(const char* filename, CAR* cars, int *n);
 
 int main(void)
 {
@@ -69,7 +69,7 @@ int main(void)
 			}
 		        case 2 : {
                                 assert(cars);
-			        input(cars, n);
+			        input(n, cars);
 			        break;
 			}
 		        case 3 : {
@@ -79,7 +79,7 @@ int main(void)
 			        puts("What model are you interested "
                                      "in ?");
 			        scanf("%s", model);
-			        k = search(cars, n, model);
+			        k = search(n, model, (const CAR*)cars);
 			        free(model);
 			        if (k >= 0) {
                                         printf("\nIt costs %d $.\n",
@@ -90,7 +90,7 @@ int main(void)
 		        case 4 : {
                                 assert(cars);                 
 				puts("Sorted the cars by price.");
-				sort(cars, n);
+				sort(n, cars);
 				break;
 			}
 		        case 5 : {
@@ -99,16 +99,16 @@ int main(void)
                                 assert(model);
 				puts("Introduce the model you want to edit:");
 				scanf("%s", model);
-				 k = search(cars, n, model);
+				 k = search(n, model, (const CAR*)cars);
 				 free(model);
 				 if (k >= 0) {
-				        edit(cars, n, k);
+				        edit(n, k, cars);
 				 }
 				 break; 
 			}
 		        case 6 : {
                                 assert(cars);
-				add(cars, &n, n);
+				add(n, cars, &n);
 				break;
 			}
 		        case 7 : {
@@ -128,7 +128,7 @@ int main(void)
                                 assert(cars);
 				puts("Give the possition of new element:");
 				scanf("%d", &k);
-				add(cars, &n, k - 1);
+				add(k - 1, cars, &n);
 				break;
 			}
 		        case 9 : {
@@ -153,12 +153,12 @@ int main(void)
 		        case 10 : {
 				puts("Introduce the name of the file:");
 				scanf("%s", filename);
-				cars = read_file(cars, &n, filename);
+				cars = read_file(filename, cars, &n);
 				break;
 			}
 		        case 11 : {
                                 assert(cars);
-				output(cars, n);
+				output(n, (const CAR*)cars);
 				break;
 			}
 		        case 12: {
@@ -177,7 +177,7 @@ int main(void)
         return 0;
 }
 
-void input(CAR *cars, int n)
+void input(const int n, CAR *cars)
 {
         assert(cars);
         assert(n > 0);
@@ -196,7 +196,7 @@ void input(CAR *cars, int n)
 	}
 }
 
-void output(CAR *cars, int n)
+void output(const int n, const CAR *cars)
 {
         assert(cars);
         assert(n > 0);
@@ -216,7 +216,7 @@ void output(CAR *cars, int n)
         }
 }
 
-int search(CAR* cars, int n, char *wanted)
+int search(const int n, const char *wanted, const CAR *cars)
 {
         assert(cars);
         assert(n > 0);
@@ -231,7 +231,7 @@ int search(CAR* cars, int n, char *wanted)
         return -1;
 }
 
-void sort(CAR* cars, int n)
+void sort(const int n, CAR *cars)
 { 
         assert(cars);
         assert(n > 0);
@@ -247,7 +247,7 @@ void sort(CAR* cars, int n)
 	}
 }
 
-void edit(CAR* cars, int n, int k) {
+void edit(const int n, const int k, CAR *cars) {
         assert(cars);
         assert(n > 0);
         assert(k >= 0);
@@ -291,7 +291,7 @@ void edit(CAR* cars, int n, int k) {
 	}
 }
 
-void add(CAR* cars, int *n, int pos)
+void add(const int pos, CAR *cars, int *n)
 {
         assert(cars);
         assert(*n > 0);
@@ -316,7 +316,7 @@ void add(CAR* cars, int *n, int pos)
 	scanf("%d", &cars[pos].cost);
 }
 
-CAR* read_file(CAR* cars, int *n, char *filename)
+CAR* read_file(const char *filename, CAR *cars, int *n)
 {
         assert(cars);
         assert(*n > 0);

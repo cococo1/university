@@ -10,19 +10,19 @@
 // Allocates a n x m matrix of floats dynamically. 
 // the caller has the responsibility to free the memory.
 // n and m should not be zero.
-float** allocation(int n, int m);
+float** allocate(const int n, const int m);
 // Inputs from stdin the matrix a, 
 // which has n rows and m columns.
 // a should be allocated, n and m != 0.
-void input(float** a, int n, int m);
+void input(const int n, const int m, float **a);
 // Outputs the matrix a on the screen:
-void output(float** a, int n, int m);
+void output(const int n, const int m, const float **a);
 // Fill matrix with rand elements:
-void fill_rand(float** a, int n, int m);
+void fill_rand(const int n, const int m, float **a);
 // Deallocate the memory of this matrix, set a to 0:
-void clearing(float** a, int n);
+void clear(const int n, float **a);
 // Sort matrix' columns in decreasing order:
-void sort(float **a, int n, int m);
+void sort(const int n, const int m, float **a);
 
 int main(void)
 {
@@ -41,17 +41,17 @@ int main(void)
                         case 0 :  return 0; 
 		        case 1 : puts("Give n and m:");
                                  scanf("%d%d", &n, &m);
-                                 a = allocation(n, m);
+                                 a = allocate(n, m);
 				 break;
-		        case 2 : input(a, n, m); 
+		        case 2 : input(n, m, a); 
                                  break;
-		        case 3 : fill_rand(a, n, m);
+		        case 3 : fill_rand(n, m, a);
                                  break;
-		        case 4 : sort(a, n, m);
+		        case 4 : sort(n, m, a);
                                  break;
-		        case 5 : output(a, n, m);
+		        case 5 : output(n, m, (const float**)a);
                                  break;
-		        case 6 : clearing(a, n);
+		        case 6 : clear(n, a);
                                  break;
 		        default : puts("Unknown command.");
                                   puts("Press any key"); 
@@ -60,7 +60,7 @@ int main(void)
         return 0;
 }
 
-float** allocation(int n, int m)
+float** allocate(const int n, const int m)
 {
         puts("***alocation.");
         assert(n > 0);
@@ -79,7 +79,7 @@ float** allocation(int n, int m)
         return a;
 }
 
-void input(float** a, int n, int m)
+void input(const int n, const int m, float **a)
 {
         puts("***Inputing the elements:");
         assert(a);
@@ -96,7 +96,7 @@ void input(float** a, int n, int m)
         puts("Press any key");
 }
 
-void output(float** a, int n, int m)
+void output(const int n, const int m, const float **a)
 {
         puts("\n ***Output:");
         assert(a);
@@ -112,7 +112,7 @@ void output(float** a, int n, int m)
         puts("Press any key \n");
 }
 
-void fill_rand(float **a, int n, int m)
+void fill_rand(const int n, const int m, float **a)
 {
         puts("***Filling the array with random elements.");
         assert(a);
@@ -128,7 +128,7 @@ void fill_rand(float **a, int n, int m)
         puts("Press any key");
 }
 
-void clearing(float** a, int n)
+void clear(const int n, float **a)
 {
         assert(a);
         assert(n > 0);
@@ -140,7 +140,7 @@ void clearing(float** a, int n)
         puts("***Memory deallocated. \n Press any key ");
 }
 
-void sort(float **a, int n , int m)
+void sort(const int n, const int m, float **a)
 {
         puts("***Sorting the array's column in decreasing order.");
         assert(a);
