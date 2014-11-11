@@ -11,6 +11,8 @@ int main(void)
         int n = 0, m = 0, k = 0;
         puts("Give the number of rows and columns:");
         scanf("%d%d", &n, &m);
+        assert(n > 0);
+        assert(m > 0);
         assert(n <= 48);
         assert(m <= 48);
         n = n + 2;

@@ -12,6 +12,7 @@ int main(void)
         float min = 0.0;
         printf("Enter the number of elements:\n");
         scanf("%d", &n);
+        assert(n > 0);
         assert(n <= 50);
         for (int i = 0; i < n; ++i) {
                 printf("Enter element number %d: ", i+1);

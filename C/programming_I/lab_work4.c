@@ -62,8 +62,8 @@ int main(void)
 float** allocation(int n, int m)
 {
         puts("***alocation.");
-        assert(n);
-        assert(m);
+        assert(n > 0);
+        assert(m > 0);
         float **a = NULL;
         a = (float**)malloc(n * sizeof(float*));
         assert(a);
@@ -82,8 +82,8 @@ void input(float** a, int n, int m)
 {
         puts("***Inputing the elements:");
         assert(a);
-        assert(n);
-        assert(m);
+        assert(n > 0);
+        assert(m > 0);
         for (int i = 0; i < n; ++i) {
                 assert(a[i]);
                 for (int j = 0; j < m; ++j) {
@@ -99,8 +99,8 @@ void output(float** a, int n, int m)
 {
         puts("\n ***Output:");
         assert(a);
-        assert(n);
-        assert(m);
+        assert(n > 0);
+        assert(m > 0);
         for (int i = 0; i < n; ++i) {
                 assert(a[i]);
                 for (int j = 0; j < m; ++j) {
@@ -115,8 +115,8 @@ void fill_rand(float **a, int n, int m)
 {
         puts("***Filling the array with random elements.");
         assert(a);
-        assert(n);
-        assert(m);
+        assert(n > 0);
+        assert(m > 0);
         for (int i = 0; i < n; ++i) {
                 assert(a[i]);
                 for (int j = 0; j < m; ++j) {
@@ -130,7 +130,7 @@ void fill_rand(float **a, int n, int m)
 void clearing(float** a, int n)
 {
         assert(a);
-        assert(n);
+        assert(n > 0);
         for (int i = 0; i < n; ++i) {
                 free(a[i]);
         }      
@@ -143,8 +143,8 @@ void sort(float **a, int n , int m)
 {
         puts("***Sorting the array's column in decreasing order.");
         assert(a);
-        assert(n);
-        assert(m);
+        assert(n > 0);
+        assert(m > 0);
         float aux = 0.0; 
         for (int k = 0; k < m; ++k) {
                 for (int i = 0; i < n - 1; ++i) {
