@@ -2,3 +2,5 @@
 prog
 *.wav
 *swp
+*.o
+
