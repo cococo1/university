@@ -29,10 +29,13 @@ void input(const int n, CAR *cars)
 	        scanf("%s", cars[i].country);
 	        puts("What is the year of manufacturing ?");
 	        scanf("%i", &cars[i].date);
+                assert(cars[i].date > 0);
 	        puts("What is the capacity of engine?");
 	        scanf("%i", &cars[i].capacity);
+                assert(cars[i].capacity > 0);
 	        puts("What is the price ?");
 	        scanf("%i", &cars[i].cost);
+                assert(cars[i].cost > 0);
 	}
 }
 
@@ -121,6 +124,7 @@ void edit(const int n, const int k, CAR *cars)
 	if (ans == 'y') {
 		puts("Introduce the new date of manufacturing:");
 	    scanf("%i", &cars[k].date);
+            assert(cars[k].date > 0);
 	}
 	puts("Do you want to change the capacity of model? y/n");
 	fflush(stdin);
@@ -128,6 +132,7 @@ void edit(const int n, const int k, CAR *cars)
 	if (ans == 'y') {
 		puts("Introduce the new capacity of the car:");
 		scanf("%i", &cars[k].capacity);
+                assert(cars[k].capacity > 0);
 	}
 	puts("Do you want to change the cost of model? y/n");
 	fflush(stdin);
@@ -135,6 +140,7 @@ void edit(const int n, const int k, CAR *cars)
 	if (ans == 'y') {
 		puts("Introduce the new cost of car:");
 	        scanf("%i", &cars[k].cost);
+                assert(cars[k].cost > 0);
 	}
 }
 
@@ -157,14 +163,18 @@ void add(const int pos, CAR *cars, int *n)
         scanf("%s", cars[pos].country);
         puts("Type the year of manufacturing with numbers ");
         scanf("%i", &cars[pos].date);
+        assert(cars[pos].date > 0);
 	puts("What is the capacity of engine?");
         scanf("%i", &cars[pos].capacity);
+        assert(cars[pos].capacity > 0);
 	puts("What is the price?");
         scanf("%i", &cars[pos].cost);
+        assert(cars[pos].cost > 0);
 }
 
 CAR* read(const char *filename, CAR* cars, int *n)
 {
+        assert(filename);
         //Reads from a file info about an array of cars
 	FILE *f = NULL;
 	f = fopen(filename, "r");
@@ -178,6 +188,9 @@ CAR* read(const char *filename, CAR* cars, int *n)
                &cars[0].date,
                &cars[0].capacity,
                &cars[0].cost);
+        assert(cars[0].date > 0);
+        assert(cars[0].capacity > 0);
+        assert(cars[0].cost > 0);
         int i = 0;
 	while (getc(f) != EOF) {
                 i++;
@@ -187,9 +200,12 @@ CAR* read(const char *filename, CAR* cars, int *n)
                        "%s %s %d %d %d",
                        cars[i].model, 
                        cars[i].country,
-                       &cars[0].date,
-                       &cars[0].capacity,
-                       &cars[0].cost);
+                       &cars[i].date,
+                       &cars[i].capacity,
+                       &cars[i].cost);
+                assert(cars[i].date > 0);
+                assert(cars[i].capacity > 0);
+                assert(cars[i].cost > 0);
 	}
 	puts("File successfully scaned.");
 	(*n) = i;

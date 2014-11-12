@@ -10,8 +10,26 @@
 
 #include "car_adt.h" 
 
+void test_input(void);
+void test_output(void);
+void test_search(void);
+void test_sort(void);
+void test_edit(void);
+void test_add(void);
+void test_read(void);
+
 int main(void)
 {
+        puts("Starting tests:");
+        test_input();
+        test_output();
+        test_search();
+        test_sort();
+        test_edit();
+        test_add();
+        test_read();
+        puts("All tests passed.");
+
         CAR *cars = NULL;
 	char *model = NULL;
 	int n = 0, k = 0, operation = 0;
@@ -142,5 +160,33 @@ int main(void)
 	        }
         }
 	return 0;
+}
+
+void test_input(void)
+{
+}
+
+void test_output(void)
+{
+}
+
+void test_search(void)
+{
+}
+
+void test_sort(void)
+{
+}
+
+void test_edit(void)
+{
+}
+
+void test_add(void)
+{
+}
+
+void test_read(void)
+{
 }
 
