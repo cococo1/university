@@ -11,21 +11,37 @@
 // the caller has the responsibility to free the memory.
 // n and m should not be zero.
 float** allocate(const int n, const int m);
+void test_allocate(void);
 // Inputs from stdin the matrix a, 
 // which has n rows and m columns.
 // a should be allocated, n and m != 0.
 void input(const int n, const int m, float **a);
+void test_input(void);
 // Outputs the matrix a on the screen:
 void output(const int n, const int m, const float **a);
+void test_output(void);
 // Fill matrix with rand elements:
 void fill_rand(const int n, const int m, float **a);
+void test_fill_rand(void);
 // Deallocate the memory of this matrix, set a to 0:
-void clear(const int n, float **a);
+// n - nr. of rows
+void clear(const int n, float ***a);
+void test_clear(void);
 // Sort matrix' columns in decreasing order:
 void sort(const int n, const int m, float **a);
+void test_sort(void);
 
 int main(void)
 {
+        puts("Starting tests:");
+        test_allocate();
+        test_input();
+        test_output();
+        test_fill_rand();
+        test_clear();
+        test_sort();
+        puts("All tests passed.");
+
         float **a = NULL;
         int n = 0, m = 0, operation = 0;
         while (1) { 
@@ -51,7 +67,7 @@ int main(void)
                                  break;
 		        case 5 : output(n, m, (const float**)a);
                                  break;
-		        case 6 : clear(n, a);
+		        case 6 : clear(n, &a);
                                  break;
 		        default : puts("Unknown command.");
                                   puts("Press any key"); 
@@ -79,6 +95,13 @@ float** allocate(const int n, const int m)
         return a;
 }
 
+void test_allocate(void)
+{
+        float **a = allocate(2, 2);
+        assert(a[1][1] == 0);
+        clear(2, &a);
+}
+
 void input(const int n, const int m, float **a)
 {
         puts("***Inputing the elements:");
@@ -94,6 +117,10 @@ void input(const int n, const int m, float **a)
                 }
         }
         puts("Press any key");
+}
+
+void test_input(void)
+{
 }
 
 void output(const int n, const int m, const float **a)
@@ -112,6 +139,10 @@ void output(const int n, const int m, const float **a)
         puts("Press any key \n");
 }
 
+void test_output(void)
+{
+}
+
 void fill_rand(const int n, const int m, float **a)
 {
         puts("***Filling the array with random elements.");
@@ -128,16 +159,27 @@ void fill_rand(const int n, const int m, float **a)
         puts("Press any key");
 }
 
-void clear(const int n, float **a)
+void test_fill_rand(void)
 {
-        assert(a);
+}
+
+void clear(const int n, float ***a)
+{
+        assert(*a);
         assert(n > 0);
         for (int i = 0; i < n; ++i) {
-                free(a[i]);
+                free((*a)[i]);
         }      
-        free(a);
-        a = NULL;
+        free(*a);
+        *a = NULL;
         puts("***Memory deallocated. \n Press any key ");
+}
+
+void test_clear(void)
+{
+        float **a = allocate(2, 3);
+        clear(2, &a);
+        assert(a == NULL);
 }
 
 void sort(const int n, const int m, float **a)
@@ -159,5 +201,9 @@ void sort(const int n, const int m, float **a)
                 }
         }
         puts("Press any key");
+}
+
+void test_sort(void)
+{
 }
 
