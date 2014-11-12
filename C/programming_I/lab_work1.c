@@ -18,11 +18,12 @@ int main(void)
         assert(dx > 0);
         assert(x_fin > x_in);
         assert(b != 0);
+        assert(c != 0);
         printf("Rezultatele obtinute:\n");
         while (x <= x_fin) {
                 ++i;
                 if ((x - 2.0 > 0.0) && (a == 0.0)) {
-                        assert((sin(c) - b * b) != 0);
+                        assert((sin(c)) != 0);
                         F = (a + log(x)) / sin(c) - b * b;
                 } else if ((x - 2.0 < 0.0) && (a != 0.0)) {
                         F = (x - sin(x + 1.0)) / b; 
