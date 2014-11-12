@@ -6,13 +6,38 @@
 // Uses singly link-lists.
 // Max Chetrusca, Feb 19, 2011
 
+#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "car_adt2.h"
 
+void test_allocate_memory(void);
+void test_input(void);
+void test_output(void);
+void test_search(void);
+void test_edit(void);
+void test_swap(void);
+void test_sort(void);
+void test_free_list(void);
+void test_show_menu(void);
+void test_list_length(void);
+
 int main(void)
 {
+        puts("Starting tests:");
+        test_allocate_memory();
+        test_input();
+        test_output();
+        test_search();
+        test_edit();
+        test_swap();
+        test_sort();
+        test_free_list();
+        test_show_menu();
+        test_list_length();
+        puts("All tests passed.");
+
         CAR* list_of_cars = NULL;
         CAR  *p1 = NULL;
         CAR  *p2 = NULL;
@@ -153,5 +178,61 @@ label_2:	                puts("Press any key to continue;");
 
         }
 	return 0;
+}
+
+void test_allocate_memory(void)
+{
+        CAR *head = allocate_memory(1);
+        assert(head);
+        free_list(&head);
+}
+
+void test_input(void)
+{
+}
+
+void test_output(void)
+{
+}
+
+void test_search(void)
+{
+}
+
+void test_edit(void)
+{
+}
+
+void test_swap(void)
+{
+        CAR a = { .date = 1};
+        CAR b = { .date = 2};
+        CAR a1 = a;
+        CAR b1 = b;
+        swap(&a, &b);
+        assert(a.date == b1.date);
+        assert(b.date == a1.date);
+}
+
+void test_sort(void)
+{
+}
+
+void test_free_list(void)
+{
+        CAR *c = allocate_memory(3);
+        free_list(&c);
+        assert(c == NULL);
+}
+
+void test_show_menu(void)
+{
+}
+
+void test_list_length(void)
+{
+        CAR *h = allocate_memory(4);
+        assert(list_length(h) == 4);
+        free_list(&h);
 }
 

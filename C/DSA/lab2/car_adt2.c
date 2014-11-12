@@ -21,14 +21,23 @@ CAR* allocate_memory(int n)
         CAR *pointer = NULL;
 	head = (CAR*)malloc(sizeof(CAR));
         assert(head);
+        head->model[0] = '\0';
+        head->country[0] = '\0';
+        head->date = 1;
+        head->cost = 1;
+        head->capacity = 1;
 	// The variable head is defined anyway,
 	// either there is one or more elements; 
         // n-- to avoid allocating memory for one more element
         n--;
-	head->next=NULL;
-	for (int i = 0;i < n;i++) {
+	head->next = NULL;
+	for (int i = 0; i < n; i++) {
                 current = (CAR*)malloc(sizeof(CAR));
                 assert(current);
+                current->model[0] = '\0';
+                current->country[0] = '\0';
+                current->date = 1;
+                current->capacity = 1;
 		current->next = NULL;
 		if (i == 0) {
 		        head->next = current;
@@ -55,11 +64,14 @@ void input (CAR *head)
                 scanf("%s", current->country);
 		puts("\nYear of manufacturing:");
 		scanf("%d", &current->date);
+                assert(current->date > 0);
 		puts("\nPrice of the model:");
 		scanf("%d", &current->cost);
+                assert(current->cost > 0);
 		puts("\nCapacity of engine:");
 		scanf("%d", &current->capacity);
-                current=current->next;
+                assert(current->capacity > 0);
+                current = current->next;
                 i++;
         }
 	puts("Input finished.");
@@ -146,6 +158,7 @@ three:
 		puts("Introduce the new capacity of this model:");
 		fflush(stdin);
 		scanf("%d", &model_to_modify->capacity);
+                assert(model_to_modify->capacity > 0);
 	}
 four:
         puts("Do you want to modify the price of this model? y/n");
@@ -159,6 +172,7 @@ four:
 		puts("Introduce the new price of this model:");
 		fflush(stdin);
 		scanf("%d", &model_to_modify->cost);
+                assert(model_to_modify->cost > 0);
 	}
 five:
         puts("Do you want to modify the year of manufacturing of this model?"
@@ -173,6 +187,7 @@ five:
 		puts("Introduce the new year of manufacturing of this model:");
 		fflush(stdin);
 		scanf("%d", &model_to_modify->date);
+                assert(model_to_modify->date > 0);
 	}
 }
 
