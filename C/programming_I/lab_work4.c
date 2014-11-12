@@ -30,17 +30,15 @@ void test_clear(void);
 // Sort matrix' columns in decreasing order:
 void sort(const int n, const int m, float **a);
 void test_sort(void);
+void test_all(void);
+// helper function for main();
+int switch_operation(const int operation, int *n, int *m, float ***a);
+// helper function for sorting;
+void internal_for(const int i, const int k, const int n, float **a);
 
 int main(void)
 {
-        puts("Starting tests:");
-        test_allocate();
-        test_input();
-        test_output();
-        test_fill_rand();
-        test_clear();
-        test_sort();
-        puts("All tests passed.");
+        test_all();
 
         float **a = NULL;
         int n = 0, m = 0, operation = 0;
@@ -53,25 +51,8 @@ int main(void)
                "allocated memory \n 0.Exit the program \n \n Enter the "
                "number of operation you want to be performed:");
 	        scanf("%d", &operation);
-	        switch (operation) {
-                        case 0 :  return 0; 
-		        case 1 : puts("Give n and m:");
-                                 scanf("%d%d", &n, &m);
-                                 a = allocate(n, m);
-				 break;
-		        case 2 : input(n, m, a); 
-                                 break;
-		        case 3 : fill_rand(n, m, a);
-                                 break;
-		        case 4 : sort(n, m, a);
-                                 break;
-		        case 5 : output(n, m, (const float**)a);
-                                 break;
-		        case 6 : clear(n, &a);
-                                 break;
-		        default : puts("Unknown command.");
-                                  puts("Press any key"); 
-	        }
+                if (!switch_operation(operation, &n, &m, &a)) break;
+	        
         }
         return 0;
 }
@@ -182,22 +163,27 @@ void test_clear(void)
         assert(a == NULL);
 }
 
+void internal_for(const int i, const int k, const int n, float **a)
+{
+        float aux = 0.0;
+        for (int j = i + 1; j < n; ++j) {
+                if (a[j][k] > a[i][k]) {
+                        aux = a[j][k];
+		        a[j][k] = a[i][k]; 
+		        a[i][k] = aux;
+                }
+        }
+}
+
 void sort(const int n, const int m, float **a)
 {
         puts("***Sorting the array's column in decreasing order.");
         assert(a);
         assert(n > 0);
         assert(m > 0);
-        float aux = 0.0; 
         for (int k = 0; k < m; ++k) {
                 for (int i = 0; i < n - 1; ++i) {
-                        for (int j = i + 1; j < n; ++j) {
-                                if (a[j][k] > a[i][k]) {
-                                        aux = a[j][k];
-		                        a[j][k] = a[i][k]; 
-		                        a[i][k] = aux;
-                                }
-                        }
+                        internal_for(i, k, n, a);                 
                 }
         }
         puts("Press any key");
@@ -205,5 +191,57 @@ void sort(const int n, const int m, float **a)
 
 void test_sort(void)
 {
+}
+
+void test_all(void)
+{
+        puts("Starting tests:");
+        test_allocate();
+        test_input();
+        test_output();
+        test_fill_rand();
+        test_clear();
+        test_sort();
+        puts("All tests passed.");
+}
+
+int switch_operation(const int operation, int *n, int *m, float ***a)
+{
+        switch (operation) {
+                case 0 :  {
+                        return 0; 
+                }
+	        case 1 : {
+                        puts("Give n and m:");
+                        scanf("%d%d", n, m);
+                        *a = allocate(*n, *m);
+	        	break;
+                }
+	        case 2 : {
+                        input(*n, *m, *a); 
+                        break;
+                }
+	        case 3 : {
+                        fill_rand(*n, *m, *a);
+                        break;
+                }
+	        case 4 : {
+                        sort(*n, *m, *a);
+                        break;
+                }
+	        case 5 : {
+                        output(*n, *m, (const float**)*a);
+                        break;
+                }
+	        case 6 : {
+                        clear(*n, a);
+                        break;
+                }
+	        default : {
+                        puts("Unknown command.");
+                        puts("Press any key"); 
+                }
+	 }
+        return 1;
 }
 

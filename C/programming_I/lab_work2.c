@@ -37,8 +37,8 @@ int main(void)
         printf("The quantity of the minimal elements is : %d \n", n1);
         printf("These are the positions of the minimal elements in array :\n");
         for (int i = 0; i < n1; ++i) {
-                     printf("%d  ", b[i]); 
+                printf("%d  ", b[i]); 
         }
- return 0;
+        return 0;
 }
 

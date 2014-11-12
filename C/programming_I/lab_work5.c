@@ -7,9 +7,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+// helper function during sorting:
+void internal_for(const int n, char **a);
+
 int main(void)
 {
-        char *aux = NULL;
         const int kSize = 500;
         char **a = (char**)malloc(kSize * sizeof(char*));
         assert(a);
@@ -26,13 +28,7 @@ int main(void)
                 a[n] = strtok(NULL, " ");
         }
         for (int i = 0; i < n - 1; ++i) {
-	        for (int j = 0; j < n - 1; ++j) {
-		        if (strlen(a[j]) < strlen(a[j + 1])) {
-                                aux = a[j];
-		                a[j] = a[j + 1];
-		                a[j + 1] = aux;
-                        }
-	        }
+	        internal_for(n, a);
         }
         for (int i = 0; i < n; ++i) {
                 puts(a[i]);
@@ -40,5 +36,17 @@ int main(void)
         free(a);
         a = NULL;
         return 0;
+}
+
+void internal_for(const int n, char **a)
+{
+        char *aux = NULL;
+        for (int j = 0; j < n - 1; ++j) {
+	        if (strlen(a[j]) < strlen(a[j + 1])) {
+                        aux = a[j];
+		        a[j] = a[j + 1];
+		        a[j + 1] = aux;
+                }
+	}
 }
 
