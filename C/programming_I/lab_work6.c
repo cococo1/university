@@ -14,25 +14,44 @@ typedef struct {
 	int capacity;
 	int cost;
 }CAR;
+void test_CAR(void);
 
 // input from keyboard an array of n cars:
 // car should not be NULL, n != 0
 void input(const int n, CAR *cars);
+void test_input(void);
 // output the array o cars to the stdout:
 void output(const int n, const CAR *cars);
+void test_output(void);
 // search for the wanted car:
 int search(const int n, const char *wanted, const CAR *cars);
+void test_search(void);
 // sort cars by cost:
 void sort(const int n, CAR* cars);
+void test_sort(void);
 // edit the data about the car k:
 void edit(const int n, const int k, CAR *cars);
+void test_edit(void);
 // add a car at given pos:
 void add(const int pos, CAR* cars, int *n);
+void test_add(void);
 // read cars from file, setting n as well:
 CAR* read_file(const char* filename, CAR* cars, int *n);
+void test_read_file(void);
 
 int main(void)
 {
+        puts("Starting tests:");
+        test_CAR();
+        test_input();
+        test_output();
+        test_search();
+        test_sort();
+        test_edit();
+        test_add();
+        test_read_file();
+        puts("All tests passed.");
+
         CAR *cars = NULL;
 	char *model = NULL;
 	int n = 0, k = 0, operation = 0;
@@ -177,6 +196,15 @@ int main(void)
         return 0;
 }
 
+void test_CAR(void)
+{
+        CAR c = { .date = 0};
+        assert(c.capacity == 0);
+        assert(strlen(c.model) == 0);
+        assert(strlen(c.country) == 0);
+        assert(c.cost == 0);
+}
+
 void input(const int n, CAR *cars)
 {
         assert(cars);
@@ -189,11 +217,19 @@ void input(const int n, CAR *cars)
 	        scanf("%s", cars[i].country);
 	        puts("What is the year of manufacturing ?");
 	        scanf("%d", &cars[i].date);
+                assert(cars[i].date > 0);
 	        puts("What is the capacity of engine?");
 	        scanf("%d", &cars[i].capacity);
+                assert(cars[i].capacity > 0);
 	        puts("What is the cost ?");
 	        scanf("%d", &cars[i].cost);
+                assert(cars[i].cost > 0);
 	}
+}
+
+void test_input(void)
+{
+        assert(strcmp("", "asd"));
 }
 
 void output(const int n, const CAR *cars)
@@ -216,19 +252,27 @@ void output(const int n, const CAR *cars)
         }
 }
 
+void test_output(void)
+{
+}
+
 int search(const int n, const char *wanted, const CAR *cars)
 {
         assert(cars);
         assert(n > 0);
         assert(wanted);
         for (int i = 0; i < n; ++i) {
-	        if (strcmp(cars[i].model, wanted)==0) { 
+	        if (strcmp(cars[i].model, wanted) == 0) { 
 		        puts("Model found!"); 
 		        return i;
 	        }
         }
         puts("Model not found.");
         return -1;
+}
+
+void test_search(void)
+{
 }
 
 void sort(const int n, CAR *cars)
@@ -245,6 +289,10 @@ void sort(const int n, CAR *cars)
 			}
 		}
 	}
+}
+
+void test_sort(void)
+{
 }
 
 void edit(const int n, const int k, CAR *cars) {
@@ -273,6 +321,7 @@ void edit(const int n, const int k, CAR *cars) {
 	if (ans == 'y') {
 		puts("Introduce the new date of manufacturing:");
 	        scanf("%d", &cars[k].date);
+                assert(cars[k].date > 0);
 	}
 	puts("Do you want to change the capacity of manufacturing of model?"
              " y/n");
@@ -281,6 +330,7 @@ void edit(const int n, const int k, CAR *cars) {
 	if (ans == 'y') {
 		puts("Introduce the new capacity of the car:");
 		scanf("%d", &cars[k].capacity);
+                assert(cars[k].capacity > 0);
 	}
 	puts("Do you want to change the cost of manufacturing of model? y/n");
 	fflush(stdin);
@@ -288,7 +338,12 @@ void edit(const int n, const int k, CAR *cars) {
 	if (ans == 'y') {
 		puts("Introduce the new cost of car:");
 	        scanf("%d", &cars[k].cost);
+                assert(cars[k].cost > 0);
 	}
+}
+
+void test_edit(void)
+{
 }
 
 void add(const int pos, CAR *cars, int *n)
@@ -301,7 +356,7 @@ void add(const int pos, CAR *cars, int *n)
 	cars = (CAR*)realloc(cars, (*n) * sizeof(CAR));
         assert(cars);
 	for (int i = (*n); i >= pos; --i) {
-		cars[i] =cars[i - 1];
+		cars[i] = cars[i - 1];
 	}
 	puts("Give the information about new car:");
 	puts("Type the model");
@@ -310,10 +365,17 @@ void add(const int pos, CAR *cars, int *n)
 	scanf("%s", cars[pos].country);
 	puts("Type the year of manufacturing with numbers ");
 	scanf("%d", &cars[pos].date);
+        assert(cars[pos].date > 0);
 	puts("What is the capacity of engine?");
 	scanf("%d", &cars[pos].capacity);
+        assert(cars[pos].capacity > 0);
 	puts("What is the price?");
 	scanf("%d", &cars[pos].cost);
+        assert(cars[pos].cost > 0);
+}
+
+void test_add(void)
+{
 }
 
 CAR* read_file(const char *filename, CAR *cars, int *n)
@@ -346,9 +408,16 @@ CAR* read_file(const char *filename, CAR *cars, int *n)
                        &cars[i].capacity,
                        &cars[i].cost);
 	}
+        assert(cars[i].date > 0);
+        assert(cars[i].capacity > 0);
+        assert(cars[i].cost > 0);
 	puts("File successfully scaned.");
 	(*n) = i;
 	fclose(f);
 	return cars;
+}
+
+void test_read_file(void)
+{
 }
 
