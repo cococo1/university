@@ -14,46 +14,46 @@ typedef struct {
 	int capacity;
 	int cost;
 }CAR;
-void test_CAR(void);
+static void test_CAR(void);
 
 // input from keyboard an array of n cars:
 // car should not be NULL, n != 0
-void input(const int n, CAR *cars);
-void test_input(void);
+static void input(const int n, CAR *cars);
+static void test_input(void);
 // output the array o cars to the stdout:
-void output(const int n, const CAR *cars);
-void test_output(void);
+static void output(const int n, const CAR *cars);
+static void test_output(void);
 // search for the wanted car:
-int search(const int n, const char *wanted, const CAR *cars);
-void test_search(void);
+static int search(const int n, const char *wanted, const CAR *cars);
+static void test_search(void);
 // sort cars by cost:
-void sort(const int n, CAR* cars);
-void test_sort(void);
+static void sort(const int n, CAR* cars);
+static void test_sort(void);
 // edit the data about the car k:
-void edit(const int n, const int k, CAR *cars);
-void test_edit(void);
+static void edit(const int n, const int k, CAR *cars);
+static void test_edit(void);
 // add a car at given pos:
-void add(const int pos, CAR* cars, int *n);
-void test_add(void);
+static void add(const int pos, CAR* cars, int *n);
+static void test_add(void);
 // read cars from file, setting n as well:
-CAR* read_file(const char* filename, CAR* cars, int *n);
-void test_read_file(void);
-void test_all(void);
+static CAR* read_file(const char* filename, CAR* cars, int *n);
+static void test_read_file(void);
+static void test_all(void);
 // helper function for main():
-int switch_operation(const int operation, int *n, CAR **cars);
-void test_switch_operation(void);
+static int switch_operation(const int operation, int *n, CAR **cars);
+static void test_switch_operation(void);
 // helper function to get info about a car:
-void get_info(const int n, const CAR *cars);
-void test_get_info(void);
+static void get_info(const int n, const CAR *cars);
+static void test_get_info(void);
 // find a car and edit its info:
-void edit_some_car(const int n, CAR *cars);
-void test_edit_some_car(void);
+static void edit_some_car(const int n, CAR *cars);
+static void test_edit_some_car(void);
 // find a car and delete it:
-void delete_a_car(int *n, CAR **cars);
-void test_delete_a_car(void);
+static void delete_a_car(int *n, CAR **cars);
+static void test_delete_a_car(void);
 // write the contents to a file:
-void write_to_file(const int n, const CAR *cars);
-void test_write_to_file(void);
+static void write_to_file(const int n, const CAR *cars);
+static void test_write_to_file(void);
 
 int main(void)
 {
@@ -86,7 +86,7 @@ int main(void)
         return 0;
 }
 
-void test_CAR(void)
+static void test_CAR(void)
 {
         CAR c = { .date = 0};
         assert(c.capacity == 0);
@@ -95,7 +95,7 @@ void test_CAR(void)
         assert(c.cost == 0);
 }
 
-void input(const int n, CAR *cars)
+static void input(const int n, CAR *cars)
 {
         assert(cars);
         assert(n > 0);
@@ -117,12 +117,12 @@ void input(const int n, CAR *cars)
 	}
 }
 
-void test_input(void)
+static void test_input(void)
 {
         assert(strcmp("", "asd"));
 }
 
-void output(const int n, const CAR *cars)
+static void output(const int n, const CAR *cars)
 {
         assert(cars);
         assert(n > 0);
@@ -142,11 +142,11 @@ void output(const int n, const CAR *cars)
         }
 }
 
-void test_output(void)
+static void test_output(void)
 {
 }
 
-int search(const int n, const char *wanted, const CAR *cars)
+static int search(const int n, const char *wanted, const CAR *cars)
 {
         assert(cars);
         assert(n > 0);
@@ -161,31 +161,36 @@ int search(const int n, const char *wanted, const CAR *cars)
         return -1;
 }
 
-void test_search(void)
+static void test_search(void)
 {
 }
 
-void sort(const int n, CAR *cars)
+static void internal_for(const int n, const int i, CAR *cars)
+{
+        CAR car = {.date = 0};
+        for (int j = 0; j < n - i - 1; ++j) {
+                if (cars[j].cost > cars[j + 1].cost) {
+                        car = cars[j]; 
+		        cars[j] = cars[j + 1];
+			cars[j + 1] = car;
+                }
+        }
+}
+
+static void sort(const int n, CAR *cars)
 { 
         assert(cars);
         assert(n > 0);
-        CAR car = {.date = 0};
         for (int i = 0; i < n - 1; ++i) {
-                for (int j = 0; j < n - i - 1; ++j) {
-                        if (cars[j].cost > cars[j + 1].cost) {
-				car = cars[j]; 
-				cars[j] = cars[j + 1];
-				cars[j + 1] = car;
-			}
-		}
+                internal_for(n, i, cars);        
 	}
 }
 
-void test_sort(void)
+static void test_sort(void)
 {
 }
 
-void edit(const int n, const int k, CAR *cars) {
+static void edit(const int n, const int k, CAR *cars) {
         assert(cars);
         assert(n > 0);
         assert(k >= 0);
@@ -232,11 +237,11 @@ void edit(const int n, const int k, CAR *cars) {
 	}
 }
 
-void test_edit(void)
+static void test_edit(void)
 {
 }
 
-void add(const int pos, CAR *cars, int *n)
+static void add(const int pos, CAR *cars, int *n)
 {
         assert(cars);
         assert(*n > 0);
@@ -264,11 +269,11 @@ void add(const int pos, CAR *cars, int *n)
         assert(cars[pos].cost > 0);
 }
 
-void test_add(void)
+static void test_add(void)
 {
 }
 
-CAR* read_file(const char *filename, CAR *cars, int *n)
+static CAR* read_file(const char *filename, CAR *cars, int *n)
 {
         assert(cars);
         assert(*n > 0);
@@ -315,11 +320,11 @@ CAR* read_file(const char *filename, CAR *cars, int *n)
 	return cars;
 }
 
-void test_read_file(void)
+static void test_read_file(void)
 {
 }
 
-void test_all(void)
+static void test_all(void)
 {
         puts("Starting tests:");
         test_CAR();
@@ -338,7 +343,7 @@ void test_all(void)
         puts("All tests passed.");
 }
 
-void get_info(const int n, const CAR *cars)
+static void get_info(const int n, const CAR *cars)
 {
         assert(cars);
         assert(n > 0);
@@ -351,11 +356,11 @@ void get_info(const int n, const CAR *cars)
         }
 }
 
-void test_get_info(void)
+static void test_get_info(void)
 {
 }
 
-void edit_some_car(const int n, CAR *cars)
+static void edit_some_car(const int n, CAR *cars)
 {
         assert(cars);
         assert(n > 0);
@@ -368,11 +373,11 @@ void edit_some_car(const int n, CAR *cars)
 	}
 }
 
-void test_edit_some_car(void)
+static void test_edit_some_car(void)
 {
 }
 
-void delete_a_car(int *n, CAR **cars)
+static void delete_a_car(int *n, CAR **cars)
 {
         assert(cars);
         assert(*cars);
@@ -391,11 +396,11 @@ void delete_a_car(int *n, CAR **cars)
         assert(cars);
 }
 
-void test_delete_a_car(void)
+static void test_delete_a_car(void)
 {
 }
 
-void write_to_file(const int n, const CAR *cars)
+static void write_to_file(const int n, const CAR *cars)
 {
         assert(cars);
         assert(n > 0);
@@ -418,11 +423,11 @@ void write_to_file(const int n, const CAR *cars)
 	puts("Done writting in file.");
 }
 
-void test_write_to_file(void)
+static void test_write_to_file(void)
 {
 }
 
-int switch_operation(const int operation, int *n, CAR **cars)
+static int switch_operation(const int operation, int *n, CAR **cars)
 {
         assert(cars);
         switch (operation) { 
@@ -502,7 +507,7 @@ int switch_operation(const int operation, int *n, CAR **cars)
         return 1;
 }
 
-void test_switch_operation(void)
+static void test_switch_operation(void)
 {
         int n = 0;
         CAR *cars = NULL;

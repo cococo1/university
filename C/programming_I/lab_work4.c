@@ -10,31 +10,31 @@
 // Allocates a n x m matrix of floats dynamically. 
 // the caller has the responsibility to free the memory.
 // n and m should not be zero.
-float** allocate(const int n, const int m);
-void test_allocate(void);
+static float** allocate(const int n, const int m);
+static void test_allocate(void);
 // Inputs from stdin the matrix a, 
 // which has n rows and m columns.
 // a should be allocated, n and m != 0.
-void input(const int n, const int m, float **a);
-void test_input(void);
+static void input(const int n, const int m, float **a);
+static void test_input(void);
 // Outputs the matrix a on the screen:
-void output(const int n, const int m, const float **a);
-void test_output(void);
+static void output(const int n, const int m, const float **a);
+static void test_output(void);
 // Fill matrix with rand elements:
-void fill_rand(const int n, const int m, float **a);
-void test_fill_rand(void);
+static void fill_rand(const int n, const int m, float **a);
+static void test_fill_rand(void);
 // Deallocate the memory of this matrix, set a to 0:
 // n - nr. of rows
-void clear(const int n, float ***a);
-void test_clear(void);
+static void clear(const int n, float ***a);
+static void test_clear(void);
 // Sort matrix' columns in decreasing order:
-void sort(const int n, const int m, float **a);
-void test_sort(void);
-void test_all(void);
+static void sort(const int n, const int m, float **a);
+static void test_sort(void);
+static void test_all(void);
 // helper function for main();
-int switch_operation(const int operation, int *n, int *m, float ***a);
+static int switch_operation(const int operation, int *n, int *m, float ***a);
 // helper function for sorting;
-void internal_for(const int i, const int k, const int n, float **a);
+static void internal_for(const int i, const int k, const int n, float **a);
 
 int main(void)
 {
@@ -57,7 +57,7 @@ int main(void)
         return 0;
 }
 
-float** allocate(const int n, const int m)
+static float** allocate(const int n, const int m)
 {
         puts("***alocation.");
         assert(n > 0);
@@ -76,14 +76,14 @@ float** allocate(const int n, const int m)
         return a;
 }
 
-void test_allocate(void)
+static void test_allocate(void)
 {
         float **a = allocate(2, 2);
         assert(a[1][1] == 0);
         clear(2, &a);
 }
 
-void input(const int n, const int m, float **a)
+static void input(const int n, const int m, float **a)
 {
         puts("***Inputing the elements:");
         assert(a);
@@ -100,11 +100,11 @@ void input(const int n, const int m, float **a)
         puts("Press any key");
 }
 
-void test_input(void)
+static void test_input(void)
 {
 }
 
-void output(const int n, const int m, const float **a)
+static void output(const int n, const int m, const float **a)
 {
         puts("\n ***Output:");
         assert(a);
@@ -120,11 +120,11 @@ void output(const int n, const int m, const float **a)
         puts("Press any key \n");
 }
 
-void test_output(void)
+static void test_output(void)
 {
 }
 
-void fill_rand(const int n, const int m, float **a)
+static void fill_rand(const int n, const int m, float **a)
 {
         puts("***Filling the array with random elements.");
         assert(a);
@@ -140,11 +140,11 @@ void fill_rand(const int n, const int m, float **a)
         puts("Press any key");
 }
 
-void test_fill_rand(void)
+static void test_fill_rand(void)
 {
 }
 
-void clear(const int n, float ***a)
+static void clear(const int n, float ***a)
 {
         assert(*a);
         assert(n > 0);
@@ -156,14 +156,14 @@ void clear(const int n, float ***a)
         puts("***Memory deallocated. \n Press any key ");
 }
 
-void test_clear(void)
+static void test_clear(void)
 {
         float **a = allocate(2, 3);
         clear(2, &a);
         assert(a == NULL);
 }
 
-void internal_for(const int i, const int k, const int n, float **a)
+static void internal_for(const int i, const int k, const int n, float **a)
 {
         float aux = 0.0;
         for (int j = i + 1; j < n; ++j) {
@@ -175,7 +175,7 @@ void internal_for(const int i, const int k, const int n, float **a)
         }
 }
 
-void sort(const int n, const int m, float **a)
+static void sort(const int n, const int m, float **a)
 {
         puts("***Sorting the array's column in decreasing order.");
         assert(a);
@@ -189,11 +189,11 @@ void sort(const int n, const int m, float **a)
         puts("Press any key");
 }
 
-void test_sort(void)
+static void test_sort(void)
 {
 }
 
-void test_all(void)
+static void test_all(void)
 {
         puts("Starting tests:");
         test_allocate();
@@ -205,7 +205,7 @@ void test_all(void)
         puts("All tests passed.");
 }
 
-int switch_operation(const int operation, int *n, int *m, float ***a)
+static int switch_operation(const int operation, int *n, int *m, float ***a)
 {
         switch (operation) {
                 case 0 :  {

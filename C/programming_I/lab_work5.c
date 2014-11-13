@@ -8,7 +8,7 @@
 #include <string.h>
 
 // helper function during sorting:
-void internal_for(const int n, char **a);
+static void internal_for(const int n, char **a);
 
 int main(void)
 {
@@ -38,7 +38,7 @@ int main(void)
         return 0;
 }
 
-void internal_for(const int n, char **a)
+static void internal_for(const int n, char **a)
 {
         char *aux = NULL;
         for (int j = 0; j < n - 1; ++j) {
