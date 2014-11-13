@@ -38,25 +38,29 @@ void test_add(void);
 // read cars from file, setting n as well:
 CAR* read_file(const char* filename, CAR* cars, int *n);
 void test_read_file(void);
+void test_all(void);
+// helper function for main():
+int switch_operation(const int operation, int *n, CAR **cars);
+void test_switch_operation(void);
+// helper function to get info about a car:
+void get_info(const int n, const CAR *cars);
+void test_get_info(void);
+// find a car and edit its info:
+void edit_some_car(const int n, CAR *cars);
+void test_edit_some_car(void);
+// find a car and delete it:
+void delete_a_car(int *n, CAR **cars);
+void test_delete_a_car(void);
+// write the contents to a file:
+void write_to_file(const int n, const CAR *cars);
+void test_write_to_file(void);
 
 int main(void)
 {
-        puts("Starting tests:");
-        test_CAR();
-        test_input();
-        test_output();
-        test_search();
-        test_sort();
-        test_edit();
-        test_add();
-        test_read_file();
-        puts("All tests passed.");
+        test_all();
 
         CAR *cars = NULL;
-	char *model = NULL;
-	int n = 0, k = 0, operation = 0;
-	char filename[30] = {'\0'};
-	FILE *f = NULL;
+	int n = 0, operation = 0;
         while (1) { 
 	        puts("Press any key to continue");
 	        puts("      Menu :");
@@ -76,122 +80,8 @@ int main(void)
         	printf("\n \n ");
         	puts("Enter the operation to be performed:");
         	scanf("%d", &operation);
-	        switch (operation) { 
-		        case 1 : {
-                                puts("For how many cars do you need "
-                                     "memory ?");
-			        scanf("%d", &n);
-                                assert(n > 0);
-			        cars = (CAR*)calloc(n, sizeof(CAR));
-                                assert(cars);
-			        break;
-			}
-		        case 2 : {
-                                assert(cars);
-			        input(n, cars);
-			        break;
-			}
-		        case 3 : {
-                                assert(cars);
-			        model = malloc(15 * sizeof(char));
-                                assert(model);
-			        puts("What model are you interested "
-                                     "in ?");
-			        scanf("%s", model);
-			        k = search(n, model, (const CAR*)cars);
-			        free(model);
-			        if (k >= 0) {
-                                        printf("\nIt costs %d $.\n",
-                                               cars[k].cost);
-			        }
-			        break;
-			}
-		        case 4 : {
-                                assert(cars);                 
-				puts("Sorted the cars by price.");
-				sort(n, cars);
-				break;
-			}
-		        case 5 : {
-                                assert(cars);
-				model = (char*)malloc(15 * sizeof(char));
-                                assert(model);
-				puts("Introduce the model you want to edit:");
-				scanf("%s", model);
-				 k = search(n, model, (const CAR*)cars);
-				 free(model);
-				 if (k >= 0) {
-				        edit(n, k, cars);
-				 }
-				 break; 
-			}
-		        case 6 : {
-                                assert(cars);
-				add(n, cars, &n);
-				break;
-			}
-		        case 7 : {
-                                assert(cars);
-				puts("Write what element you want to delete:");
-				scanf("%d", &k);
-				k--;
-				for (int i = k; i < n - 1; ++i) {
-				        cars[i] = cars[i + 1];
-				}
-				n--;
-				cars = (CAR*)realloc(cars, n * sizeof(CAR));
-                                assert(cars);
-				break;
-			}
-		        case 8: {
-                                assert(cars);
-				puts("Give the possition of new element:");
-				scanf("%d", &k);
-				add(k - 1, cars, &n);
-				break;
-			}
-		        case 9 : {
-                                assert(cars);
-				puts("What is the name of file ? ");
-				scanf("%s", filename);
-				f = fopen(filename, "w");
-                                assert(f);
-				for (int i = 0; i < n; ++i) {
-					fprintf(f,
-                                                "%s %s %d %d %d\n",
-                                                cars[i].model,
-                                                cars[i].country,
-                                                cars[i].date,
-                                                cars[i].capacity,
-                                                cars[i].cost);
-				}
-				fclose(f);
-				puts("Done writting in file.");
-				break;
-			}
-		        case 10 : {
-				puts("Introduce the name of the file:");
-				scanf("%s", filename);
-				cars = read_file(filename, cars, &n);
-				break;
-			}
-		        case 11 : {
-                                assert(cars);
-				output(n, (const CAR*)cars);
-				break;
-			}
-		        case 12: {
-				cars = (CAR*)realloc(cars, 0);
-				puts("Memory deallocated.");
-				break;
-			}
-		        case 0 : {
-				return 0; 
-			}
-                        default : {
-				puts("Unknown command.");
-			}
-                }
+                if (!switch_operation(operation, &n, &cars)) break;
+	        
         } 
         return 0;
 }
@@ -395,22 +285,30 @@ CAR* read_file(const char *filename, CAR *cars, int *n)
                &cars[0].date,
                &cars[0].capacity,
                &cars[0].cost);
+        assert(cars[0].date > 0);
+        assert(cars[0].capacity > 0);
+        assert(cars[0].cost > 0);
         int i = 0;
-	while (getc(f) != EOF) {
+	while (!feof(f)) {
                 i++;
-		cars = (CAR*)realloc(cars, (i + 1)*sizeof(CAR));
+		cars = (CAR*)realloc(cars, (i + 1) * sizeof(CAR));
 	        assert(cars);	
-		fscanf(f,
-                       "%s %s %d %d %d",
-                       cars[i].model,
-                       cars[i].country,
-                       &cars[i].date,
-                       &cars[i].capacity,
-                       &cars[i].cost);
+		int filled = fscanf(f,
+                                    "%s %s %d %d %d",
+                                    cars[i].model,
+                                    cars[i].country,
+                                    &cars[i].date,
+                                    &cars[i].capacity,
+                                    &cars[i].cost);
+                if (filled < 5) {
+                        cars = (CAR*)realloc(cars, i * sizeof(CAR));
+                        break;
+                }
+                assert(cars[i].date > 0);
+                assert(cars[i].capacity > 0);
+                assert(cars[i].cost > 0);
 	}
-        assert(cars[i].date > 0);
-        assert(cars[i].capacity > 0);
-        assert(cars[i].cost > 0);
+        
 	puts("File successfully scaned.");
 	(*n) = i;
 	fclose(f);
@@ -419,5 +317,207 @@ CAR* read_file(const char *filename, CAR *cars, int *n)
 
 void test_read_file(void)
 {
+}
+
+void test_all(void)
+{
+        puts("Starting tests:");
+        test_CAR();
+        test_input();
+        test_output();
+        test_search();
+        test_sort();
+        test_edit();
+        test_add();
+        test_read_file();
+        test_switch_operation();
+        test_get_info();
+        test_edit_some_car();
+        test_delete_a_car();
+        test_write_to_file();
+        puts("All tests passed.");
+}
+
+void get_info(const int n, const CAR *cars)
+{
+        assert(cars);
+        assert(n > 0);
+        char model[15] = {'\0'};
+        puts("What model are you interested in ?");
+	scanf("%s", model);
+        int k = search(n, model, (const CAR*)cars);
+        if (k >= 0) {
+                 printf("\nIt costs %d $.\n", cars[k].cost);
+        }
+}
+
+void test_get_info(void)
+{
+}
+
+void edit_some_car(const int n, CAR *cars)
+{
+        assert(cars);
+        assert(n > 0);
+        char model[15] = {'\0'};
+	puts("Introduce the model you want to edit:");
+	scanf("%s", model);
+        int k = search(n, model, (const CAR*)cars);
+	if (k >= 0) {
+	        edit(n, k, cars);
+	}
+}
+
+void test_edit_some_car(void)
+{
+}
+
+void delete_a_car(int *n, CAR **cars)
+{
+        assert(cars);
+        assert(*cars);
+        assert(n > 0);
+	puts("Write what element you want to delete:");
+        int k = 0;
+	scanf("%d", &k);
+        assert(k > 0);
+        assert(k < *n);
+	k--;
+	for (int i = k; i < *n - 1; ++i) {
+	        (*cars)[i] = (*cars)[i + 1];
+	}
+	(*n)--;
+	*cars = (CAR*)realloc((*cars), (*n) * sizeof(CAR));
+        assert(cars);
+}
+
+void test_delete_a_car(void)
+{
+}
+
+void write_to_file(const int n, const CAR *cars)
+{
+        assert(cars);
+        assert(n > 0);
+	puts("What is the name of file ? ");
+        char filename[15];
+	scanf("%s", filename);
+        FILE *f = NULL;
+	f = fopen(filename, "w");
+        assert(f);
+	for (int i = 0; i < n; ++i) {
+        	fprintf(f,
+                        "%s %s %d %d %d\n",
+                        cars[i].model,
+                        cars[i].country,
+                        cars[i].date,
+                        cars[i].capacity,
+                        cars[i].cost);
+        }
+	fclose(f);
+	puts("Done writting in file.");
+}
+
+void test_write_to_file(void)
+{
+}
+
+int switch_operation(const int operation, int *n, CAR **cars)
+{
+        assert(cars);
+        switch (operation) { 
+	        case 1 : {
+                        puts("For how many cars do you need memory ?");
+                        scanf("%d", n);
+                        assert(*n > 0);
+                        *cars = (CAR*)calloc(*n, sizeof(CAR));
+                        assert(*cars);
+                        break;
+		}
+	        case 2 : {
+                        assert(*cars);
+	                input(*n, *cars);
+                        break;
+		}
+	        case 3 : {
+                        get_info(*n, *cars);
+			break;
+		}
+		case 4 : {
+                        assert(*cars);                 
+			puts("Sorted the cars by price.");
+			sort(*n, *cars);
+			break;
+		}
+		case 5 : {
+                        edit_some_car(*n, *cars);
+		        break; 
+		}
+		case 6 : {
+                        assert(*cars);
+		        add(*n, *cars, n);
+			break;
+		}
+		case 7 : {
+                        delete_a_car(n, cars);
+                        break;
+		}
+		case 8 : {
+                        assert(*cars);
+		        puts("Give the possition of new element:");
+                        int k = 0;
+	 		scanf("%d", &k);
+			add(k - 1, *cars, n);
+			break;
+		}
+		case 9 : {
+                        write_to_file(*n, *cars);
+                        break;
+		}
+		case 10 : {
+		        puts("Introduce the name of the file:");
+                        char filename[10] = {'\0'};
+			scanf("%s", filename);
+			*cars = read_file(filename, *cars, n);
+			break;
+		}
+		case 11 : {
+                         assert(*cars);
+		         output(*n, (const CAR*)*cars);
+			 break;
+		}
+	        case 12: {
+		        *cars = (CAR*)realloc(*cars, 0);
+                        *cars = NULL;
+			puts("Memory deallocated.");
+			break;
+		}
+		case 0 : {
+			return 0; 
+		}
+                default : {
+		        puts("Unknown command.");
+		}
+        }
+        return 1;
+}
+
+void test_switch_operation(void)
+{
+        int n = 0;
+        CAR *cars = NULL;
+        assert(switch_operation(1, &n, &cars));
+        assert(switch_operation(2, &n, &cars));
+        assert(switch_operation(3, &n, &cars));
+        assert(switch_operation(4, &n, &cars));
+        assert(switch_operation(5, &n, &cars));
+        assert(switch_operation(6, &n, &cars));
+        assert(switch_operation(7, &n, &cars));
+        assert(switch_operation(8, &n, &cars));
+        assert(switch_operation(9, &n, &cars));
+        assert(switch_operation(10, &n, &cars));
+        assert(switch_operation(12, &n, &cars));
+        assert(switch_operation(13, &n, &cars));
+        assert(!switch_operation(0, &n, &cars));
 }
 
