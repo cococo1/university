@@ -21,6 +21,7 @@ int main(void)
         for (int i = 1; i < n - 1; ++i) {
                 for (int j = 1; j < m - 1; ++j) {
                         printf("Give the element A[%d, %d]=", i, j);
+                        fflush(stdout);
                         scanf("%f", &A[i][j]);
                         if (A[i][j] > max) {
                                 max = A[i][j];
@@ -54,6 +55,7 @@ int main(void)
                 }
         }
         printf("\n There are %d maximal element(s).", k);
+        fflush(stdout);
         return 0;
 }
 

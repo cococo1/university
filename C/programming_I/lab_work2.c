@@ -12,13 +12,16 @@ int main(void)
         float a[50] = {0.0};
         float min = 0.0;
         printf("Enter the number of elements:\n");
+        fflush(stdout);
         scanf("%d", &n);
         assert(n > 0);
         assert(n <= 50);
         for (int i = 0; i < n; ++i) {
                 printf("Enter element number %d: ", i+1);
+                fflush(stdout);
                 scanf("%f", &a[i]);
                 printf("\n");
+                fflush(stdout);
         }
         min = a[0];
         for (int i = 1; i < n; ++i) {
@@ -36,6 +39,7 @@ int main(void)
         printf("The value of the minimal elements is %.3f \n", min);
         printf("The quantity of the minimal elements is : %d \n", n1);
         printf("These are the positions of the minimal elements in array :\n");
+        fflush(stdout);
         for (int i = 0; i < n1; ++i) {
                 printf("%d  ", b[i]); 
         }

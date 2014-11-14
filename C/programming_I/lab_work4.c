@@ -93,6 +93,7 @@ static void input(const int n, const int m, float **a)
                 assert(a[i]);
                 for (int j = 0; j < m; ++j) {
                         printf("a[%d,%d]=", i, j);
+                        fflush(stdout);
                         scanf("%f", &a[i][j]);
                         puts("");
                 }
@@ -114,6 +115,7 @@ static void output(const int n, const int m, const float **a)
                 assert(a[i]);
                 for (int j = 0; j < m; ++j) {
                         printf(" %.0f ", a[i][j]);
+                        fflush(stdout);
                 }
                 puts("");
        }

@@ -78,6 +78,7 @@ int main(void)
         	puts("12.Clearing the memory allocated for array. ");
         	puts("0. Exit from the program.");
         	printf("\n \n ");
+                fflush(stdout);
         	puts("Enter the operation to be performed:");
         	scanf("%d", &operation);
                 if (!switch_operation(operation, &n, &cars)) break;
@@ -101,6 +102,7 @@ static void input(const int n, CAR *cars)
         assert(n > 0);
 	for (int i = 0; i < n; ++i) { 
                 printf("\nGive the information about the %d car:\n", i+1);
+                fflush(stdout);
 	        puts("Name of the model");
 	        scanf("%s", cars[i].model);
 	        puts("Write the country");
@@ -139,6 +141,7 @@ static void output(const int n, const CAR *cars)
                 puts("Cost:");
                 printf("%d \n", cars[i].cost);
                 puts("Press any key for next model");
+                fflush(stdout);
         }
 }
 
@@ -197,21 +200,21 @@ static void edit(const int n, const int k, CAR *cars) {
         assert(k < n);
         char ans = '\0';
 	puts("Do you want to change the name of model? y/n");
-	fflush(stdin);
+	fflush(stdout);
 	scanf("%c", &ans);
 	if (ans == 'y') {
 	        puts("Introduce the new name of model:");
 		scanf("%s", cars[k].model);
 	}
 	puts("Do you want to change the country of model? y/n");
-	fflush(stdin);
+	fflush(stdout);
 	scanf("%c", &ans);
 	if (ans == 'y') {
 		puts("Introduce the new name of country:");
 		scanf("%s", cars[k].country);
 	}
 	puts("Do you want to change the date of manufacturing of model? y/n");
-	fflush(stdin);
+	fflush(stdout);
 	scanf("%c", &ans);
 	if (ans == 'y') {
 		puts("Introduce the new date of manufacturing:");
@@ -220,7 +223,7 @@ static void edit(const int n, const int k, CAR *cars) {
 	}
 	puts("Do you want to change the capacity of manufacturing of model?"
              " y/n");
-	fflush(stdin);
+	fflush(stdout);
 	scanf("%c", &ans);
 	if (ans == 'y') {
 		puts("Introduce the new capacity of the car:");
@@ -228,7 +231,7 @@ static void edit(const int n, const int k, CAR *cars) {
                 assert(cars[k].capacity > 0);
 	}
 	puts("Do you want to change the cost of manufacturing of model? y/n");
-	fflush(stdin);
+	fflush(stdout);
 	scanf("%c", &ans);
 	if (ans == 'y') {
 		puts("Introduce the new cost of car:");
@@ -353,6 +356,7 @@ static void get_info(const int n, const CAR *cars)
         int k = search(n, model, (const CAR*)cars);
         if (k >= 0) {
                  printf("\nIt costs %d $.\n", cars[k].cost);
+                 fflush(stdin);
         }
 }
 
@@ -418,6 +422,7 @@ static void write_to_file(const int n, const CAR *cars)
                         cars[i].date,
                         cars[i].capacity,
                         cars[i].cost);
+                fflush(f);
         }
 	fclose(f);
 	puts("Done writting in file.");

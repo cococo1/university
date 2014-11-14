@@ -12,6 +12,7 @@ int main(void)
         float F = 0.0, x = 0.0;
         int i = 0;
         printf("Dati a, b, c, x initial, x final si pasul diviziunii:\n");
+        fflush(stdout);
         scanf("%f%f%f%f%f%f", &a, &b, &c, &x_in, &x_fin, &dx);
         x = x_in;
         assert(x > 0);
@@ -20,6 +21,7 @@ int main(void)
         assert(b != 0);
         assert(c != 0);
         printf("Rezultatele obtinute:\n");
+        fflush(stdout);
         while (x <= x_fin) {
                 ++i;
                 if ((x - 2.0 > 0.0) && (a == 0.0)) {
@@ -32,6 +34,7 @@ int main(void)
                         F = (a * x + c) / cos(2.0 * x);
                 }
                 printf("%d. x=%.2f, F=%.2f\n", i, x, F);
+                fflush(stdout);
                        x = x + dx;
         }
         return 0;
