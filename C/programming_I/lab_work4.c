@@ -7,34 +7,40 @@
 #include <stdlib.h>
 #include <time.h>
 
-// Allocates a n x m matrix of floats dynamically. 
+// Allocates a n x m matrix of floats. 
 // the caller has the responsibility to free the memory.
-// n and m should not be zero.
+// n and m should be greater than zero.
 static float** allocate(const int n, const int m);
+// test function for previous one:
 static void test_allocate(void);
 // Inputs from stdin the matrix a, 
 // which has n rows and m columns.
-// a should be allocated, n and m != 0.
+// a should be allocated, n and m > 0.
 static void input(const int n, const int m, float **a);
 static void test_input(void);
 // Outputs the matrix a on the screen:
+// a should be allocated; n, m > 0.
 static void output(const int n, const int m, const float **a);
 static void test_output(void);
 // Fill matrix with rand elements:
+// n,m > 0; *a != NULL.
 static void fill_rand(const int n, const int m, float **a);
 static void test_fill_rand(void);
-// Deallocate the memory of this matrix, set a to 0:
+// Deallocate the memory of this matrix, set a to NULL:
 // n - nr. of rows
+// *a != NULL; n > 0.
 static void clear(const int n, float ***a);
 static void test_clear(void);
+// helper function for sorting - used only in the sort() function.
+static void internal_for(const int i, const int k, const int n, float **a);
 // Sort matrix' columns in decreasing order:
+// n, m > 0; *a != NULL.
 static void sort(const int n, const int m, float **a);
 static void test_sort(void);
 static void test_all(void);
 // helper function for main();
 static int switch_operation(const int operation, int *n, int *m, float ***a);
-// helper function for sorting;
-static void internal_for(const int i, const int k, const int n, float **a);
+static void test_switch_operation(void);
 
 int main(void)
 {
@@ -87,6 +93,7 @@ static void input(const int n, const int m, float **a)
 {
         puts("***Inputing the elements:");
         assert(a);
+        assert(*a);
         assert(n > 0);
         assert(m > 0);
         for (int i = 0; i < n; ++i) {
@@ -109,6 +116,7 @@ static void output(const int n, const int m, const float **a)
 {
         puts("\n ***Output:");
         assert(a);
+        assert(*a);
         assert(n > 0);
         assert(m > 0);
         for (int i = 0; i < n; ++i) {
@@ -132,10 +140,10 @@ static void fill_rand(const int n, const int m, float **a)
         assert(a);
         assert(n > 0);
         assert(m > 0);
+        srand(time(NULL));
         for (int i = 0; i < n; ++i) {
                 assert(a[i]);
                 for (int j = 0; j < m; ++j) {
-                        srand(time(NULL));
                         a[i][j] = rand() % 100;
                 }
         }
@@ -149,6 +157,7 @@ static void test_fill_rand(void)
 static void clear(const int n, float ***a)
 {
         assert(*a);
+        assert(**a);
         assert(n > 0);
         for (int i = 0; i < n; ++i) {
                 free((*a)[i]);
@@ -167,6 +176,12 @@ static void test_clear(void)
 
 static void internal_for(const int i, const int k, const int n, float **a)
 {
+        assert(a);
+        assert(*a);
+        assert(i >= 0);
+        assert(i < n);
+        assert(k >= 0);
+        assert(n > 0);
         float aux = 0.0;
         for (int j = i + 1; j < n; ++j) {
                 if (a[j][k] > a[i][k]) {
@@ -181,6 +196,7 @@ static void sort(const int n, const int m, float **a)
 {
         puts("***Sorting the array's column in decreasing order.");
         assert(a);
+        assert(*a);
         assert(n > 0);
         assert(m > 0);
         for (int k = 0; k < m; ++k) {
@@ -204,6 +220,7 @@ static void test_all(void)
         test_fill_rand();
         test_clear();
         test_sort();
+        test_switch_operation();
         puts("All tests passed.");
 }
 
@@ -245,5 +262,19 @@ static int switch_operation(const int operation, int *n, int *m, float ***a)
                 }
 	 }
         return 1;
+}
+
+static void test_switch_operation(void)
+{
+        float** a = NULL;
+        int n = 0;
+        int m = 0;
+        assert(switch_operation(1, &n, &m, &a));
+        assert(switch_operation(2, &n, &m, &a));
+        assert(switch_operation(3, &n, &m, &a));
+        assert(switch_operation(4, &n, &m, &a));
+        assert(switch_operation(5, &n, &m, &a));
+        assert(switch_operation(6, &n, &m, &a));
+        assert(!switch_operation(0, &n, &m, &a));
 }
 
