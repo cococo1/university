@@ -102,6 +102,7 @@ label_2:	                puts("Press any key to continue;");
 		        	printf("Year of manufacturing: %i \n",
                                        p1->date);
 		        	printf("Price: %i \n", p1->cost);
+                                fflush(stdout);
 		        	p1 = NULL;
 		        	break;
 		        }
