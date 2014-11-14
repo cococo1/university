@@ -35,7 +35,7 @@ int main(void)
                             (i == n - 1) ||
                             (j == 0) ||
                             (j == m - 1)) {
-                                A[i][j] = max; 
+                                A[i][j] = max + 1; 
                         }
                 }
         }
@@ -54,7 +54,7 @@ int main(void)
                         }
                 }
         }
-        printf("\n There are %d maximal element(s).", k);
+        printf("\n There are %d minima element(s).", k);
         fflush(stdout);
         return 0;
 }
