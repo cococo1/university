@@ -40,6 +40,9 @@ int main(void)
 
 static void internal_for(const int n, char **a)
 {
+        assert(a);
+        assert(*a);
+        assert(n > 0);
         char *aux = NULL;
         for (int j = 0; j < n - 1; ++j) {
 	        if (strlen(a[j]) < strlen(a[j + 1])) {
