@@ -22,7 +22,7 @@ void input(const int n, CAR *cars)
         // cars n is given.
 	for (int i = 0; i < n; ++i) { 
 	        printf("\nGive the information about the %d car:\n", i + 1);
-                fflush(stdin);
+                fflush(stdout);
 	        puts("Name of the model");
 	        scanf("%s", cars[i].model);
 	        puts("Write the country");
@@ -115,21 +115,18 @@ void edit(const int n, const int k, CAR *cars)
         // question, press 'y' or 'n'
 	char ans = '\0';
 	puts("Do you want to change the name of model? y/n");
-	fflush(stdin);
 	scanf("%c", &ans);
 	if (ans == 'y') {
 	        puts("Introduce the new name of model:");
 		scanf("%s", cars[k].model);
 	}
 	puts("Do you want to change the country of model? y/n");
-	fflush(stdin);
 	scanf("%c", &ans);
 	if (ans == 'y') {
 		puts("Introduce the new name of country:");
 		scanf("%s", cars[k].country);
 	}
 	puts("Do you want to change the date of manufacturing of model? y/n");
-	fflush(stdin);
 	scanf("%c", &ans);
 	if (ans == 'y') {
 		puts("Introduce the new date of manufacturing:");
@@ -137,7 +134,6 @@ void edit(const int n, const int k, CAR *cars)
             assert(cars[k].date > 0);
 	}
 	puts("Do you want to change the capacity of model? y/n");
-	fflush(stdin);
 	scanf("%c", &ans);
 	if (ans == 'y') {
 		puts("Introduce the new capacity of the car:");
@@ -145,7 +141,6 @@ void edit(const int n, const int k, CAR *cars)
                 assert(cars[k].capacity > 0);
 	}
 	puts("Do you want to change the cost of model? y/n");
-	fflush(stdin);
 	scanf("%c", &ans);
 	if (ans == 'y') {
 		puts("Introduce the new cost of car:");
