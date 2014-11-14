@@ -356,7 +356,7 @@ static void get_info(const int n, const CAR *cars)
         int k = search(n, model, (const CAR*)cars);
         if (k >= 0) {
                  printf("\nIt costs %d $.\n", cars[k].cost);
-                 fflush(stdin);
+                 fflush(stdout);
         }
 }
 
