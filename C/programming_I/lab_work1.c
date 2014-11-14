@@ -11,7 +11,8 @@ int main(void)
         float a = 0.0, b = 0.0, c = 0.0, dx = 0.0, x_in = 0.0, x_fin = 0.0;
         float F = 0.0, x = 0.0;
         int i = 0;
-        printf("Dati a, b, c, x initial, x final si pasul diviziunii:\n");
+        printf("Enter parameters a, b, c, x_initial and x_final and the step "
+               "size:\n");
         fflush(stdout);
         scanf("%f%f%f%f%f%f", &a, &b, &c, &x_in, &x_fin, &dx);
         x = x_in;
@@ -20,12 +21,13 @@ int main(void)
         assert(x_fin > x_in);
         assert(b != 0);
         assert(c != 0);
-        printf("Rezultatele obtinute:\n");
+        printf("Results:\n");
         fflush(stdout);
         while (x <= x_fin) {
                 ++i;
                 if ((x - 2.0 > 0.0) && (a == 0.0)) {
                         assert((sin(c)) != 0);
+                        assert(x > 0);
                         F = (a + log(x)) / sin(c) - b * b;
                 } else if ((x - 2.0 < 0.0) && (a != 0.0)) {
                         F = (x - sin(x + 1.0)) / b; 
