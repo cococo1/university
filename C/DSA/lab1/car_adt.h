@@ -29,9 +29,9 @@ void sort(const int n, CAR *cars);
 // Performs changes in this list of cars, if it's needed
 void edit(const int n, const int k, CAR *cars);  
 // Adds a new car to the existing list
-void add(const int pos, CAR *cars, int *n); 
+void add(const int pos, CAR **cars, int *n); 
 // Reads from a file info about an array of cars
-CAR* read(const char *filename, CAR *cars, int *n);
+CAR* read(const char *filename, CAR **cars, int *n);
 
 #endif  // DSA_CAR_ADT_H_
 

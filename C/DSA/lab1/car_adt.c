@@ -12,7 +12,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 #include "car_adt.h" 
 
 void input(const int n, CAR *cars)
@@ -22,19 +21,20 @@ void input(const int n, CAR *cars)
         // Inputs an array of structure CAR from the keyboard. The number of
         // cars n is given.
 	for (int i = 0; i < n; ++i) { 
-	        printf("\nGive the information about the %i car:\n", i + 1);
+	        printf("\nGive the information about the %d car:\n", i + 1);
+                fflush(stdin);
 	        puts("Name of the model");
 	        scanf("%s", cars[i].model);
 	        puts("Write the country");
 	        scanf("%s", cars[i].country);
 	        puts("What is the year of manufacturing ?");
-	        scanf("%i", &cars[i].date);
+	        scanf("%d", &cars[i].date);
                 assert(cars[i].date > 0);
 	        puts("What is the capacity of engine?");
-	        scanf("%i", &cars[i].capacity);
+	        scanf("%d", &cars[i].capacity);
                 assert(cars[i].capacity > 0);
 	        puts("What is the price ?");
-	        scanf("%i", &cars[i].cost);
+	        scanf("%d", &cars[i].cost);
                 assert(cars[i].cost > 0);
 	}
 }
@@ -45,17 +45,18 @@ void output(const int n, const CAR *cars)
         assert(n > 0);
         // Outputs an array of structure CAR on the screen; n - number of cars.
         for (int i = 0; i < n; ++i) {
-                printf(" \nInformation about car No: %i \n", i + 1);
+                printf(" \nInformation about car No: %d \n", i + 1);
                 puts("Model:");
                 printf("%s \n", cars[i].model);
                 puts("Country:");
                 printf("%s \n", cars[i].country);
                 puts("Date of manufacturing:");
-                printf("%i \n", cars[i].date);
+                printf("%d \n", cars[i].date);
                 puts("The capacity of engine:");
-                printf("%i \n", cars[i].capacity);
+                printf("%d \n", cars[i].capacity);
                 puts("Cost:");
-                printf("%i \n", cars[i].cost);
+                printf("%d \n", cars[i].cost);
+                fflush(stdout);
                 puts("Press any key for next model");
         }
 }
@@ -77,21 +78,30 @@ int search(const int n, const char *wanted, const CAR *cars)
 	return -1;
 }
 
+static void internal_for(const int n, const int i, CAR* cars)
+{
+        assert(n > 0);
+        assert(i >= 0);
+        assert(i < n);
+        assert(cars);
+	CAR car = { .date = 0 };
+        for (int j = 0; j < n -  i - 1; ++j) {
+                if (cars[j].cost > cars[j + 1].cost) {
+                        car = cars[j]; 
+		        cars[j] = cars[j + 1];
+			cars[j + 1] = car;
+	        }
+	}
+}
+
 void sort(const int n, CAR *cars)
 {
         assert(cars);
         assert(n > 0);
         // Sorts the array of cars, by price. Bubble sort used. n - numb. of
         // cars;
-	CAR car = { .date = 0 };
 	for (int i = 0; i < n - 1; ++i) {
-                for (int j = 0; j < n -  i - 1; ++j) {
-                        if (cars[j].cost > cars[j + 1].cost) {
-			        car = cars[j]; 
-				cars[j] = cars[j + 1];
-				cars[j + 1] = car;
-			}
-		}
+                internal_for(n, i, cars);          
 	}
 }
 
@@ -123,7 +133,7 @@ void edit(const int n, const int k, CAR *cars)
 	scanf("%c", &ans);
 	if (ans == 'y') {
 		puts("Introduce the new date of manufacturing:");
-	    scanf("%i", &cars[k].date);
+	    scanf("%d", &cars[k].date);
             assert(cars[k].date > 0);
 	}
 	puts("Do you want to change the capacity of model? y/n");
@@ -131,7 +141,7 @@ void edit(const int n, const int k, CAR *cars)
 	scanf("%c", &ans);
 	if (ans == 'y') {
 		puts("Introduce the new capacity of the car:");
-		scanf("%i", &cars[k].capacity);
+		scanf("%d", &cars[k].capacity);
                 assert(cars[k].capacity > 0);
 	}
 	puts("Do you want to change the cost of model? y/n");
@@ -139,77 +149,85 @@ void edit(const int n, const int k, CAR *cars)
 	scanf("%c", &ans);
 	if (ans == 'y') {
 		puts("Introduce the new cost of car:");
-	        scanf("%i", &cars[k].cost);
+	        scanf("%d", &cars[k].cost);
                 assert(cars[k].cost > 0);
 	}
 }
 
-void add(const int pos, CAR *cars, int *n)
+void add(const int pos, CAR **cars, int *n)
 {
         assert(cars);
+        assert(*cars);
         assert(n > 0);
-        assert(pos > 0);
+        assert(pos >= 0);
+        assert(pos <= *n);
         //Adds a new car to the existing list of n cars, to the possition pos .
 	(*n)++;
-	cars = (CAR*)realloc(cars, (*n) * sizeof(CAR));
-        assert(cars);
+	(*cars) = (CAR*)realloc((*cars), (*n) * sizeof(CAR));
+        assert((*cars));
 	for (int i = (*n); i >= pos; --i) {
-		cars[i] = cars[i - 1];
+		(*cars)[i] = (*cars)[i - 1];
 	}
 	puts("Give the information about new car:");
 	puts("Type the model");
-        scanf("%s", cars[pos].model);
+        scanf("%s", (*cars)[pos].model);
 	puts("Write the country");
-        scanf("%s", cars[pos].country);
+        scanf("%s", (*cars)[pos].country);
         puts("Type the year of manufacturing with numbers ");
-        scanf("%i", &cars[pos].date);
-        assert(cars[pos].date > 0);
+        scanf("%d", &(*cars)[pos].date);
+        assert((*cars)[pos].date > 0);
 	puts("What is the capacity of engine?");
-        scanf("%i", &cars[pos].capacity);
-        assert(cars[pos].capacity > 0);
+        scanf("%d", &(*cars)[pos].capacity);
+        assert((*cars)[pos].capacity > 0);
 	puts("What is the price?");
-        scanf("%i", &cars[pos].cost);
-        assert(cars[pos].cost > 0);
+        scanf("%d", &(*cars)[pos].cost);
+        assert((*cars)[pos].cost > 0);
 }
 
-CAR* read(const char *filename, CAR* cars, int *n)
+CAR* read(const char *filename, CAR** cars, int *n)
 {
+        assert(cars);
         assert(filename);
         //Reads from a file info about an array of cars
 	FILE *f = NULL;
 	f = fopen(filename, "r");
         assert(f);
-	cars = (CAR*)realloc(cars, sizeof(CAR));
-        assert(cars);
+	(*cars) = (CAR*)realloc((*cars), sizeof(CAR));
+        assert(*cars);
 	fscanf(f,
                "%s %s %d %d %d",
-               cars[0].model,
-               cars[0].country,
-               &cars[0].date,
-               &cars[0].capacity,
-               &cars[0].cost);
-        assert(cars[0].date > 0);
-        assert(cars[0].capacity > 0);
-        assert(cars[0].cost > 0);
+               (*cars)[0].model,
+               (*cars)[0].country,
+               &(*cars)[0].date,
+               &(*cars)[0].capacity,
+               &(*cars)[0].cost);
+        assert((*cars)[0].date > 0);
+        assert((*cars)[0].capacity > 0);
+        assert((*cars)[0].cost > 0);
         int i = 0;
-	while (getc(f) != EOF) {
+	while (1) {
                 i++;
-		cars = (CAR*)realloc(cars, (i + 1) * sizeof(CAR));
-	        assert(cars);		
-		fscanf(f,
-                       "%s %s %d %d %d",
-                       cars[i].model, 
-                       cars[i].country,
-                       &cars[i].date,
-                       &cars[i].capacity,
-                       &cars[i].cost);
-                assert(cars[i].date > 0);
-                assert(cars[i].capacity > 0);
-                assert(cars[i].cost > 0);
+		(*cars) = (CAR*)realloc((*cars), (i + 1) * sizeof(CAR));
+	        assert((*cars));		
+		int filled = fscanf(f,
+                                    "%s %s %d %d %d",
+                                    (*cars)[i].model, 
+                                    (*cars)[i].country,
+                                    &(*cars)[i].date,
+                                    &(*cars)[i].capacity,
+                                    &(*cars)[i].cost);
+                if (filled < 5) {
+                        (*cars) = (CAR*)realloc((*cars), i * sizeof(CAR));
+                        assert(*cars);
+                        break;
+                }
+                assert((*cars)[i].date > 0);
+                assert((*cars)[i].capacity > 0);
+                assert((*cars)[i].cost > 0);
 	}
 	puts("File successfully scaned.");
 	(*n) = i;
 	fclose(f);
-	return cars;
+	return (*cars);
 }
 
