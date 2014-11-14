@@ -36,9 +36,9 @@ int main(void)
                 }
         }
         printf("Results :\n");
-        printf("The value of the minimal elements is %.3f \n", min);
-        printf("The quantity of the minimal elements is : %d \n", n1);
-        printf("These are the positions of the minimal elements in array :\n");
+        printf("The value of the minimal elements is: %.3f \n", min);
+        printf("The number of the minimal elements is: %d \n", n1);
+        printf("These are the positions of the minimal elements in array:\n");
         fflush(stdout);
         for (int i = 0; i < n1; ++i) {
                 printf("%d  ", b[i]); 
