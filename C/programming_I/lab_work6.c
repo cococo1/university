@@ -7,57 +7,76 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define ANY_AND_NEWLINE "%*[^\n]%*c"
+
 typedef struct {
-        char model[10];
-	char country[15];
-	int date;
-	int capacity;
+        char model[10];  // what model is the car
+	char country[15];  // where is it produced
+	int date;  // year of manufacturing
+	int capacity;  // of the engine
 	int cost;
 }CAR;
+// a small test function for our structure.
 static void test_CAR(void);
 
 // input from keyboard an array of n cars:
-// car should not be NULL, n != 0
+// car should not be NULL, n > 0
 static void input(const int n, CAR *cars);
 static void test_input(void);
-// output the array o cars to the stdout:
+// output the array of cars to the stdout:
+// cars != NULL; n > 0;
 static void output(const int n, const CAR *cars);
 static void test_output(void);
 // search for the wanted car:
+// n >= 0; wanted != NULL; strlen(wanted) > 0; cars != NULL;
 static int search(const int n, const char *wanted, const CAR *cars);
 static void test_search(void);
+// helper function for sort(). used only there.
+static void internal_for(const int n, const int i, CAR *cars);
 // sort cars by cost:
-static void sort(const int n, CAR* cars);
+// n > 0; cars != NULL;
+static void sort(const int n, CAR *cars);
 static void test_sort(void);
 // edit the data about the car k:
+// k within range; n > 0; cars != NULL;
 static void edit(const int n, const int k, CAR *cars);
 static void test_edit(void);
 // add a car at given pos:
-static void add(const int pos, CAR* cars, int *n);
+// 0 <= pos <= n; n >0; cars != NULL;
+static void add(const int pos, CAR **cars, int *n);
 static void test_add(void);
 // read cars from file, setting n as well:
-static CAR* read_file(const char* filename, CAR* cars, int *n);
+// filename should be the name of an existing file, 
+// which can be opened.
+static CAR* read_file(const char *filename, CAR *cars, int *n);
 static void test_read_file(void);
 static void test_all(void);
-// helper function for main():
-static int switch_operation(const int operation, int *n, CAR **cars);
-static void test_switch_operation(void);
 // helper function to get info about a car:
+// n > 0; cars != NULL;
 static void get_info(const int n, const CAR *cars);
 static void test_get_info(void);
 // find a car and edit its info:
+// n > 0; cars != NULL;
 static void edit_some_car(const int n, CAR *cars);
 static void test_edit_some_car(void);
 // find a car and delete it:
+// n > 0; *cars != NULL;
 static void delete_a_car(int *n, CAR **cars);
 static void test_delete_a_car(void);
 // write the contents to a file:
+// n > 0; cars != NULL;
 static void write_to_file(const int n, const CAR *cars);
 static void test_write_to_file(void);
-
+// helper function for main():
+// cars != NULL;
+static int switch_operation(const int operation, int *n, CAR **cars);
+static void test_switch_operation(void);
 int main(void)
 {
-        test_all();
+        //test_all();
+        //test_input();
+        test_edit();
+        return 0;
 
         CAR *cars = NULL;
 	int n = 0, operation = 0;
@@ -65,17 +84,17 @@ int main(void)
 	        puts("Press any key to continue");
 	        puts("      Menu :");
 	        puts("1. Dynamic memory allocation");
-	        puts("2. Input of array elements from keyboard");
-	        puts("3. Searching the element in array ");
-	        puts("4. Sorting of array");
-                puts("5. Editing the element of array ");
+	        puts("2. Input array from keyboard");
+	        puts("3. Searching for a specific element");
+	        puts("4. Sorting");
+                puts("5. Editing a specified element");
 	        puts("6. Adding a new element in the end ");
         	puts("7. Deleting the specified element from array ");
         	puts("8. Inserting a new element. ");
-        	puts("9. Recording array elements in a file. ");
-        	puts("10.Reading array elements from a file. ");
-        	puts("11.Output of array elements to the screen. ");
-        	puts("12.Clearing the memory allocated for array. ");
+        	puts("9. Writing the array to a file. ");
+        	puts("10.Reading the array from a file. ");
+        	puts("11.Output on the screen. ");
+        	puts("12.Clearing the allocated memory for array. ");
         	puts("0. Exit from the program.");
         	printf("\n \n ");
                 fflush(stdout);
@@ -121,6 +140,20 @@ static void input(const int n, CAR *cars)
 
 static void test_input(void)
 {
+        int n = 0;
+        puts("How many cars do you want?");
+        scanf("%d", &n);
+        assert(n > 0);
+        CAR *cars = (CAR*)calloc(n, sizeof(CAR));
+        assert(cars);
+        input(n, cars);
+        output(n, cars);
+        input(n, cars);
+        output(n, cars);
+        free(cars);
+        cars = NULL;
+
+
         assert(strcmp("", "asd"));
 }
 
@@ -154,6 +187,7 @@ static int search(const int n, const char *wanted, const CAR *cars)
         assert(cars);
         assert(n > 0);
         assert(wanted);
+        assert(strlen(wanted) > 0);
         for (int i = 0; i < n; ++i) {
 	        if (strcmp(cars[i].model, wanted) == 0) { 
 		        puts("Model found!"); 
@@ -170,6 +204,10 @@ static void test_search(void)
 
 static void internal_for(const int n, const int i, CAR *cars)
 {
+        assert(n > 0);
+        assert(cars);
+        assert(i >= 0);
+        assert(i < n);
         CAR car = {.date = 0};
         for (int j = 0; j < n - i - 1; ++j) {
                 if (cars[j].cost > cars[j + 1].cost) {
@@ -199,23 +237,24 @@ static void edit(const int n, const int k, CAR *cars) {
         assert(k >= 0);
         assert(k < n);
         char ans = '\0';
+        // TODO: understand how fflush for stdin works.
+        // TODO: correct each scanf
+        // TODO: create a macro for this, name accordingly!
+
 	puts("Do you want to change the name of model? y/n");
-	fflush(stdout);
-	scanf("%c", &ans);
+	scanf("%c"ANY_AND_NEWLINE, &ans);
 	if (ans == 'y') {
 	        puts("Introduce the new name of model:");
 		scanf("%s", cars[k].model);
 	}
 	puts("Do you want to change the country of model? y/n");
-	fflush(stdout);
-	scanf("%c", &ans);
+	scanf("%c"ANY_AND_NEWLINE, &ans);
 	if (ans == 'y') {
 		puts("Introduce the new name of country:");
 		scanf("%s", cars[k].country);
 	}
 	puts("Do you want to change the date of manufacturing of model? y/n");
-	fflush(stdout);
-	scanf("%c", &ans);
+	scanf("%c"ANY_AND_NEWLINE, &ans);
 	if (ans == 'y') {
 		puts("Introduce the new date of manufacturing:");
 	        scanf("%d", &cars[k].date);
@@ -223,16 +262,14 @@ static void edit(const int n, const int k, CAR *cars) {
 	}
 	puts("Do you want to change the capacity of manufacturing of model?"
              " y/n");
-	fflush(stdout);
-	scanf("%c", &ans);
+	scanf("%c"ANY_AND_NEWLINE, &ans);
 	if (ans == 'y') {
 		puts("Introduce the new capacity of the car:");
 		scanf("%d", &cars[k].capacity);
                 assert(cars[k].capacity > 0);
 	}
 	puts("Do you want to change the cost of manufacturing of model? y/n");
-	fflush(stdout);
-	scanf("%c", &ans);
+	scanf("%c"ANY_AND_NEWLINE, &ans);
 	if (ans == 'y') {
 		puts("Introduce the new cost of car:");
 	        scanf("%d", &cars[k].cost);
@@ -242,34 +279,47 @@ static void edit(const int n, const int k, CAR *cars) {
 
 static void test_edit(void)
 {
+        int n = 0;
+        puts("How many cars do you need?");
+        scanf("%d", &n);
+        assert(n > 0);
+
+        CAR *cars = (CAR*)calloc(n, sizeof(CAR));
+        assert(cars);
+        input(n, cars);
+        edit_some_car(n, cars);
+        output(n, cars);
+        free(cars);
+        cars = NULL;
 }
 
-static void add(const int pos, CAR *cars, int *n)
+static void add(const int pos, CAR **cars, int *n)
 {
         assert(cars);
+        assert(*cars);
         assert(*n > 0);
         assert(pos >= 0);
         assert(pos < (*n) + 1);
 	(*n)++;
-	cars = (CAR*)realloc(cars, (*n) * sizeof(CAR));
-        assert(cars);
+	*cars = (CAR*)realloc(*cars, (*n) * sizeof(CAR));
+        assert(*cars);
 	for (int i = (*n); i >= pos; --i) {
-		cars[i] = cars[i - 1];
+		(*cars)[i] = (*cars)[i - 1];
 	}
 	puts("Give the information about new car:");
 	puts("Type the model");
-	scanf("%s", cars[pos].model);
+	scanf("%s", (*cars)[pos].model);
 	puts("Write the country");
-	scanf("%s", cars[pos].country);
+	scanf("%s", (*cars)[pos].country);
 	puts("Type the year of manufacturing with numbers ");
-	scanf("%d", &cars[pos].date);
-        assert(cars[pos].date > 0);
+	scanf("%d", &(*cars)[pos].date);
+        assert((*cars)[pos].date > 0);
 	puts("What is the capacity of engine?");
-	scanf("%d", &cars[pos].capacity);
-        assert(cars[pos].capacity > 0);
+	scanf("%d", &(*cars)[pos].capacity);
+        assert((*cars)[pos].capacity > 0);
 	puts("What is the price?");
-	scanf("%d", &cars[pos].cost);
-        assert(cars[pos].cost > 0);
+	scanf("%d", &(*cars)[pos].cost);
+        assert((*cars)[pos].cost > 0);
 }
 
 static void test_add(void)
@@ -385,7 +435,8 @@ static void delete_a_car(int *n, CAR **cars)
 {
         assert(cars);
         assert(*cars);
-        assert(n > 0);
+        assert(n);
+        assert(*n > 0);
 	puts("Write what element you want to delete:");
         int k = 0;
 	scanf("%d", &k);
@@ -465,7 +516,7 @@ static int switch_operation(const int operation, int *n, CAR **cars)
 		}
 		case 6 : {
                         assert(*cars);
-		        add(*n, *cars, n);
+		        add(*n, cars, n);
 			break;
 		}
 		case 7 : {
@@ -477,7 +528,7 @@ static int switch_operation(const int operation, int *n, CAR **cars)
 		        puts("Give the possition of new element:");
                         int k = 0;
 	 		scanf("%d", &k);
-			add(k - 1, *cars, n);
+			add(k - 1, cars, n);
 			break;
 		}
 		case 9 : {
