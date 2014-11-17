@@ -2,12 +2,12 @@
 // lab_work6.c
 // Programming I, 2010
 
+// TODO: edit other files with fflush stdin
+
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-#define ANY_AND_NEWLINE "%*[^\n]%*c"
 
 typedef struct {
         char model[10];  // what model is the car
@@ -71,12 +71,18 @@ static void test_write_to_file(void);
 // cars != NULL;
 static int switch_operation(const int operation, int *n, CAR **cars);
 static void test_switch_operation(void);
+// a helper function to discard all values which are currently stored in the
+// input buffer:
+static void fflush_stdin(void);
+static void test_fflush_stdin(void);
+
 int main(void)
 {
-        //test_all();
-        //test_input();
-        test_edit();
-        return 0;
+        // test_all();
+        // test_input();
+        // test_edit();
+        // test_fflush_stdin();
+        // return 0;
 
         CAR *cars = NULL;
 	int n = 0, operation = 0;
@@ -100,6 +106,7 @@ int main(void)
                 fflush(stdout);
         	puts("Enter the operation to be performed:");
         	scanf("%d", &operation);
+                fflush_stdin();
                 if (!switch_operation(operation, &n, &cars)) break;
 	        
         } 
@@ -124,16 +131,21 @@ static void input(const int n, CAR *cars)
                 fflush(stdout);
 	        puts("Name of the model");
 	        scanf("%s", cars[i].model);
+                fflush_stdin();
 	        puts("Write the country");
 	        scanf("%s", cars[i].country);
+                fflush_stdin();
 	        puts("What is the year of manufacturing ?");
 	        scanf("%d", &cars[i].date);
+                fflush_stdin();
                 assert(cars[i].date > 0);
 	        puts("What is the capacity of engine?");
 	        scanf("%d", &cars[i].capacity);
+                fflush_stdin();
                 assert(cars[i].capacity > 0);
 	        puts("What is the cost ?");
 	        scanf("%d", &cars[i].cost);
+                fflush_stdin();
                 assert(cars[i].cost > 0);
 	}
 }
@@ -143,6 +155,7 @@ static void test_input(void)
         int n = 0;
         puts("How many cars do you want?");
         scanf("%d", &n);
+        fflush_stdin();
         assert(n > 0);
         CAR *cars = (CAR*)calloc(n, sizeof(CAR));
         assert(cars);
@@ -237,42 +250,49 @@ static void edit(const int n, const int k, CAR *cars) {
         assert(k >= 0);
         assert(k < n);
         char ans = '\0';
-        // TODO: understand how fflush for stdin works.
-        // TODO: correct each scanf
-        // TODO: create a macro for this, name accordingly!
 
 	puts("Do you want to change the name of model? y/n");
-	scanf("%c"ANY_AND_NEWLINE, &ans);
+	scanf("%c", &ans);
+        fflush_stdin();
 	if (ans == 'y') {
 	        puts("Introduce the new name of model:");
 		scanf("%s", cars[k].model);
+                fflush_stdin();
 	}
 	puts("Do you want to change the country of model? y/n");
-	scanf("%c"ANY_AND_NEWLINE, &ans);
+	scanf("%c", &ans);
+        fflush_stdin();
 	if (ans == 'y') {
 		puts("Introduce the new name of country:");
 		scanf("%s", cars[k].country);
+                fflush_stdin();
 	}
 	puts("Do you want to change the date of manufacturing of model? y/n");
-	scanf("%c"ANY_AND_NEWLINE, &ans);
+	scanf("%c", &ans);
+        fflush_stdin();
 	if (ans == 'y') {
 		puts("Introduce the new date of manufacturing:");
 	        scanf("%d", &cars[k].date);
+                fflush_stdin();
                 assert(cars[k].date > 0);
 	}
 	puts("Do you want to change the capacity of manufacturing of model?"
              " y/n");
-	scanf("%c"ANY_AND_NEWLINE, &ans);
+	scanf("%c", &ans);
+        fflush_stdin();
 	if (ans == 'y') {
 		puts("Introduce the new capacity of the car:");
 		scanf("%d", &cars[k].capacity);
+                fflush_stdin();
                 assert(cars[k].capacity > 0);
 	}
 	puts("Do you want to change the cost of manufacturing of model? y/n");
-	scanf("%c"ANY_AND_NEWLINE, &ans);
+	scanf("%c", &ans);
+        fflush_stdin();
 	if (ans == 'y') {
 		puts("Introduce the new cost of car:");
 	        scanf("%d", &cars[k].cost);
+                fflush_stdin();
                 assert(cars[k].cost > 0);
 	}
 }
@@ -282,6 +302,7 @@ static void test_edit(void)
         int n = 0;
         puts("How many cars do you need?");
         scanf("%d", &n);
+        fflush_stdin();
         assert(n > 0);
 
         CAR *cars = (CAR*)calloc(n, sizeof(CAR));
@@ -309,16 +330,21 @@ static void add(const int pos, CAR **cars, int *n)
 	puts("Give the information about new car:");
 	puts("Type the model");
 	scanf("%s", (*cars)[pos].model);
+        fflush_stdin();
 	puts("Write the country");
 	scanf("%s", (*cars)[pos].country);
+        fflush_stdin();
 	puts("Type the year of manufacturing with numbers ");
 	scanf("%d", &(*cars)[pos].date);
+        fflush_stdin();
         assert((*cars)[pos].date > 0);
 	puts("What is the capacity of engine?");
 	scanf("%d", &(*cars)[pos].capacity);
+        fflush_stdin();
         assert((*cars)[pos].capacity > 0);
 	puts("What is the price?");
 	scanf("%d", &(*cars)[pos].cost);
+        fflush_stdin();
         assert((*cars)[pos].cost > 0);
 }
 
@@ -393,6 +419,7 @@ static void test_all(void)
         test_edit_some_car();
         test_delete_a_car();
         test_write_to_file();
+        test_fflush_stdin();
         puts("All tests passed.");
 }
 
@@ -403,6 +430,7 @@ static void get_info(const int n, const CAR *cars)
         char model[15] = {'\0'};
         puts("What model are you interested in ?");
 	scanf("%s", model);
+        fflush_stdin();
         int k = search(n, model, (const CAR*)cars);
         if (k >= 0) {
                  printf("\nIt costs %d $.\n", cars[k].cost);
@@ -421,6 +449,7 @@ static void edit_some_car(const int n, CAR *cars)
         char model[15] = {'\0'};
 	puts("Introduce the model you want to edit:");
 	scanf("%s", model);
+        fflush_stdin();
         int k = search(n, model, (const CAR*)cars);
 	if (k >= 0) {
 	        edit(n, k, cars);
@@ -440,6 +469,7 @@ static void delete_a_car(int *n, CAR **cars)
 	puts("Write what element you want to delete:");
         int k = 0;
 	scanf("%d", &k);
+        fflush_stdin();
         assert(k > 0);
         assert(k < *n);
 	k--;
@@ -462,6 +492,7 @@ static void write_to_file(const int n, const CAR *cars)
 	puts("What is the name of file ? ");
         char filename[15];
 	scanf("%s", filename);
+        fflush_stdin();
         FILE *f = NULL;
 	f = fopen(filename, "w");
         assert(f);
@@ -490,6 +521,7 @@ static int switch_operation(const int operation, int *n, CAR **cars)
 	        case 1 : {
                         puts("For how many cars do you need memory ?");
                         scanf("%d", n);
+                        fflush_stdin();
                         assert(*n > 0);
                         *cars = (CAR*)calloc(*n, sizeof(CAR));
                         assert(*cars);
@@ -528,6 +560,7 @@ static int switch_operation(const int operation, int *n, CAR **cars)
 		        puts("Give the possition of new element:");
                         int k = 0;
 	 		scanf("%d", &k);
+                        fflush_stdin();
 			add(k - 1, cars, n);
 			break;
 		}
@@ -539,6 +572,7 @@ static int switch_operation(const int operation, int *n, CAR **cars)
 		        puts("Introduce the name of the file:");
                         char filename[10] = {'\0'};
 			scanf("%s", filename);
+                        fflush_stdin();
 			*cars = read_file(filename, *cars, n);
 			break;
 		}
@@ -580,5 +614,20 @@ static void test_switch_operation(void)
         assert(switch_operation(12, &n, &cars));
         assert(switch_operation(13, &n, &cars));
         assert(!switch_operation(0, &n, &cars));
+}
+
+static void fflush_stdin(void)
+{
+        int ch = 0;
+        while((ch = getchar()) != '\n' && ch != EOF) /* clear buffer. */; 
+}
+
+static void test_fflush_stdin(void)
+{
+        char c = '\0';
+        puts("Type a char:");
+        scanf("%c", &c);
+        fflush_stdin();
+        printf("the char: \"%c\"", c);
 }
 
