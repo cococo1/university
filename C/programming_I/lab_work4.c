@@ -7,6 +7,8 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define ANY_AND_NEWLINE "%*[^\n]%*c"
+
 // Allocates a n x m matrix of floats. 
 // the caller has the responsibility to free the memory.
 // n and m should be greater than zero.
@@ -44,7 +46,9 @@ static void test_switch_operation(void);
 
 int main(void)
 {
-        test_all();
+        // test_input();
+        // return 0;
+        // test_all();
 
         float **a = NULL;
         int n = 0, m = 0, operation = 0;
@@ -56,7 +60,8 @@ int main(void)
 	        puts(" 5.Output the array elements \n 6.Clearing the "
                "allocated memory \n 0.Exit the program \n \n Enter the "
                "number of operation you want to be performed:");
-	        scanf("%d", &operation);
+	        int fills = scanf("%d"ANY_AND_NEWLINE, &operation);
+                assert(fills == 1);
                 if (!switch_operation(operation, &n, &m, &a)) break;
 	        
         }
@@ -101,7 +106,8 @@ static void input(const int n, const int m, float **a)
                 for (int j = 0; j < m; ++j) {
                         printf("a[%d,%d]=", i, j);
                         fflush(stdout);
-                        scanf("%f", &a[i][j]);
+                        int fills = scanf("%f"ANY_AND_NEWLINE, &a[i][j]);
+                        assert(fills == 1);
                         puts("");
                 }
         }
@@ -110,6 +116,10 @@ static void input(const int n, const int m, float **a)
 
 static void test_input(void)
 {
+        float **a = allocate(2, 2);
+        input(2, 2, a);
+        output(2, 2, (const float**)a);
+        clear(2, &a);
 }
 
 static void output(const int n, const int m, const float **a)
@@ -232,7 +242,8 @@ static int switch_operation(const int operation, int *n, int *m, float ***a)
                 }
 	        case 1 : {
                         puts("Give n and m:");
-                        scanf("%d%d", n, m);
+                        int fills = scanf("%d%d"ANY_AND_NEWLINE, n, m);
+                        assert(fills == 2);
                         *a = allocate(*n, *m);
 	        	break;
                 }

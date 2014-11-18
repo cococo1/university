@@ -6,12 +6,14 @@
 #include <float.h>
 #include <stdio.h>
 
+#define ANY_AND_NEWLINE "%*[^\n]%*c"
+
 int main(void)
 {
         float A[50][50] = {{0}}, max = -FLT_MAX;
         int n = 0, m = 0, k = 0;
         puts("Give the number of rows and columns:");
-        scanf("%d%d", &n, &m);
+        scanf("%d%d"ANY_AND_NEWLINE, &n, &m);
         assert(n > 0);
         assert(m > 0);
         assert(n <= 48);
@@ -23,6 +25,8 @@ int main(void)
                         printf("Give the element A[%d, %d]=", i, j);
                         fflush(stdout);
                         scanf("%f", &A[i][j]);
+                        int ch = 0;
+                        while((ch = getchar()) != '\n' && ch != EOF);
                         if (A[i][j] > max) {
                                 max = A[i][j];
                         }

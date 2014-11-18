@@ -5,6 +5,8 @@
 #include <assert.h>
 #include <stdio.h>
 
+#define ANY_AND_NEWLINE "%*[^\n]%*c"
+
 int main(void)
 {
         // n1 - number of minimal elements
@@ -13,13 +15,13 @@ int main(void)
         float min = 0.0;
         printf("Enter the number of elements:\n");
         fflush(stdout);
-        scanf("%d", &n);
+        scanf("%d"ANY_AND_NEWLINE, &n);
         assert(n > 0);
         assert(n <= 50);
         for (int i = 0; i < n; ++i) {
                 printf("Enter element number %d: ", i+1);
                 fflush(stdout);
-                scanf("%f", &a[i]);
+                scanf("%f"ANY_AND_NEWLINE, &a[i]);
                 printf("\n");
                 fflush(stdout);
         }
