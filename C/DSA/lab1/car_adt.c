@@ -14,6 +14,13 @@
 
 #include "car_adt.h" 
 
+// helper function, for clearing the input buffer:
+static void fflush_stdin(void)
+{
+        int ch = 0;
+        while((ch = getchar()) != '\n' && ch != EOF) /* clear buffer */;
+}
+
 void input(const int n, CAR *cars)
 {
         assert(cars);
@@ -25,16 +32,24 @@ void input(const int n, CAR *cars)
                 fflush(stdout);
 	        puts("Name of the model");
 	        scanf("%s", cars[i].model);
+                fflush_stdin();
 	        puts("Write the country");
 	        scanf("%s", cars[i].country);
+                fflush_stdin();
 	        puts("What is the year of manufacturing ?");
-	        scanf("%d", &cars[i].date);
+	        int filled = scanf("%d", &cars[i].date);
+                assert(filled == 1);
+                fflush_stdin();
                 assert(cars[i].date > 0);
 	        puts("What is the capacity of engine?");
-	        scanf("%d", &cars[i].capacity);
+	        filled = scanf("%d", &cars[i].capacity);
+                assert(filled == 1);
+                fflush_stdin();
                 assert(cars[i].capacity > 0);
 	        puts("What is the price ?");
-	        scanf("%d", &cars[i].cost);
+	        filled = scanf("%d", &cars[i].cost);
+                assert(filled == 1);
+                fflush_stdin();
                 assert(cars[i].cost > 0);
 	}
 }
@@ -116,35 +131,48 @@ void edit(const int n, const int k, CAR *cars)
 	char ans = '\0';
 	puts("Do you want to change the name of model? y/n");
 	scanf("%c", &ans);
+        fflush_stdin();
 	if (ans == 'y') {
 	        puts("Introduce the new name of model:");
 		scanf("%s", cars[k].model);
+                fflush_stdin();
 	}
 	puts("Do you want to change the country of model? y/n");
 	scanf("%c", &ans);
+        fflush_stdin();
 	if (ans == 'y') {
 		puts("Introduce the new name of country:");
 		scanf("%s", cars[k].country);
+                fflush_stdin();
 	}
 	puts("Do you want to change the date of manufacturing of model? y/n");
 	scanf("%c", &ans);
+        fflush_stdin();
 	if (ans == 'y') {
 		puts("Introduce the new date of manufacturing:");
-	    scanf("%d", &cars[k].date);
-            assert(cars[k].date > 0);
+	        int filled = scanf("%d", &cars[k].date);
+                fflush_stdin();
+                assert(filled == 1);
+                assert(cars[k].date > 0);
 	}
 	puts("Do you want to change the capacity of model? y/n");
 	scanf("%c", &ans);
+        fflush_stdin();
 	if (ans == 'y') {
 		puts("Introduce the new capacity of the car:");
-		scanf("%d", &cars[k].capacity);
+		int filled = scanf("%d", &cars[k].capacity);
+                assert(filled = 1);
+                fflush_stdin();
                 assert(cars[k].capacity > 0);
 	}
 	puts("Do you want to change the cost of model? y/n");
 	scanf("%c", &ans);
+        fflush_stdin();
 	if (ans == 'y') {
 		puts("Introduce the new cost of car:");
-	        scanf("%d", &cars[k].cost);
+	        int filled = scanf("%d", &cars[k].cost);
+                assert(filled == 1);
+                fflush_stdin();
                 assert(cars[k].cost > 0);
 	}
 }
@@ -152,7 +180,6 @@ void edit(const int n, const int k, CAR *cars)
 void add(const int pos, CAR **cars, int *n)
 {
         assert(cars);
-        assert(*cars);
         assert(n > 0);
         assert(pos >= 0);
         assert(pos <= *n);
@@ -166,16 +193,26 @@ void add(const int pos, CAR **cars, int *n)
 	puts("Give the information about new car:");
 	puts("Type the model");
         scanf("%s", (*cars)[pos].model);
+        fflush_stdin();
 	puts("Write the country");
         scanf("%s", (*cars)[pos].country);
+        fflush_stdin();
         puts("Type the year of manufacturing with numbers ");
-        scanf("%d", &(*cars)[pos].date);
+        int filled = scanf("%d", &(*cars)[pos].date);
+        assert(filled == 1);
+        fflush_stdin();
         assert((*cars)[pos].date > 0);
 	puts("What is the capacity of engine?");
-        scanf("%d", &(*cars)[pos].capacity);
+        filled = scanf("%d", &(*cars)[pos].capacity);
+        assert(filled == 1);
+        fflush_stdin();
         assert((*cars)[pos].capacity > 0);
 	puts("What is the price?");
-        scanf("%d", &(*cars)[pos].cost);
+        filled = scanf("%d", &(*cars)[pos].cost);
+        assert(filled == 1);
+        fflush_stdin();
+        assert((*cars)[pos].capacity > 0);
+        
         assert((*cars)[pos].cost > 0);
 }
 
@@ -189,13 +226,14 @@ CAR* read(const char *filename, CAR** cars, int *n)
         assert(f);
 	(*cars) = (CAR*)realloc((*cars), sizeof(CAR));
         assert(*cars);
-	fscanf(f,
-               "%s %s %d %d %d",
-               (*cars)[0].model,
-               (*cars)[0].country,
-               &(*cars)[0].date,
-               &(*cars)[0].capacity,
-               &(*cars)[0].cost);
+	int filled = fscanf(f,
+                            "%s %s %d %d %d",
+                            (*cars)[0].model,
+                            (*cars)[0].country,
+                            &(*cars)[0].date,
+                            &(*cars)[0].capacity,
+                            &(*cars)[0].cost);
+        assert(filled == 5);
         assert((*cars)[0].date > 0);
         assert((*cars)[0].capacity > 0);
         assert((*cars)[0].cost > 0);

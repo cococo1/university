@@ -8,23 +8,22 @@ Data Structures and Algorithms
 **Lab 1**: Create three files in C language for realization and usage of АDT
 «Array of structures».
 
-1. A heading file with extension .h for description of data structure of element
- of array (in variants), and also for prototypes of functions, providing
- operations of array processing. 
+1. A heading file with extension .h for description of the data structure, and 
+also for prototypes of functions, providing operations for array processing. 
 
-2. A file with extension .cpp for definition of functions (texts of functions),
- declared in the heading file.
+2. A file with extension .c for definition of functions, declared in the header
+file.
 
-3. A user file - function mаin () for processing the array of structures showing
-on the screen the menu of operations: dynamic memory allocation for array, array
-input from the keyboard, displaying array on the screen, element searching,
-editing the element, sorting of array elements, adding a new element, removing
-the specified element, inserting a new element, array recording in the file,
-array reading from the file, cleaning the memory allocated for array, exit from 
-the program.
+3. A client file - function mаin () for processing the array of structures
+showing on the screen the menu of operations: dynamic memory allocation for
+array, array input from the keyboard, displaying array on the screen, element
+searching, editing the element, sorting the array elements, adding a new element
+, removing the specified element, inserting a new element, writing array to the 
+file, array reading from the file, cleaning the memory allocated for array,
+exit the program.
 
-Variant No. 6 : 
-Structure the CAR with fields: model, country, date of manufacturing, capacity
+Variant No. 6: 
+Structure CAR with fields: model, country, date of manufacturing, capacity
 of the engine, cost. 
 
 --

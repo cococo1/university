@@ -11,7 +11,7 @@
 #define DSA_CAR_ADT_H_
 
 typedef struct {
-	char model[10];   //Name of the car
+	char model[10];   // Name of the car
 	char country[15]; // Where is the car from
 	int date;         // Date of manufacturing
 	int capacity;     // Capacity of engine

@@ -1,3 +1,4 @@
+// TODO: test for real-case scenarios.
 // Copyright Max Chetrusca, modified Nov 11, 2014
 // car_adt_test.c
 // Data Structures & Algorithms, 2011
@@ -28,10 +29,12 @@ static void write_to_file(const int n, const CAR *cars);
 static void test_write_to_file(void);
 static int switch_operation(const int operation, int *n, CAR **cars);
 static void test_switch_operation(void);
+// helper function
+static void fflush_stdin(void);
 
 int main(void)
 {
-        test_all();
+        // test_all();
 
         CAR *cars = NULL;
 	int n = 0;
@@ -55,8 +58,10 @@ int main(void)
 	        printf("\n \n ");
                 fflush(stdout);
 	        puts("Enter the operation to be performed:");
-	        scanf("%d", &operation);
-                switch_operation(operation, &n, &cars);
+	        int filled = scanf("%d", &operation);
+                assert(filled == 1);
+                fflush_stdin();
+                if (!switch_operation(operation, &n, &cars)) break;
 	        
         }
 	return 0;
@@ -152,7 +157,9 @@ static void delete_case(int *n, CAR **cars)
         assert(*cars);
         puts("Write what element you want to delete:");
         int k = 0;
-	scanf("%d", &k);
+	int filled = scanf("%d", &k);
+        assert(filled == 1);
+        fflush_stdin();
         assert(k > 0);
         assert(k <= (*n));
         k--;
@@ -199,10 +206,15 @@ static void test_write_to_file(void)
 
 static int switch_operation(const int operation, int *n, CAR **cars)
 {
-        switch (operation) { 
+        switch (operation) {
+                case 0 : {
+	        	return 0; 
+	        } 
                 case 1 : {
                         puts("For how many cars do you need memory ?");
-                        scanf("%d", n);
+                        int filled = scanf("%d", n);
+                        assert(filled == 1);
+                        fflush_stdin();
                         assert(*n > 0);
                         (*cars) = (CAR*)calloc(*n, sizeof(CAR));
                         assert(cars);
@@ -234,11 +246,13 @@ static int switch_operation(const int operation, int *n, CAR **cars)
 	        	break;
 	        }
 	        case 8: {
-                        puts("Give the possition of new element:");
+                        puts("Give the possition (not index) of new element:");
                         int k = 0;
-                        scanf("%d", &k);
-                        assert(k >= 0);
-                        assert(k < *n);
+                        int filled = scanf("%d", &k);
+                        assert(filled == 1);
+                        fflush_stdin();
+                        assert(k > 0);
+                        assert(k <= *n + 1);
 	        	add(k - 1, cars, n);
 	        	break;
 	        }
@@ -261,9 +275,6 @@ static int switch_operation(const int operation, int *n, CAR **cars)
                         *cars = (CAR*)realloc((*cars), 0);
 	        	puts("Memory deallocated.");
 	        	break;
-	        }
-	        case 0 : {
-	        	return 0; 
 	        }
                 default : {
 	        	puts("Unknown command.");
@@ -289,5 +300,11 @@ void test_switch_operation(void)
         assert(switch_operation(11, &n, &cars));
         assert(switch_operation(12, &n, &cars));
         assert(!switch_operation(0, &n, &cars));
+}
+
+static void fflush_stdin(void)
+{
+        int ch = 0;
+        while((ch = getchar()) != '\n' && ch != EOF) /* clear buffer; */;
 }
 
