@@ -1,4 +1,3 @@
-// TODO: test for real-case scenarios.
 // Copyright Max Chetrusca, modified Nov 11, 2014
 // car_adt_test.c
 // Data Structures & Algorithms, 2011
@@ -121,6 +120,7 @@ static void search_case(const int n, const CAR *cars)
         char model[15] = {'\0'};
         puts("What model are you interested in ?");
         scanf("%s", model);
+        fflush_stdin();
         int k = search(n, model, cars);
         if (k >= 0) {
                 printf("\nIt costs %d $.\n", cars[k].cost);
@@ -139,6 +139,7 @@ static void edit_case(const int n, CAR *cars)
         char model[15] = {'\0'};
         puts("Introduce the model you want to edit:");
         scanf("%s", model);
+        fflush_stdin();
         int k = search(n, model, cars);
         if (k >= 0) {
                 edit(n, k, cars);
@@ -182,7 +183,11 @@ static void write_to_file(const int n, const CAR *cars)
         puts("What is the name of file ? ");
         char filename[15] = {'\0'};
         scanf("%s", filename);
+        fflush_stdin();
         FILE *f = NULL;
+        f = fopen(filename, "r");
+        assert(!f);  // file should not exist
+        fclose(f);
         f = fopen(filename, "w");
         assert(f);
         for (int i = 0; i < n; ++i) {
@@ -216,6 +221,7 @@ static int switch_operation(const int operation, int *n, CAR **cars)
                         assert(filled == 1);
                         fflush_stdin();
                         assert(*n > 0);
+                        free(*cars);
                         (*cars) = (CAR*)calloc(*n, sizeof(CAR));
                         assert(cars);
                         break;
@@ -246,7 +252,7 @@ static int switch_operation(const int operation, int *n, CAR **cars)
 	        	break;
 	        }
 	        case 8: {
-                        puts("Give the possition (not index) of new element:");
+                        puts("Give the position (not index) of new element:");
                         int k = 0;
                         int filled = scanf("%d", &k);
                         assert(filled == 1);
@@ -264,6 +270,7 @@ static int switch_operation(const int operation, int *n, CAR **cars)
                         puts("Introduce the name of the file:");
                         char filename[15] = {'\0'};
                         scanf("%s", filename);
+                        fflush_stdin();
                         *cars = read(filename, cars, n);
                         break;
                 }
@@ -273,6 +280,7 @@ static int switch_operation(const int operation, int *n, CAR **cars)
 	        }
 	        case 12 : {
                         *cars = (CAR*)realloc((*cars), 0);
+                        *cars = NULL;
 	        	puts("Memory deallocated.");
 	        	break;
 	        }
