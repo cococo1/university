@@ -7,7 +7,7 @@
 #include <stdio.h>
 
 int main(void)
-{ 
+{
         float a = 0.0, b = 0.0, c = 0.0, dx = 0.0, x_in = 0.0, x_fin = 0.0;
         float F = 0.0, x = 0.0;
         int i = 0;
@@ -30,7 +30,7 @@ int main(void)
                         assert(x > 0);
                         F = (a + log(x)) / sin(c) - b * b;
                 } else if ((x - 2.0 < 0.0) && (a != 0.0)) {
-                        F = (x - sin(x + 1.0)) / b; 
+                        F = (x - sin(x + 1.0)) / b;
                 } else {
                         assert(cos(2.0 * x) != 0);
                         F = (a * x + c) / cos(2.0 * x);

@@ -39,7 +39,7 @@ int main(void)
                             (i == n - 1) ||
                             (j == 0) ||
                             (j == m - 1)) {
-                                A[i][j] = max + 1; 
+                                A[i][j] = max + 1;
                         }
                 }
         }

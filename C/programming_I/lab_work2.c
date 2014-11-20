@@ -28,13 +28,13 @@ int main(void)
         min = a[0];
         for (int i = 1; i < n; ++i) {
                 if (a[i] < min) {
-                        min = a[i]; 
+                        min = a[i];
                 }
         }
         for (int i = 0; i < n; ++i) {
                 if (a[i] == min) {
                         b[n1] = i + 1;
-                        ++n1; 
+                        ++n1;
                 }
         }
         printf("Results :\n");
@@ -43,7 +43,7 @@ int main(void)
         printf("These are the positions of the minimal elements in array:\n");
         fflush(stdout);
         for (int i = 0; i < n1; ++i) {
-                printf("%d  ", b[i]); 
+                printf("%d  ", b[i]);
         }
         return 0;
 }

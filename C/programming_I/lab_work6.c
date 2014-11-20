@@ -45,7 +45,7 @@ static void test_edit(void);
 static void add(const int pos, CAR **cars, int *n);
 static void test_add(void);
 // read cars from file, setting n as well:
-// filename should be the name of an existing file, 
+// filename should be the name of an existing file,
 // which can be opened.
 static CAR* read_file(const char *filename, CAR *cars, int *n);
 static void test_read_file(void);
@@ -85,7 +85,7 @@ int main(void)
 
         CAR *cars = NULL;
 	int n = 0, operation = 0;
-        while (1) { 
+        while (1) {
 	        puts("Press any key to continue");
 	        puts("      Menu :");
 	        puts("1. Dynamic memory allocation");
@@ -108,8 +108,7 @@ int main(void)
                 assert(fills == 1);
                 fflush_stdin();
                 if (!switch_operation(operation, &n, &cars)) break;
-	        
-        } 
+        }
         return 0;
 }
 
@@ -126,7 +125,7 @@ static void input(const int n, CAR *cars)
 {
         assert(cars);
         assert(n > 0);
-	for (int i = 0; i < n; ++i) { 
+	for (int i = 0; i < n; ++i) {
                 printf("\nGive the information about the %d car:\n", i+1);
                 fflush(stdout);
 	        puts("Name of the model");
@@ -205,8 +204,8 @@ static int search(const int n, const char *wanted, const CAR *cars)
         assert(wanted);
         assert(strlen(wanted) > 0);
         for (int i = 0; i < n; ++i) {
-	        if (strcmp(cars[i].model, wanted) == 0) { 
-		        puts("Model found!"); 
+	        if (strcmp(cars[i].model, wanted) == 0) {
+		        puts("Model found!");
 		        return i;
 	        }
         }
@@ -227,7 +226,7 @@ static void internal_for(const int n, const int i, CAR *cars)
         CAR car = {.date = 0};
         for (int j = 0; j < n - i - 1; ++j) {
                 if (cars[j].cost > cars[j + 1].cost) {
-                        car = cars[j]; 
+                        car = cars[j];
 		        cars[j] = cars[j + 1];
 			cars[j + 1] = car;
                 }
@@ -235,11 +234,11 @@ static void internal_for(const int n, const int i, CAR *cars)
 }
 
 static void sort(const int n, CAR *cars)
-{ 
+{
         assert(cars);
         assert(n > 0);
         for (int i = 0; i < n - 1; ++i) {
-                internal_for(n, i, cars);        
+                internal_for(n, i, cars);
 	}
 }
 
@@ -387,7 +386,7 @@ static CAR* read_file(const char *filename, CAR *cars, int *n)
 	while (!feof(f)) {
                 i++;
 		cars = (CAR*)realloc(cars, (i + 1) * sizeof(CAR));
-	        assert(cars);	
+	        assert(cars);
 		int filled = fscanf(f,
                                     "%s %s %d %d %d",
                                     cars[i].model,
@@ -403,7 +402,6 @@ static CAR* read_file(const char *filename, CAR *cars, int *n)
                 assert(cars[i].capacity > 0);
                 assert(cars[i].cost > 0);
 	}
-        
 	puts("File successfully scaned.");
 	(*n) = i;
 	fclose(f);
@@ -529,7 +527,7 @@ static void test_write_to_file(void)
 static int switch_operation(const int operation, int *n, CAR **cars)
 {
         assert(cars);
-        switch (operation) { 
+        switch (operation) {
 	        case 1 : {
                         puts("For how many cars do you need memory ?");
                         int fills = scanf("%d", n);
@@ -550,14 +548,14 @@ static int switch_operation(const int operation, int *n, CAR **cars)
 			break;
 		}
 		case 4 : {
-                        assert(*cars);                 
+                        assert(*cars);
 			puts("Sorted the cars by price.");
 			sort(*n, *cars);
 			break;
 		}
 		case 5 : {
                         edit_some_car(*n, *cars);
-		        break; 
+		        break;
 		}
 		case 6 : {
                         assert(*cars);
@@ -602,7 +600,7 @@ static int switch_operation(const int operation, int *n, CAR **cars)
 			break;
 		}
 		case 0 : {
-			return 0; 
+			return 0;
 		}
                 default : {
 		        puts("Unknown command.");
@@ -633,7 +631,7 @@ static void test_switch_operation(void)
 static void fflush_stdin(void)
 {
         int ch = 0;
-        while((ch = getchar()) != '\n' && ch != EOF) /* clear buffer. */; 
+        while((ch = getchar()) != '\n' && ch != EOF) /* clear buffer. */;
 }
 
 static void test_fflush_stdin(void)

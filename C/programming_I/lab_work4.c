@@ -9,13 +9,13 @@
 
 #define ANY_AND_NEWLINE "%*[^\n]%*c"
 
-// Allocates a n x m matrix of floats. 
+// Allocates a n x m matrix of floats.
 // the caller has the responsibility to free the memory.
 // n and m should be greater than zero.
 static float** allocate(const int n, const int m);
 // test function for previous one:
 static void test_allocate(void);
-// Inputs from stdin the matrix a, 
+// Inputs from stdin the matrix a,
 // which has n rows and m columns.
 // a should be allocated, n and m > 0.
 static void input(const int n, const int m, float **a);
@@ -52,7 +52,7 @@ int main(void)
 
         float **a = NULL;
         int n = 0, m = 0, operation = 0;
-        while (1) { 
+        while (1) {
                 puts("\t Menu: \n 1.Memory allocation \n 2.Input the array "
                      "elements \n 3.Filling the array with random elements \n "
                       "4.Sorting the   elements from columns in decreasing "
@@ -63,7 +63,6 @@ int main(void)
 	        int fills = scanf("%d"ANY_AND_NEWLINE, &operation);
                 assert(fills == 1);
                 if (!switch_operation(operation, &n, &m, &a)) break;
-	        
         }
         return 0;
 }
@@ -171,7 +170,7 @@ static void clear(const int n, float ***a)
         assert(n > 0);
         for (int i = 0; i < n; ++i) {
                 free((*a)[i]);
-        }      
+        }
         free(*a);
         *a = NULL;
         puts("***Memory deallocated. \n Press any key ");
@@ -196,7 +195,7 @@ static void internal_for(const int i, const int k, const int n, float **a)
         for (int j = i + 1; j < n; ++j) {
                 if (a[j][k] > a[i][k]) {
                         aux = a[j][k];
-		        a[j][k] = a[i][k]; 
+		        a[j][k] = a[i][k];
 		        a[i][k] = aux;
                 }
         }
@@ -211,7 +210,7 @@ static void sort(const int n, const int m, float **a)
         assert(m > 0);
         for (int k = 0; k < m; ++k) {
                 for (int i = 0; i < n - 1; ++i) {
-                        internal_for(i, k, n, a);                 
+                        internal_for(i, k, n, a);
                 }
         }
         puts("Press any key");
@@ -238,7 +237,7 @@ static int switch_operation(const int operation, int *n, int *m, float ***a)
 {
         switch (operation) {
                 case 0 :  {
-                        return 0; 
+                        return 0;
                 }
 	        case 1 : {
                         puts("Give n and m:");
@@ -248,7 +247,7 @@ static int switch_operation(const int operation, int *n, int *m, float ***a)
 	        	break;
                 }
 	        case 2 : {
-                        input(*n, *m, *a); 
+                        input(*n, *m, *a);
                         break;
                 }
 	        case 3 : {
@@ -269,7 +268,7 @@ static int switch_operation(const int operation, int *n, int *m, float ***a)
                 }
 	        default : {
                         puts("Unknown command.");
-                        puts("Press any key"); 
+                        puts("Press any key");
                 }
 	 }
         return 1;
