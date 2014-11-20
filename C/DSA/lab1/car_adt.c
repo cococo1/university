@@ -249,11 +249,7 @@ CAR* read(const char *filename, CAR** cars, int *n)
                                     &(*cars)[i].date,
                                     &(*cars)[i].capacity,
                                     &(*cars)[i].cost);
-                if (filled < 5) {
-                        (*cars) = (CAR*)realloc((*cars), i * sizeof(CAR));
-                        assert(*cars);
-                        break;
-                }
+                assert(filled == 5);
                 assert((*cars)[i].date > 0);
                 assert((*cars)[i].capacity > 0);
                 assert((*cars)[i].cost > 0);
