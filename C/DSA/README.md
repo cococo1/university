@@ -14,7 +14,7 @@ also for prototypes of functions, providing operations for array processing.
 2. A file with extension .c for definition of functions, declared in the header
 file.
 
-3. A client file - function mаin () for processing the array of structures
+3. A client file - function mаin() for processing the array of structures
 showing on the screen the menu of operations: dynamic memory allocation for
 array, array input from the keyboard, displaying array on the screen, element
 searching, editing the element, sorting the array elements, adding a new element
@@ -28,19 +28,17 @@ of the engine, cost.
 
 --
 
-**Lab 2**: Create three files in the C language for the implementation and usage
-of ADT «simply list» to the specified topic in the laboratory of the processing
- operations.
+**Lab 2**: Create three files in C language for the implementation and usage
+of ADT «singly linked list» of the specified type in the previous lab.
 
-1. A heading file .h to describe the data structure element of the list (in
- variants), and also for function prototypes that provides basic operations
-  processing the list. 
+1. A heading file .h to describe the data structure (check specific
+ variant) and also for function prototypes that provides basic operations for
+ list processing.
 
-2. A file with extension .cpp for a certain function (text functions), declared
- in the header file . 
+2. A file with extension .c for defining previously declared functions.
 
-3. A user file - the function main () for processing through the list specified
- in the topic of the laboratory operations, displaying the menu on the screen
+3. A client file - function main() for processing the list according to
+specified operations, also displaying the menu on the screen
  for those operations.
 
 Variant No. 6 : 
