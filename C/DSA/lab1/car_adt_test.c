@@ -2,13 +2,13 @@
 // car_adt_test.c
 // Data Structures & Algorithms, 2011
 
-// An ADT, contains CAR structure, and some functions. 
+// An ADT, contains CAR structure, and some functions.
 
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "car_adt.h" 
+#include "car_adt.h"
 
 static void test_all(void);
 static void test_input(void);
@@ -38,7 +38,7 @@ int main(void)
         CAR *cars = NULL;
 	int n = 0;
         int operation = 0;
-        while (1) { 
+        while (1) {
 	        puts("Press any key to continue");
 	        puts("      Menu :");
 	        puts("1. Dynamic memory allocation");
@@ -61,11 +61,9 @@ int main(void)
                 assert(filled == 1);
                 fflush_stdin();
                 if (!switch_operation(operation, &n, &cars)) break;
-	        
         }
 	return 0;
 }
-
 
 static void test_all(void)
 {
@@ -125,7 +123,7 @@ static void search_case(const int n, const CAR *cars)
         if (k >= 0) {
                 printf("\nIt costs %d $.\n", cars[k].cost);
                 fflush(stdout);
-        }       
+        }
 }
 
 static void test_search_case(void)
@@ -208,13 +206,12 @@ static void test_write_to_file(void)
 {
 }
 
-
 static int switch_operation(const int operation, int *n, CAR **cars)
 {
         switch (operation) {
                 case 0 : {
-	        	return 0; 
-	        } 
+                        return 0;
+	        }
                 case 1 : {
                         puts("For how many cars do you need memory ?");
                         int filled = scanf("%d", n);
@@ -241,14 +238,14 @@ static int switch_operation(const int operation, int *n, CAR **cars)
 	        }
 	        case 5 : {
                         edit_case(*n, *cars);
-	        	break; 
+                        break;
 	        }
 	        case 6 : {
 	        	add(*n, cars, n);
 	        	break;
 	        }
 	        case 7 : {
-	                delete_case(n, cars);	
+	                delete_case(n, cars);
 	        	break;
 	        }
 	        case 8: {

@@ -4,7 +4,7 @@
 
 // This file is a part of an ADT
 // car_adt.h is the header file
-// The ADT is based on a structure that discribe cars 
+// The ADT is based on a structure that discribe cars
 // Max Chetrusca, Feb 3, 2011
 
 #include <assert.h>
@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "car_adt.h" 
+#include "car_adt.h"
 
 // helper function, for clearing the input buffer:
 static void fflush_stdin(void)
@@ -27,7 +27,7 @@ void input(const int n, CAR *cars)
         assert(n > 0);
         // Inputs an array of structure CAR from the keyboard. The number of
         // cars n is given.
-	for (int i = 0; i < n; ++i) { 
+	for (int i = 0; i < n; ++i) {
 	        printf("\nGive the information about the %d car:\n", i + 1);
                 fflush(stdout);
 	        puts("Name of the model");
@@ -84,8 +84,8 @@ int search(const int n, const char *wanted, const CAR *cars)
         // Searches a car by a given name. n- number of cars; wanted - the name
         // of the car to search.
 	for (int i = 0; i < n; ++i) {
-		if (strcmp(cars[i].model, wanted) == 0) { 
-		        puts("Model found!"); 
+		if (strcmp(cars[i].model, wanted) == 0) {
+		        puts("Model found!");
 		        return i;
 		}
 	}
@@ -102,7 +102,7 @@ static void internal_for(const int n, const int i, CAR* cars)
 	CAR car = { .date = 0 };
         for (int j = 0; j < n -  i - 1; ++j) {
                 if (cars[j].cost > cars[j + 1].cost) {
-                        car = cars[j]; 
+                        car = cars[j];
 		        cars[j] = cars[j + 1];
 			cars[j + 1] = car;
 	        }
@@ -116,7 +116,7 @@ void sort(const int n, CAR *cars)
         // Sorts the array of cars, by price. Bubble sort used. n - numb. of
         // cars;
 	for (int i = 0; i < n - 1; ++i) {
-                internal_for(n, i, cars);          
+                internal_for(n, i, cars);
 	}
 }
 
@@ -212,7 +212,6 @@ void add(const int pos, CAR **cars, int *n)
         assert(filled == 1);
         fflush_stdin();
         assert((*cars)[pos].capacity > 0);
-        
         assert((*cars)[pos].cost > 0);
 }
 
@@ -241,7 +240,7 @@ CAR* read(const char *filename, CAR** cars, int *n)
 	while (1) {
                 i++;
 		(*cars) = (CAR*)realloc((*cars), (i + 1) * sizeof(CAR));
-	        assert((*cars));		
+	        assert((*cars));
 		int filled = fscanf(f,
                                     "%s %s %d %d %d",
                                     (*cars)[i].model, 
