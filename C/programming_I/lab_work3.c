@@ -62,4 +62,3 @@ int main(void)
         fflush(stdout);
         return 0;
 }
-

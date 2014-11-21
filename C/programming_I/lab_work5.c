@@ -52,4 +52,3 @@ static void internal_for(const int n, char **a)
                 }
 	}
 }
-

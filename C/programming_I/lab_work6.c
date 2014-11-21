@@ -642,4 +642,3 @@ static void test_fflush_stdin(void)
         fflush_stdin();
         printf("the char: \"%c\"", c);
 }
-

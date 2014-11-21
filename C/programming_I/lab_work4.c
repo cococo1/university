@@ -287,4 +287,3 @@ static void test_switch_operation(void)
         assert(switch_operation(6, &n, &m, &a));
         assert(!switch_operation(0, &n, &m, &a));
 }
-
