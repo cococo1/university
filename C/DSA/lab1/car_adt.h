@@ -34,4 +34,3 @@ void add(const int pos, CAR **cars, int *n);
 CAR* read(const char *filename, CAR **cars, int *n);
 
 #endif  // DSA_CAR_ADT_H_
-

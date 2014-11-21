@@ -258,4 +258,3 @@ CAR* read(const char *filename, CAR** cars, int *n)
 	fclose(f);
 	return (*cars);
 }
-

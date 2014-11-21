@@ -312,4 +312,3 @@ static void fflush_stdin(void)
         int ch = 0;
         while((ch = getchar()) != '\n' && ch != EOF) /* clear buffer; */;
 }
-
