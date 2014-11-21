@@ -39,10 +39,7 @@ void swap(CAR *a, CAR *b);
 void sort(CAR *head);
 // Deallocates the memory , frees it. 
 void free_list(CAR **head);
-// Function that generates the menu on the screen;
-void show_menu(void);
 //Returns the length of the list.
 int list_length(CAR *head);
 
 #endif  // DSA_CAR_ADT2_H_
-
