@@ -13,7 +13,7 @@
 
 #include "car_adt2.h"
 
-static void fflush_scanf(void)
+static void fflush_stdin(void)
 {
         int ch = 0;
         while((ch = getchar()) != '\n' && ch != EOF) /* clear buffer */;
@@ -76,12 +76,12 @@ void input (CAR *head)
                 fflush_stdin();
                 assert(current->date > 0);
 		puts("\nPrice of the model:");
-		int filled = scanf("%d", &current->cost);
+		filled = scanf("%d", &current->cost);
                 assert(filled == 1);
                 fflush_stdin();
                 assert(current->cost > 0);
 		puts("\nCapacity of engine:");
-		int filled = scanf("%d", &current->capacity);
+		filled = scanf("%d", &current->capacity);
                 assert(filled == 1);
                 fflush_stdin();
                 assert(current->capacity > 0);
@@ -277,4 +277,3 @@ int list_length(CAR *head)
 	}
 	return n;
 }
-
