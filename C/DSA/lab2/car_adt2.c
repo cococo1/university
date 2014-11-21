@@ -13,6 +13,12 @@
 
 #include "car_adt2.h"
 
+static void fflush_scanf(void)
+{
+        int ch = 0;
+        while((ch = getchar()) != '\n' && ch != EOF) /* clear buffer */;
+}
+
 CAR* allocate_memory(int n)
 {
         assert(n > 0);
@@ -60,16 +66,24 @@ void input (CAR *head)
                 printf("\nCar %d: ", i + 1);
 		puts("\nModel:");
 		scanf("%s", current->model);
+                fflush_stdin();
 		puts("\nCountry:");
                 scanf("%s", current->country);
+                fflush_stdin();
 		puts("\nYear of manufacturing:");
-		scanf("%d", &current->date);
+		int filled = scanf("%d", &current->date);
+                assert(filled == 1);
+                fflush_stdin();
                 assert(current->date > 0);
 		puts("\nPrice of the model:");
-		scanf("%d", &current->cost);
+		int filled = scanf("%d", &current->cost);
+                assert(filled == 1);
+                fflush_stdin();
                 assert(current->cost > 0);
 		puts("\nCapacity of engine:");
-		scanf("%d", &current->capacity);
+		int filled = scanf("%d", &current->capacity);
+                assert(filled == 1);
+                fflush_stdin();
                 assert(current->capacity > 0);
                 current = current->next;
                 i++;
@@ -122,71 +136,74 @@ void edit (CAR* model_to_modify)
 	char answer = '\0';
 one:
         puts("Do you want to modify the name of the model? y/n");
-	fflush(stdin);
 	scanf("%c", &answer);
+        fflush_stdin();
 	if ((answer != 'y') && (answer != 'n')) {
                 puts("Unknown answer, please try again:");
                 goto one;
         }
 	if (answer == 'y') {
 		puts("Introduce the new name of this model:");
-		fflush(stdin);
 		scanf("%s", model_to_modify->model);
+                fflush_stdin();
 	}
 two:
         puts("Do you want to modify the country of the model? y/n");
-	fflush(stdin);
 	scanf("%c", &answer);
+        fflush_stdin();
 	if ((answer != 'y') && (answer != 'n')) {
                 puts("Unknown answer, please try again:");
                 goto two;
         }
 	if (answer == 'y') {
 		puts("Introduce the new country of this model:");
-		fflush(stdin);
 		scanf("%s", model_to_modify->country);
+                fflush_stdin();
 	}
 three:
         puts("Do you want to modify the capacity of engine of the model? y/n");
-	fflush(stdin);
 	scanf("%c", &answer);
+        fflush_stdin();
 	if ((answer != 'y') && (answer != 'n')) {
                 puts("Unknown answer, please try again:");
                 goto three;
         }
 	if (answer == 'y') {
 		puts("Introduce the new capacity of this model:");
-		fflush(stdin);
-		scanf("%d", &model_to_modify->capacity);
+		int filled = scanf("%d", &model_to_modify->capacity);
+                assert(filled == 1);
+                fflush_stdin();
                 assert(model_to_modify->capacity > 0);
 	}
 four:
         puts("Do you want to modify the price of this model? y/n");
-	fflush(stdin);
 	scanf("%c", &answer);
+        fflush_stdin();
 	if ((answer != 'y') && (answer != 'n')) {
                 puts("Unknown answer, please try again:");
                 goto four;
         }
 	if (answer == 'y') {
 		puts("Introduce the new price of this model:");
-		fflush(stdin);
-		scanf("%d", &model_to_modify->cost);
+		int filled = scanf("%d", &model_to_modify->cost);
+                assert(filled == 1);
+                fflush_stdin();
                 assert(model_to_modify->cost > 0);
 	}
 five:
         puts("Do you want to modify the year of manufacturing of this model?"
              " y/n");
-	fflush(stdin);
 	scanf("%c", &answer);
+        fflush_stdin();
 	if ((answer != 'y') && (answer != 'n')) {
                 puts("Unknown answer, please try again:");
                 goto five;
         }
 	if (answer == 'y') {
 		puts("Introduce the new year of manufacturing of this model:");
-		fflush(stdin);
-		scanf("%d", &model_to_modify->date);
+		int filled = scanf("%d", &model_to_modify->date);
+                assert(filled == 1);
+                fflush_stdin();
                 assert(model_to_modify->date > 0);
 	}
 }
@@ -205,22 +222,32 @@ void swap(CAR *a, CAR *b)
 	b->next = next_b;
 }
 
+static void internal_for(const int n, const int i, CAR *one, CAR *two)
+{
+        assert(one);
+        assert(two);
+        assert(n > 0);
+        assert(i < n);
+        for (int j = 0; j < n - i - 1; ++j) {
+                if (one->cost > two->cost) {
+                        swap(one, two);
+                }
+                one = one->next;
+		two = two->next;
+	}
+}
+
 void sort(CAR *head)
 {
         assert(head);
 	int n = list_length(head);
+        assert(n > 0);
 	CAR *one = NULL;
         CAR *two = NULL;
 	for (int i = 0; i < n - 1; ++i) {
 		one = head;
 		two = head->next;
-		for (int j = 0; j < n - i - 1; ++j) {
-			if (one->cost > two->cost) {
-				swap(one, two);
-			}
-			one = one->next;
-			two = two->next;
-		}
+                internal_for(n, i, one, two);
 	}
 	puts("List of cars sorted by price.");
 }
@@ -238,22 +265,6 @@ void free_list(CAR **head)
 	}
 	*head = NULL;
 	puts("Memory is free.");
-}
-
-void show_menu(void)
-{
-	puts("\t\t ___MENU___ ");
-	puts("1. Create a new list of cars;");
-	puts("2. Input the list of cars from the keyboard;");
-	puts("3. Output the list of cars on the screen;");
-	puts("4. Search a car by the name of the model;");
-	puts("5. Edit some data about a car;");
-	puts("6. Swap two cars;");
-	puts("7. Sort the list of cars in ascending order by price;");
-	puts("8. Destroy the existing list of cars;");
-	puts("9. Exit the program.");
-	puts("");
-	puts("Select an operation to be performed ( type a number):");
 }
 
 int list_length(CAR *head)
