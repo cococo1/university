@@ -1,5 +1,3 @@
-// TODO: Check this file for errors;
-// TODO: Test everything;
 // Copyright Max Chetrusca, modified Nov 11, 2014
 // car_adt2_test.c
 // Data Structures & Algorightms, 2011
@@ -52,7 +50,7 @@ int main(void)
 		int filled = scanf("%d", &operation);
                 assert(filled == 1);
                 fflush_stdin();
-                switch_operation(operation, &n, &list_of_cars);
+                if (!switch_operation(operation, &n, &list_of_cars)) break;
         }
 	return 0;
 }
@@ -180,6 +178,10 @@ static void case_search(const CAR *list_of_cars)
         scanf("%s", name);
         fflush_stdin();
         CAR *p1 = search(list_of_cars, name);
+        if (!p1) {
+                puts("Model not found.");
+                return;
+        }
         puts("Model found! Here is the info about it:");
         printf("Model: %s \n", p1->model);
         printf("Country: %s \n", p1->country);
@@ -197,7 +199,6 @@ static void test_case_search(void)
 static int switch_operation(const int operation, int *n, CAR **list_of_cars)
 {
         assert(n);
-        assert(*n > 0);
         assert(list_of_cars);
         switch (operation) {
                 case 1 : {
@@ -259,7 +260,7 @@ static void show_menu(void)
 	puts("8. Destroy the existing list of cars;");
 	puts("9. Exit the program.");
 	puts("");
-	puts("Select an operation to be performed ( type a number):");
+	puts("Select an operation to be performed (type a number):");
 }
 
 static void fflush_stdin(void)
