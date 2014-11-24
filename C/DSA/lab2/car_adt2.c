@@ -65,10 +65,10 @@ void input (CAR *head)
         while(current) {
                 printf("\nCar %d: ", i + 1);
 		puts("\nModel:");
-		scanf("%s", current->model);
+		scanf("%9s", current->model);
                 fflush_stdin();
 		puts("\nCountry:");
-                scanf("%s", current->country);
+                scanf("%9s", current->country);
                 fflush_stdin();
 		puts("\nYear of manufacturing:");
 		int filled = scanf("%d", &current->date);
@@ -144,7 +144,7 @@ one:
         }
 	if (answer == 'y') {
 		puts("Introduce the new name of this model:");
-		scanf("%s", model_to_modify->model);
+		scanf("%9s", model_to_modify->model);
                 fflush_stdin();
 	}
 two:
@@ -157,7 +157,7 @@ two:
         }
 	if (answer == 'y') {
 		puts("Introduce the new country of this model:");
-		scanf("%s", model_to_modify->country);
+		scanf("%9s", model_to_modify->country);
                 fflush_stdin();
 	}
 three:
