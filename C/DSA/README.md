@@ -41,25 +41,28 @@ of ADT «singly linked list» of the specified type in the previous lab.
 specified operations, also displaying the menu on the screen
  for those operations.
 
-Variant No. 6 : 
+Variant No. 6: 
 Structure CAR with fields: model, country, date of manufacturing, capacity of
  the engine, cost and the field next with the address of the next element.
 
 --
 
-**Lab 3**: Complete those three files from Laboratory Work 8 for usage of ADT
- «Simple List» for realization of mentioned operations.
+**Lab 3**: Add more functionality on top of previous lab. You should create
+functions to perform the following operations: get the list's length, insert or
+remove an element, write or read a list from file, compute the address of the
+last element, divide the list into two or concatenate two lists.
 
-Variant No. 6 : 
+Variant No. 6: 
 Structure CAR with fields: model, country, date of manufacturing, capacity of
  the engine, cost and the field next with the address of the next element.
 
 --
+
 **Lab 4**: Create three files in C language for implementation and usage of ADT
  «Binary tree» with operations of processing the tree while traversing the nodes
  using the iterative algorithms.
 
-Variant No. 6 : 
+Variant No. 6: 
 Structure CAR with fields: model, country, date of manufacturing, capacity of
  the engine, cost and the fields left and right with the addresses of other
  cars.
