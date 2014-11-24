@@ -1,395 +1,411 @@
-// This file should be attached to Chetrusca3.h header file.
-// Here is the defenition of functions declared there.
-// Last time modified: 10/03/2011 ;
-// Author : Chetrusca Maxim
+// TODO: Exclude fflush(stdin);
+// TODO: Fflush stdout if needed;
+// TODO: Check the return value of scanf if needed;
+// TODO: FFflush stdin if needed;
+// TODO: Check for logical errors;
+// TODO: Check if the function has more than 3 levels of identation;
+// TODO: Check if the function is longer than 40 lines;
+// TODO: Check general style;
 
+// Copyright Max Chetrusca, Nov 12, 2014
+// car_adt3.c
+// Data Structures & Algorithms, 2011
 
-#include "Chetrusca3.h"
+// This file should be attached to car_adt3.h header file.
+// Here is the definition of functions declared there.
+// Max Chetrusca, Mar 10, 2011
 
+#include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-extern CAR *head; // A global variable used as pointer to first element of link list.
+#include "car_adt3.h"
 
+// A global variable used as pointer to first element of link list.
+// defined in the main file.
+extern CAR *g_head;
 
-//---------------------------------------------------
-
-int memory_allocation(int n)
+int allocate_memory(const int n)
 {
-
-	CAR  *current=NULL, *pointer=NULL;
-	int i=0;
-	head=(CAR*)malloc(sizeof(CAR));
-	if (n==0 ||!head) return 0;
-
-	head->next=NULL;
-
-	for (i=0;i<n-1;i++)
+        assert(n > 0);
+        CAR  *current = NULL;
+        CAR *previous = NULL;
+	g_head = (CAR*)malloc(sizeof(CAR));
+        assert(g_head);
+        g_head->model[0] = '\0';
+        g_head->country[0] = '\0';
+        g_head->date = 1;
+        g_head->cost = 1;
+        g_head->capacity = 1;
+	g_head->next = NULL;
+	for (int i = 0; i < n - 1; i++)
 	{
-		current=(CAR*)malloc(sizeof(CAR));
-		if (!current)
-		{
-            return 0;
+		current = (CAR*)malloc(sizeof(CAR));
+                assert(current);
+		current->next = NULL;
+		if (i == 0) {
+			g_head->next = current;
+		} else {
+			previous->next = current;
 		}
-		current->next=NULL;
-
-		if (i==0)
-		{
-			head->next=current;
-		}
-		else
-		{
-			pointer->next=current;
-		}
-
-        pointer=current;
+                previous = current;
 	}
 	return 1;
 }
-//---------------------------------------------------
 
-
-void input ()
+void input(void)
 {
-	CAR *current=NULL;
-	int i=0;
-	if (!head) { puts("The list does not exist, allocate memory first, then input."); return; }
-    current=head;
+        assert(g_head);
+	CAR *current = g_head;
+	int i = 0;
 	puts("Enter info about the cars:");
-    while(current)
-        {
-            printf("\nCar %d: ", i+1);
-			puts("\nModel:");
-			fflush(stdin);
-			scanf("%s", current->model);
-			puts("\nCountry:");
-			fflush(stdin);
-            scanf("%s", current->country);
-			puts("\nYear of manufacturing:");
-			fflush(stdin);
-			scanf("%i", &current->date);
-			puts("\nPrice of the model:");
-			fflush(stdin);
-			scanf("%i", &current->cost);
-			puts("\nCapacity of engine:");
-			fflush(stdin);
-			scanf("%i", &current->capacity);
-
-            current=current->next;
-            i++;
+        while(current) {
+                printf("\nCar %d: ", i + 1);
+		puts("\nModel:");
+		fflush(stdin);
+		scanf("%s", current->model);
+		puts("\nCountry:");
+		fflush(stdin);
+                scanf("%s", current->country);
+		puts("\nYear of manufacturing:");
+		fflush(stdin);
+		scanf("%d", &current->date);
+                assert(current->date > 0);
+		puts("\nPrice of the model:");
+		fflush(stdin);
+		scanf("%d", &current->cost);
+                assert(current->cost > 0);
+		puts("\nCapacity of engine:");
+		fflush(stdin);
+		scanf("%d", &current->capacity);
+                assert(current->capacity > 0);
+                current = current->next;
+                i++;
         }
 	puts("Input finished.");
 }
-//---------------------------------------------------
 
-void output ()
+void output(void)
 {
-	int i=0;
-	CAR *current=NULL;
-	if (!head)  return;
-	current=head;
-	while (current)
-	{
+        assert(g_head);
+	int i = 0;
+	CAR *current = g_head;
+	while (current) {
 		puts("");
-		printf("Info about car No %d", i+1);
-		printf("\nAdress of the current element: %p",current);
-		printf("\nAdress of the next element: %p",current->next);
+		printf("Info about car No %d", i + 1);
+		printf("\nAdress of the current element: %p", current);
+		printf("\nAdress of the next element: %p", current->next);
 		printf("\nModel: %s", current->model);
-        printf("\nCountry: %s", current->country);
-        printf("\nYear of manufacturing: %i", current->date);
-        printf("\nPrice of model: %i",current->cost);
-        printf("\nCapacity of engine: %d", current->capacity);
+                printf("\nCountry: %s", current->country);
+                printf("\nYear of manufacturing: %d", current->date);
+                printf("\nPrice of model: %d", current->cost);
+                printf("\nCapacity of engine: %d", current->capacity);
 		puts("");
-        current=current->next;
-        i++;
+                current = current->next;
+                i++;
 	}
-
 }
-//---------------------------------------------------
 
-int search (char* asked_model, CAR **result)
+int search(const char *asked_model, CAR **result)
 {
-	int i=0;
-	CAR *current=head;
-	if (!current)  return 0;
-	while (current)
-	{
-		i=strcmp(current->model,asked_model);
-		if (i==0)
-		{
-			*result=current;
+        assert(g_head);
+        assert(asked_model);
+        assert(result);
+	int i = 0;
+	CAR *current = g_head;
+	while (current) {
+		i = strcmp(current->model, asked_model);
+		if (i == 0) {
+			*result = current;
 			return 1;
 		}
-		current=current->next;
+		current = current->next;
 	}
 	return 0;
 }
-//---------------------------------------------------
 
-int edit (CAR* model_to_modify)
+int edit(CAR *model_to_modify)
 {
-	char answer=0;
+        assert(model_to_modify);
+	char answer = '\0';
 	//User should answer questions using 'y' and 'n' keys .
-	if (!model_to_modify) return 0;
-
-label: one: puts("Do you want to modify the name of the model? y/n");
+one:
+        puts("Do you want to modify the name of the model? y/n");
 	fflush(stdin);
-	scanf("%c",&answer);
-	if ((answer!='y')&&(answer!='n')) { puts("Unknown answer, please try again:"); goto one;}
-	if (answer=='y')
-	{
+	scanf("%c", &answer);
+	if ((answer != 'y') && (answer != 'n')) {
+                puts("Unknown answer, please try again:");
+                goto one;
+        }
+	if (answer == 'y') {
 		puts("Introduce the new name of this model:");
 		fflush(stdin);
-		scanf("%s",model_to_modify->model);
+		scanf("%s", model_to_modify->model);
 	}
-two:	puts("Do you want to modify the country of the model? y/n");
+two:
+        puts("Do you want to modify the country of the model? y/n");
 	fflush(stdin);
-	scanf("%c",&answer);
-	if ((answer!='y')&&(answer!='n')) { puts("Unknown answer, please try again:"); goto two;}
-	if (answer=='y')
-	{
+	scanf("%c", &answer);
+	if ((answer != 'y') && (answer != 'n')) {
+                puts("Unknown answer, please try again:");
+                goto two;
+        }
+	if (answer == 'y') {
 		puts("Introduce the new country of this model:");
 		fflush(stdin);
-		scanf("%s",model_to_modify->country);
+		scanf("%s", model_to_modify->country);
 	}
-three:	puts("Do you want to modify the capacity of engine of the model? y/n");
+three:
+        puts("Do you want to modify the capacity of engine of the model? y/n");
 	fflush(stdin);
-	scanf("%c",&answer);
-	if ((answer!='y')&&(answer!='n')) { puts("Unknown answer, please try again:"); goto three;}
-	if (answer=='y')
-	{
+	scanf("%c", &answer);
+	if ((answer != 'y') && (answer != 'n')) {
+                puts("Unknown answer, please try again:");
+                goto three;
+        }
+	if (answer == 'y') {
 		puts("Introduce the new capacity of this model:");
 		fflush(stdin);
-		scanf("%i",&model_to_modify->capacity);
+		scanf("%d", &model_to_modify->capacity);
+                assert(model_to_modify->capacity > 0);
 	}
-four: puts("Do you want to modify the price of this model? y/n");
+four:
+        puts("Do you want to modify the price of this model? y/n");
 	fflush(stdin);
-	scanf("%c",&answer);
-	if ((answer!='y')&&(answer!='n')) { puts("Unknown answer, please try again:"); goto four;}
-	if (answer=='y')
-	{
+	scanf("%c", &answer);
+	if ((answer != 'y') && (answer != 'n')) {
+                puts("Unknown answer, please try again:");
+                goto four;
+        }
+	if (answer == 'y') {
 		puts("Introduce the new price of this model:");
 		fflush(stdin);
-		scanf("%i",&model_to_modify->cost);
+		scanf("%d", &model_to_modify->cost);
+                assert(model_to_modify->cost > 0);
 	}
-five:	puts("Do you want to modify the year of manufacturing of this model? y/n");
+five:
+        puts("Do you want to modify the year of manufacturing of this model? "
+             "y/n");
 	fflush(stdin);
-	scanf("%c",&answer);
-	if ((answer!='y')&&(answer!='n')) { puts("Unknown answer, please try again:"); goto five;}
-	if (answer=='y')
-	{
+	scanf("%c", &answer);
+	if ((answer != 'y') && (answer != 'n')) {
+                puts("Unknown answer, please try again:");
+                goto five;
+        }
+	if (answer == 'y') {
 		puts("Introduce the new year of manufacturing of this model:");
 		fflush(stdin);
-		scanf("%i",&model_to_modify->date);
+		scanf("%d", &model_to_modify->date);
+                assert(model_to_modify->date > 0);
 	}
 	return 1;
 }
-//------------------------------------------------------
 
-int list_length() //Returns the length of the list
+int list_length(void)
 {
-	int n=0;
-	CAR *current=head;
-	while (current)
-	{
+	int n = 0;
+	CAR *current = g_head;
+	while (current) {
 		++n;
-		current=current->next;
+		current = current->next;
 	}
 	return n;
 }
-//------------------------------------------------------
 
 int swap(CAR *a, CAR* b)
 {
-	CAR *next_a=NULL, *next_b=NULL, t;
-	if (!a || !b) return 0;
-	next_a=a->next;
-	next_b=b->next;
-	t=*a;
-	*a=*b;
-	*b=t;
-	a->next=next_a;
-	b->next=next_b;
+        assert(a);
+        assert(b);
+	CAR *next_a = NULL;
+        CAR *next_b = NULL;
+        CAR t = { .date = 1};
+	next_a = a->next;
+	next_b = b->next;
+	t = *a;
+	*a = *b;
+	*b = t;
+	a->next = next_a;
+	b->next = next_b;
 	return 1;
 }
-//------------------------------------------------------
 
-
-int sort ()
+int sort(void)
 {
-	int i=0,j=0,n=0;
-	CAR *one=NULL, *two=NULL, *current=head;
-	if (!current) return 0;
-	n=list_length();
-	for (i=0; i<n-1; ++i)
-	{
-		one=current;
-		two=current->next;
-		for (j=0; j<n-i-1; ++j)
-		{
-			if (one->cost>two->cost)
-			{
+        assert(g_head);
+	int n = 0;
+	CAR *one = NULL, *two = NULL, *current = g_head;
+	n = list_length();
+	for (int i = 0; i < n - 1; ++i) {
+		one = current;
+		two = current->next;
+		for (int j = 0; j < n - i - 1; ++j) {
+			if (one->cost > two->cost) {
 				swap(one, two);
 			}
-			one=one->next;
-			two=two->next;
+			one = one->next;
+			two = two->next;
 		}
 	}
 	return 1;
 }
-//------------------------------------------------------
 
-int insert(CAR *after_this_adress,CAR new_element)
+int insert(const CAR *after_this_address, const CAR *new_element)
 {
-	CAR *current=NULL;
-	if (!after_this_adress) return 0;
-	current=(CAR*)malloc(sizeof(CAR));
-	if (!current)  return 0;
-	current->next=after_this_adress->next;
-	after_this_adress->next=current;
-	current->capacity=new_element.capacity;
-	current->cost=new_element.cost;
-	strcpy(current->country,new_element.country);
-	current->date=new_element.date;
-	strcpy(current->model,new_element.model);
+        assert(after_this_address);
+        assert(new_element);
+	CAR *current = NULL;
+	current = (CAR*)malloc(sizeof(CAR));
+        assert(current);
+	current->next = after_this_address->next;
+	after_this_address->next = current;
+	current->capacity = new_element->capacity;
+	current->cost = new_element->cost;
+	strcpy(current->country, new_element->country);
+	current->date = new_element->date;
+	strcpy(current->model, new_element->model);
 	return 1;
 }
-//------------------------------------------------------
 
-int deleting( CAR *adress)
+int remove(CAR *address)
 {
-	CAR *p=NULL ;
-	if (!head || !adress )  return 0;
-	if (head==adress) { p=head; head=head->next; free(p); p=NULL; return 1; }
-	p=head;
-
-	while ((p->next!=adress) && (p))
-	{
-		p=p->next;
+        assert(g_head);
+        assert(address);
+	CAR *p = NULL;
+	if (g_head == address) {
+                p = g_head;
+                g_head = g_head->next;
+                free(p);
+                p = NULL;
+                return 1;
+        }
+	p = g_head;
+	while ((p->next != address) && p) {
+		p = p->next;
 	}
-	if (!p) return 0;
-	p->next=adress->next;
-	free(adress);
-	adress=NULL;
+        assert(p);
+	p->next = address->next;
+	free(address);
+	address = NULL;
 	return 1;
 }
-//------------------------------------------------------
 
-int write_in_file(char* file_name)
+int write_to_file(const char *filename)
 {
-	FILE *f=NULL;
-	CAR *current=NULL;
-	if (!head)  return 0;
-	current=head;
-	f=fopen(file_name,"w");
-	if (!f) return 0;
-	while (current)
-	{
-		fprintf(f,"%s %s %i %i %i\n",current->model,current->country, current->capacity, current->cost, current->date);
-		current=current->next;
+        assert(filename);
+        assert(g_head);
+	FILE *f = NULL;
+	CAR *current = NULL;
+	current = g_head;
+        // first assert that such a file does not exist:
+        f = fopen(filename, "r");
+        assert(!f);
+	f = fopen(filename, "w");
+        assert(f);
+	while (current) {
+		fprintf(f,
+                        "%s %s %d %d %d\n",
+                        current->model,
+                        current->country,
+                        current->capacity,
+                        current->cost,
+                        current->date);
+		current = current->next;
 	}
 	fclose(f);
-return 1;
+        return 1;
 }
-//------------------------------------------------------
 
-int read_from_file(char* file_name)
+int read_from_file(const char *filename)
 {
-	int i=0;
-	FILE *f=NULL;
-	CAR  *c=NULL, *p=NULL;
-	char capacity[10], cost[10], date[10];
-	f=fopen(file_name,"r");
-	if (!f || head)  return 0;
-
-
-	while (!feof(f))
-	{
-
-		if (i==0)
-		{
-		    head=(CAR*)malloc(sizeof(CAR));
-		    if (!head)  return 0;
-		    head->next=NULL;
-			fscanf(f,"%s %s %s %s %s",head->model,head->country, capacity, cost, date);
-			head->capacity=atoi(capacity);
-			head->cost=atoi(cost);
-			head->date=atoi(date);
-			p=head;
-
-		}
-		else
-		{
-		    c=(CAR*)malloc(sizeof(CAR));
-		    if (!c) return 0;
-		    c->next=NULL;
-			fscanf(f,"%s %s %s %s %s",c->model,c->country, capacity, cost, date);
-			c->capacity=atoi(capacity);
-			c->cost=atoi(cost);
-			c->date=atoi(date);
-			p->next=c;
-			p=c;
+        assert(filename);
+	int i = 0;
+	FILE *f = NULL;
+	CAR *c = NULL;
+        CAR *previous = NULL;
+	char capacity[10] = {'\0'};
+        char cost[10] = {'\0'};
+        char date[10]= {'\0'};
+	f = fopen(filename, "r");
+        assert(f);
+	while (!feof(f)) {
+		if (i == 0) {
+		    g_head = (CAR*)malloc(sizeof(CAR));
+                    assert(g_head);
+		    g_head->next = NULL;
+			fscanf(f,
+                               "%s %s %d %d %d",
+                               g_head->model,
+                               g_head->country,
+                               g_head->capacity,
+                               g_head->cost,
+                               g_head->date);
+                        previous = g_head;
+		} else {
+                        c = (CAR*)malloc(sizeof(CAR));
+                        assert(c);
+		        c->next = NULL;
+		        fscanf(f,
+                               "%s %s %d %d %d",
+                               c->model,
+                               c->country,
+                               c->capacity,
+                               c->cost,
+                               c->date);
+			previous->next = c;
+			previous = c;
 		}
 		++i;
-
 	}
-	deleting(p);
-    return 1;
-
+        return 1;
 }
-//------------------------------------------------------
 
-void free_list()
+void free_list(void)
 {
-	CAR *c=NULL;
-	if (!head) return ;
-	while (head)
-	{
-		c=head;
-		head=head->next;
+        assert(g_head);
+	CAR *c = NULL;
+	while (g_head) {
+		c = g_head;
+		g_head = g_head->next;
 		free(c);
-		c=NULL;
+		c = NULL;
 	}
-	head=NULL;
+	g_head = NULL;
 }
-//------------------------------------------------------
 
-CAR* adress_of_last(void)
+CAR* address_of_last(void)
 {
-    CAR *current=NULL;
-    current=head;
-    while (current->next)
-    {
-        current=current->next;
-    }
-    return current;
+        assert(g_head);
+        CAR *current = g_head;
+        while (current->next) {
+                current = current->next;
+        }
+        return current;
 }
-//------------------------------------------------------
 
-void divide_list(CAR* head2)
+void divide_list(const CAR *head2)
 {
-    CAR *current=NULL;
-    if (!head || !head2) return;
-    if (head==head2) {head=NULL; return; }
-    current=head;
-    while (current->next!=head2 && current)
-    {
-        current=current->next;
-    }
-    if (!current) return;
-    current->next=NULL;
+        assert(g_head);
+        assert(head2);
+        CAR *current = g_head;
+        if (g_head == head2) {
+                g_head = NULL;
+                return;
+        }
+        while (current->next != head2 && current) {
+                current = current->next;
+        }
+        assert(current);
+        current->next = NULL;
 }
-//------------------------------------------------------
 
-void concat_lists(CAR* head2)
+void concat_lists(const CAR* head2)
 {
-    CAR *current=NULL;
-    if (!head || !head2) return;
-    current=head;
-    while (current->next)
-    {
-        current=current->next;
-    }
-    current->next=head2;
+        assert(g_head);
+        assert(head2);
+        CAR *current = g_head;
+        while (current->next) {
+                current = current->next;
+        }
+        current->next = head2;
 }
-//------------------------------------------------------
-////////////////////////////////////////////////////////
-//END OF FILE .
