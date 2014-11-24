@@ -18,8 +18,8 @@ typedef struct CAR {
 	struct CAR *next; // for singly link lists
 }CAR;
 
-// THIS ADT OPERATES WITH A GLOBAL VARIABLE CAR *head, WHICH POINTS TO THE HEAD
-// OF THE LIST.  
+// THIS ADT OPERATES WITH A GLOBAL VARIABLE CAR *g_head, WHICH POINTS TO THE 
+// HEAD OF THE LIST.  
 
 // Creation of the link-list, memory allocated dynamically. n - number of cars;
 int allocate_memory(const int n);
