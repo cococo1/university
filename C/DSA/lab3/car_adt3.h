@@ -1,45 +1,62 @@
-//This is a header file to Chetrusca3.c
-//It is created for some operations on a car-database
-//Last time modified: 10/03/2011
-//Author : Chetrusca Maxim
+// Copyright Max Chetrusca, modified Nov 12, 2014
+// car_adt3.h
+// Data Structures & Algorithms, 2011
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+//This is a header file to car_adt3.c
+//It is created for some operations on a car linked list.
+// Max Chetrusca, Mar 10, 2011
 
-typedef struct CAR
-{
+typedef struct CAR {
 // model of of car (ex: BMW); country - origin of model (Germany);
 // date - year of manufacturing; cost - price in $ of the car;
 // capacity - the capacity of engine ;
-	char model[10], country[10];
-	int date, cost, capacity;
-	struct CAR * next; // for singly link lists
+	char model[10];
+        char country[10];
+	int date;
+        int cost;
+        int capacity;
+	struct CAR *next; // for singly link lists
 }CAR;
 
-// HEADER FILES :
-int memory_allocation(int n); // Creation of the link-list, allocated dynamic. n - number of cars;
-void input (void); // Inputing from keyboard ;
-void output (void);  // Outputting on the screen ;
-int search (char* asked_model,CAR **result); // Searches asked_model and stores the adress of it in variable result.
-// asked_model - pointer to char, stores the adress of the string;
-// returns 0 if model not found or list is empty, 1 if found;
-int edit (CAR* model_to_modify); // Asks user about all fields of the model_to_modify and modifies them if needed.
-// returns 0 if pointer model_to_modify is empty , 1 otherwise;
-int list_length(void); //Returns the length of the list.
-int swap(CAR *a, CAR* b); // Interchanges two elements of structure CAR type, by given adresses.
-// returns 0 if elements do not exist;
-int sort (); // Sorts the list of cars by price . returns 0 if list is empty . Uses bubble sort.
-int insert(CAR *after_this_adress,CAR new_element); //Inserts the new_element after_this_adress; returns 0 if something is wrong;
-int deleting(CAR *adress); // Deletes the element with indicated adress.
-int write_in_file( char* file_name); // Records the list into a file : each row contain fields of an element separated by a space.
-int read_from_file(char* file_name); // Creates  link-list and store there the data from file.
-void free_list(); // Deallocates the memory , frees it.
-CAR* adress_of_last(void); // returns the adress of the last element of link-list.
-void divide_list(CAR* head2); // Divides the list into two; the second one will start with the adress head2;
-// head2- the adress of the head of the second link list ;
-void concat_lists(CAR* head2); // Concatenates list that has the adress of the first element stored in head2 to list that has the adress
-// of the first element stored in global pointer head;
+// THIS ADT OPERATES WITH A GLOBAL VARIABLE CAR *head, WHICH POINTS TO THE HEAD
+// OF THE LIST.  
 
-//---------------------------------------------------
-//END OF FILE .//////////////////////////////////////
+// Creation of the link-list, memory allocated dynamically. n - number of cars;
+int allocate_memory(const int n);
+// Input from keyboard;
+void input(void);
+// Output on the screen;
+void output(void);
+// Searches asked_model and stores the adress of it in variable result.
+// asked_model - stores the adress of the string of the name of car;
+// returns 0 if model not found or list is empty, 1 if found;
+int search(const char *asked_model, CAR **result);
+// Asks user about all fields of the model_to_modify; modifies them if needed.
+// returns 0 if pointer model_to_modify is empty, 1 otherwise;
+int edit(CAR *model_to_modify);
+// Returns the length of the list.
+int list_length(void);
+// Interchanges two elements of structure CAR type, by given adresses.
+// returns 0 if elements do not exist;
+int swap(CAR *a, CAR* b);
+int sort(void);
+//Inserts the new_element after_this_address; returns 0 if something is wrong;
+int insert(const CAR *after_this_address, const CAR *new_element);
+// Deletes the element with indicated adress.
+int remove(CAR *adress);
+// Records the list into a file: each row contain fields of an element
+// separated by a space.
+int write_to_file(const char *filename);
+// Creates  link-list and store there the data from file.
+int read_from_file(const char *filename);
+// Deallocates the memory.
+void free_list(void);
+// returns the adress of the last element of link-list.
+CAR *address_of_last(void);
+// Divides the list into two; the second one will start with the adress head2;
+// head2 - the adress of the head of the second link list;
+void divide_list(const CAR *head2);
+// Concatenates list that has the adress of the first element stored in head2
+// to list that has the adress of the first element stored in global pointer
+// head;
+void concat_lists(const CAR *head2);
