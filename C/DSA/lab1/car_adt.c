@@ -31,10 +31,10 @@ void input(const int n, CAR *cars)
 	        printf("\nGive the information about the %d car:\n", i + 1);
                 fflush(stdout);
 	        puts("Name of the model");
-	        scanf("%s", cars[i].model);
+	        scanf("%9s", cars[i].model);
                 fflush_stdin();
 	        puts("Write the country");
-	        scanf("%s", cars[i].country);
+	        scanf("%14s", cars[i].country);
                 fflush_stdin();
 	        puts("What is the year of manufacturing ?");
 	        int filled = scanf("%d", &cars[i].date);
@@ -134,7 +134,7 @@ void edit(const int n, const int k, CAR *cars)
         fflush_stdin();
 	if (ans == 'y') {
 	        puts("Introduce the new name of model:");
-		scanf("%s", cars[k].model);
+		scanf("%9s", cars[k].model);
                 fflush_stdin();
 	}
 	puts("Do you want to change the country of model? y/n");
@@ -142,7 +142,7 @@ void edit(const int n, const int k, CAR *cars)
         fflush_stdin();
 	if (ans == 'y') {
 		puts("Introduce the new name of country:");
-		scanf("%s", cars[k].country);
+		scanf("%14s", cars[k].country);
                 fflush_stdin();
 	}
 	puts("Do you want to change the date of manufacturing of model? y/n");
@@ -192,10 +192,10 @@ void add(const int pos, CAR **cars, int *n)
 	}
 	puts("Give the information about new car:");
 	puts("Type the model");
-        scanf("%s", (*cars)[pos].model);
+        scanf("%9s", (*cars)[pos].model);
         fflush_stdin();
 	puts("Write the country");
-        scanf("%s", (*cars)[pos].country);
+        scanf("%14s", (*cars)[pos].country);
         fflush_stdin();
         puts("Type the year of manufacturing with numbers ");
         int filled = scanf("%d", &(*cars)[pos].date);
@@ -226,7 +226,7 @@ CAR* read(const char *filename, CAR** cars, int *n)
 	(*cars) = (CAR*)realloc((*cars), sizeof(CAR));
         assert(*cars);
 	int filled = fscanf(f,
-                            "%s %s %d %d %d",
+                            "%9s %14s %d %d %d",
                             (*cars)[0].model,
                             (*cars)[0].country,
                             &(*cars)[0].date,
@@ -242,7 +242,7 @@ CAR* read(const char *filename, CAR** cars, int *n)
 		(*cars) = (CAR*)realloc((*cars), (i + 1) * sizeof(CAR));
 	        assert((*cars));
 		int filled = fscanf(f,
-                                    "%s %s %d %d %d",
+                                    "%9s %14s %d %d %d",
                                     (*cars)[i].model, 
                                     (*cars)[i].country,
                                     &(*cars)[i].date,

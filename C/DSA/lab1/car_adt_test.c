@@ -115,9 +115,9 @@ static void search_case(const int n, const CAR *cars)
 {
         assert(n > 0);
         assert(cars);
-        char model[15] = {'\0'};
+        char model[10] = {'\0'};
         puts("What model are you interested in ?");
-        scanf("%s", model);
+        scanf("%9s", model);
         fflush_stdin();
         int k = search(n, model, cars);
         if (k >= 0) {
@@ -134,9 +134,9 @@ static void edit_case(const int n, CAR *cars)
 {
         assert(n > 0);
         assert(cars);
-        char model[15] = {'\0'};
+        char model[10] = {'\0'};
         puts("Introduce the model you want to edit:");
-        scanf("%s", model);
+        scanf("%9s", model);
         fflush_stdin();
         int k = search(n, model, cars);
         if (k >= 0) {
@@ -180,7 +180,7 @@ static void write_to_file(const int n, const CAR *cars)
         assert(cars);
         puts("What is the name of file ? ");
         char filename[15] = {'\0'};
-        scanf("%s", filename);
+        scanf("%14s", filename);
         fflush_stdin();
         FILE *f = NULL;
         f = fopen(filename, "r");
@@ -266,7 +266,7 @@ static int switch_operation(const int operation, int *n, CAR **cars)
                 case 10 : {
                         puts("Introduce the name of the file:");
                         char filename[15] = {'\0'};
-                        scanf("%s", filename);
+                        scanf("%14s", filename);
                         fflush_stdin();
                         *cars = read(filename, cars, n);
                         break;
