@@ -1,8 +1,4 @@
-// TODO: Exclude fflush(stdin);
-// TODO: Fflush stdout if needed;
-// TODO: Check the return value of scanf if needed;
-// TODO: FFflush stdin if needed;
-// TODO: Check for logical errors;
+// TODO: Check for logical errors (stopped at insert());
 // TODO: Check if the function has more than 3 levels of identation;
 // TODO: Check if the function is longer than 40 lines;
 // TODO: Check general style;
@@ -26,8 +22,15 @@
 // defined in the main file.
 extern CAR *g_head;
 
+static void fflush_stdin(void)
+{
+        int ch = 0;
+        while((ch = getchar()) != '\n' && ch != EOF) /* clear buffer; */;
+}
+
 int allocate_memory(const int n)
 {
+        assert(!g_head);
         assert(n > 0);
         CAR  *current = NULL;
         CAR *previous = NULL;
@@ -63,22 +66,25 @@ void input(void)
         while(current) {
                 printf("\nCar %d: ", i + 1);
 		puts("\nModel:");
-		fflush(stdin);
-		scanf("%s", current->model);
+		scanf("%9s", current->model);
+                fflush_stdin();
 		puts("\nCountry:");
-		fflush(stdin);
-                scanf("%s", current->country);
+                scanf("%9s", current->country);
+                fflush_stdin();
 		puts("\nYear of manufacturing:");
-		fflush(stdin);
-		scanf("%d", &current->date);
+		int filled = scanf("%d", &current->date);
+                assert(filled == 1);
+                fflush_stdin();
                 assert(current->date > 0);
 		puts("\nPrice of the model:");
-		fflush(stdin);
-		scanf("%d", &current->cost);
+		filled = scanf("%d", &current->cost);
+                assert(filled == 1);
+                fflush_stdin();
                 assert(current->cost > 0);
 		puts("\nCapacity of engine:");
-		fflush(stdin);
-		scanf("%d", &current->capacity);
+		filled = scanf("%d", &current->capacity);
+                assert(filled == 1);
+                fflush_stdin();
                 assert(current->capacity > 0);
                 current = current->next;
                 i++;
@@ -132,71 +138,74 @@ int edit(CAR *model_to_modify)
 	//User should answer questions using 'y' and 'n' keys .
 one:
         puts("Do you want to modify the name of the model? y/n");
-	fflush(stdin);
 	scanf("%c", &answer);
+        fflush_stdin();
 	if ((answer != 'y') && (answer != 'n')) {
                 puts("Unknown answer, please try again:");
                 goto one;
         }
 	if (answer == 'y') {
 		puts("Introduce the new name of this model:");
-		fflush(stdin);
-		scanf("%s", model_to_modify->model);
+		scanf("%9s", model_to_modify->model);
+                fflush_stdin();
 	}
 two:
         puts("Do you want to modify the country of the model? y/n");
-	fflush(stdin);
 	scanf("%c", &answer);
+        fflush_stdin();
 	if ((answer != 'y') && (answer != 'n')) {
                 puts("Unknown answer, please try again:");
                 goto two;
         }
 	if (answer == 'y') {
 		puts("Introduce the new country of this model:");
-		fflush(stdin);
-		scanf("%s", model_to_modify->country);
+		scanf("%9s", model_to_modify->country);
+                fflush_stdin();
 	}
 three:
         puts("Do you want to modify the capacity of engine of the model? y/n");
-	fflush(stdin);
 	scanf("%c", &answer);
+        fflush_stdin();
 	if ((answer != 'y') && (answer != 'n')) {
                 puts("Unknown answer, please try again:");
                 goto three;
         }
 	if (answer == 'y') {
 		puts("Introduce the new capacity of this model:");
-		fflush(stdin);
-		scanf("%d", &model_to_modify->capacity);
+		int filled = scanf("%d", &model_to_modify->capacity);
+                assert(filled == 1);
+                fflush_stdin();
                 assert(model_to_modify->capacity > 0);
 	}
 four:
         puts("Do you want to modify the price of this model? y/n");
-	fflush(stdin);
 	scanf("%c", &answer);
+        fflush_stdin();
 	if ((answer != 'y') && (answer != 'n')) {
                 puts("Unknown answer, please try again:");
                 goto four;
         }
 	if (answer == 'y') {
 		puts("Introduce the new price of this model:");
-		fflush(stdin);
-		scanf("%d", &model_to_modify->cost);
+		filled = scanf("%d", &model_to_modify->cost);
+                assert(filled == 1);
+                fflush_stdin();
                 assert(model_to_modify->cost > 0);
 	}
 five:
         puts("Do you want to modify the year of manufacturing of this model? "
              "y/n");
-	fflush(stdin);
 	scanf("%c", &answer);
+        fflush_stdin();
 	if ((answer != 'y') && (answer != 'n')) {
                 puts("Unknown answer, please try again:");
                 goto five;
         }
 	if (answer == 'y') {
 		puts("Introduce the new year of manufacturing of this model:");
-		fflush(stdin);
-		scanf("%d", &model_to_modify->date);
+		filled = scanf("%d", &model_to_modify->date);
+                assert(filled == 1);
+                fflush_stdin();
                 assert(model_to_modify->date > 0);
 	}
 	return 1;
@@ -250,7 +259,7 @@ int sort(void)
 	return 1;
 }
 
-int insert(const CAR *after_this_address, const CAR *new_element)
+int insert(const CAR *new_element, CAR *after_this_address)
 {
         assert(after_this_address);
         assert(new_element);
@@ -261,9 +270,15 @@ int insert(const CAR *after_this_address, const CAR *new_element)
 	after_this_address->next = current;
 	current->capacity = new_element->capacity;
 	current->cost = new_element->cost;
-	strcpy(current->country, new_element->country);
+        current->model[0] = '\0';
+        strncat(current->model,
+                new_element->model,
+                strlen(new_element->model));
+        current->country[0] = '\0';
+	strncat(current->country,
+                new_element->country,
+                strlen(new_element->country));
 	current->date = new_element->date;
-	strcpy(current->model, new_element->model);
 	return 1;
 }
 
@@ -333,25 +348,27 @@ int read_from_file(const char *filename)
 		    g_head = (CAR*)malloc(sizeof(CAR));
                     assert(g_head);
 		    g_head->next = NULL;
-			fscanf(f,
-                               "%s %s %d %d %d",
-                               g_head->model,
-                               g_head->country,
-                               g_head->capacity,
-                               g_head->cost,
-                               g_head->date);
+			int filled = fscanf(f,
+                                            "%9s %9s %d %d %d",
+                                            g_head->model,
+                                            g_head->country,
+                                            g_head->capacity,
+                                            g_head->cost,
+                                            g_head->date);
+                        assert(filled == 5);
                         previous = g_head;
 		} else {
                         c = (CAR*)malloc(sizeof(CAR));
                         assert(c);
 		        c->next = NULL;
-		        fscanf(f,
-                               "%s %s %d %d %d",
-                               c->model,
-                               c->country,
-                               c->capacity,
-                               c->cost,
-                               c->date);
+		        int filled = fscanf(f,
+                                            "%9s %9s %d %d %d",
+                                            c->model,
+                                            c->country,
+                                            c->capacity,
+                                            c->cost,
+                                            c->date);
+                        assert(filled == 5);
 			previous->next = c;
 			previous = c;
 		}
