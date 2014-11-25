@@ -41,7 +41,7 @@ int list_length(void);
 int swap(CAR *a, CAR* b);
 int sort(void);
 //Inserts the new_element after_this_address; returns 0 if something is wrong;
-int insert(const CAR *after_this_address, const CAR *new_element);
+int insert(const CAR *new_element, CAR *after_this_address);
 // Deletes the element with indicated adress.
 int remove(CAR *adress);
 // Records the list into a file: each row contain fields of an element
