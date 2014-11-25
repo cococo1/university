@@ -129,10 +129,10 @@ static void input(const int n, CAR *cars)
                 printf("\nGive the information about the %d car:\n", i+1);
                 fflush(stdout);
 	        puts("Name of the model");
-	        scanf("%s", cars[i].model);
+	        scanf("%9s", cars[i].model);
                 fflush_stdin();
 	        puts("Write the country");
-	        scanf("%s", cars[i].country);
+	        scanf("%14s", cars[i].country);
                 fflush_stdin();
 	        puts("What is the year of manufacturing ?");
 	        int fills = scanf("%d", &cars[i].date);
@@ -258,7 +258,7 @@ static void edit(const int n, const int k, CAR *cars) {
         fflush_stdin();
 	if (ans == 'y') {
 	        puts("Introduce the new name of model:");
-		scanf("%s", cars[k].model);
+		scanf("%9s", cars[k].model);
                 fflush_stdin();
 	}
 	puts("Do you want to change the country of model? y/n");
@@ -266,7 +266,7 @@ static void edit(const int n, const int k, CAR *cars) {
         fflush_stdin();
 	if (ans == 'y') {
 		puts("Introduce the new name of country:");
-		scanf("%s", cars[k].country);
+		scanf("%14s", cars[k].country);
                 fflush_stdin();
 	}
 	puts("Do you want to change the date of manufacturing of model? y/n");
@@ -334,10 +334,10 @@ static void add(const int pos, CAR **cars, int *n)
 	}
 	puts("Give the information about new car:");
 	puts("Type the model");
-	scanf("%s", (*cars)[pos].model);
+	scanf("%9s", (*cars)[pos].model);
         fflush_stdin();
 	puts("Write the country");
-	scanf("%s", (*cars)[pos].country);
+	scanf("%14s", (*cars)[pos].country);
         fflush_stdin();
 	puts("Type the year of manufacturing with numbers ");
 	int fills = scanf("%d", &(*cars)[pos].date);
@@ -372,7 +372,7 @@ static CAR* read_file(const char *filename, CAR *cars, int *n)
 	cars = (CAR*)realloc(cars, sizeof(CAR));
         assert(cars);
 	int fills = fscanf(f,
-                           "%s %s %d %d %d",
+                           "%9s %14s %d %d %d",
                            cars[0].model,
                            cars[0].country,
                            &cars[0].date,
@@ -388,7 +388,7 @@ static CAR* read_file(const char *filename, CAR *cars, int *n)
 		cars = (CAR*)realloc(cars, (i + 1) * sizeof(CAR));
 	        assert(cars);
 		int filled = fscanf(f,
-                                    "%s %s %d %d %d",
+                                    "%9s %14s %d %d %d",
                                     cars[i].model,
                                     cars[i].country,
                                     &cars[i].date,
@@ -438,7 +438,7 @@ static void get_info(const int n, const CAR *cars)
         assert(n > 0);
         char model[15] = {'\0'};
         puts("What model are you interested in ?");
-	scanf("%s", model);
+	scanf("%9s", model);
         fflush_stdin();
         int k = search(n, model, (const CAR*)cars);
         if (k >= 0) {
@@ -457,7 +457,7 @@ static void edit_some_car(const int n, CAR *cars)
         assert(n > 0);
         char model[15] = {'\0'};
 	puts("Introduce the model you want to edit:");
-	scanf("%s", model);
+	scanf("%9s", model);
         fflush_stdin();
         int k = search(n, model, (const CAR*)cars);
 	if (k >= 0) {
@@ -501,7 +501,7 @@ static void write_to_file(const int n, const CAR *cars)
         assert(n > 0);
 	puts("What is the name of file ? ");
         char filename[15];
-	scanf("%s", filename);
+	scanf("%14s", filename);
         fflush_stdin();
         FILE *f = NULL;
 	f = fopen(filename, "w");
@@ -583,7 +583,7 @@ static int switch_operation(const int operation, int *n, CAR **cars)
 		case 10 : {
 		        puts("Introduce the name of the file:");
                         char filename[10] = {'\0'};
-			scanf("%s", filename);
+			scanf("%9s", filename);
                         fflush_stdin();
 			*cars = read_file(filename, *cars, n);
 			break;
