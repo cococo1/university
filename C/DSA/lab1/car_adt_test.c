@@ -36,33 +36,33 @@ int main(void)
         // test_all();
 
         CAR *cars = NULL;
-	int n = 0;
+        int n = 0;
         int operation = 0;
         while (1) {
-	        puts("Press any key to continue");
-	        puts("      Menu :");
-	        puts("1. Dynamic memory allocation");
-	        puts("2. Input of array elements from keyboard");
-	        puts("3. Searching the element in array ");
-	        puts("4. Sorting of array");
+                puts("Press any key to continue");
+                puts("      Menu :");
+                puts("1. Dynamic memory allocation");
+                puts("2. Input of array elements from keyboard");
+                puts("3. Searching the element in array ");
+                puts("4. Sorting of array");
                 puts("5. Editing the element of array ");
-	        puts("6. Adding a new element in the end ");
-	        puts("7. Deleting the specified element from array ");
-	        puts("8. Inserting a new element. ");
-	        puts("9. Recording array elements in a file. ");
-	        puts("10.Reading array elements from a file. ");
-	        puts("11.Output of array elements to the screen. ");
-	        puts("12.Clearing the memory allocated for array. ");
-	        puts("0. Exit from the program.");
-	        printf("\n \n ");
+                puts("6. Adding a new element in the end ");
+                puts("7. Deleting the specified element from array ");
+                puts("8. Inserting a new element. ");
+                puts("9. Recording array elements in a file. ");
+                puts("10.Reading array elements from a file. ");
+                puts("11.Output of array elements to the screen. ");
+                puts("12.Clearing the memory allocated for array. ");
+                puts("0. Exit from the program.");
+                printf("\n \n ");
                 fflush(stdout);
-	        puts("Enter the operation to be performed:");
-	        int filled = scanf("%d", &operation);
+                puts("Enter the operation to be performed:");
+                int filled = scanf("%d", &operation);
                 assert(filled == 1);
                 fflush_stdin();
                 if (!switch_operation(operation, &n, &cars)) break;
         }
-	return 0;
+        return 0;
 }
 
 static void test_all(void)
@@ -156,7 +156,7 @@ static void delete_case(int *n, CAR **cars)
         assert(*cars);
         puts("Write what element you want to delete:");
         int k = 0;
-	int filled = scanf("%d", &k);
+        int filled = scanf("%d", &k);
         assert(filled == 1);
         fflush_stdin();
         assert(k > 0);
@@ -197,8 +197,8 @@ static void write_to_file(const int n, const CAR *cars)
                         cars[i].capacity,
                         cars[i].cost);
                 fflush(stdout);
-	}
-	fclose(f);
+        }
+        fclose(f);
         puts("Done writting in file.");
 }
 
@@ -211,7 +211,7 @@ static int switch_operation(const int operation, int *n, CAR **cars)
         switch (operation) {
                 case 0 : {
                         return 0;
-	        }
+                }
                 case 1 : {
                         puts("For how many cars do you need memory ?");
                         int filled = scanf("%d", n);
@@ -222,33 +222,33 @@ static int switch_operation(const int operation, int *n, CAR **cars)
                         (*cars) = (CAR*)calloc(*n, sizeof(CAR));
                         assert(cars);
                         break;
-	        }
-	        case 2 : {
+                }
+                case 2 : {
                         input(*n, *cars);
-	                break;
-	        }
-	        case 3 : {
+                        break;
+                }
+                case 3 : {
                         search_case(*n, *cars);
-	        	break;
-	        }
-	        case 4 : {
-	        	puts("Sorted the cars by price.");
-	        	sort(*n, *cars);
-	        	break;
-	        }
-	        case 5 : {
+                        break;
+                }
+                case 4 : {
+                        puts("Sorted the cars by price.");
+                        sort(*n, *cars);
+                        break;
+                }
+                case 5 : {
                         edit_case(*n, *cars);
                         break;
-	        }
-	        case 6 : {
-	        	add(*n, cars, n);
-	        	break;
-	        }
-	        case 7 : {
-	                delete_case(n, cars);
-	        	break;
-	        }
-	        case 8: {
+                }
+                case 6 : {
+                        add(*n, cars, n);
+                        break;
+                }
+                case 7 : {
+                        delete_case(n, cars);
+                        break;
+                }
+                case 8: {
                         puts("Give the position (not index) of new element:");
                         int k = 0;
                         int filled = scanf("%d", &k);
@@ -256,13 +256,13 @@ static int switch_operation(const int operation, int *n, CAR **cars)
                         fflush_stdin();
                         assert(k > 0);
                         assert(k <= *n + 1);
-	        	add(k - 1, cars, n);
-	        	break;
-	        }
-	        case 9 : {
+                        add(k - 1, cars, n);
+                        break;
+                }
+                case 9 : {
                         write_to_file(*n, *cars);
                         break;
-	        }
+                }
                 case 10 : {
                         puts("Introduce the name of the file:");
                         char filename[15] = {'\0'};
@@ -274,16 +274,16 @@ static int switch_operation(const int operation, int *n, CAR **cars)
                 case 11 : {
                         output(*n, *cars);
                         break;
-	        }
-	        case 12 : {
+                }
+                case 12 : {
                         *cars = (CAR*)realloc((*cars), 0);
                         *cars = NULL;
-	        	puts("Memory deallocated.");
-	        	break;
-	        }
+                        puts("Memory deallocated.");
+                        break;
+                }
                 default : {
-	        	puts("Unknown command.");
-	        }
+                        puts("Unknown command.");
+                }
         }
         return 1;
 }
