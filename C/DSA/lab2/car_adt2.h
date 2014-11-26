@@ -14,12 +14,12 @@ typedef struct CAR {
 // model of of car (ex: BMW); country - origin of model (Germany); 
 // date - year of manufacturing; cost - price in $ of the car; 
 // capacity - the capacity of engine ;
-	char model[10];
+        char model[10];
         char country[10];
-	int date;
+        int date;
         int cost;
         int capacity;
-	struct CAR *next;  // for singly link lists
+        struct CAR *next;  // for singly link lists
 }CAR;
  
 // Creation of the link-list, allocated dynamic. n - number of cars;

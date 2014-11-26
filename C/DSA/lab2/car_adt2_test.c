@@ -45,14 +45,14 @@ int main(void)
         CAR* list_of_cars = NULL;
         int n  = 0;
         int operation = 0;
-	while (1) {
-		show_menu();
-		int filled = scanf("%d", &operation);
+        while (1) {
+                show_menu();
+                int filled = scanf("%d", &operation);
                 assert(filled == 1);
                 fflush_stdin();
                 if (!switch_operation(operation, &n, &list_of_cars)) break;
         }
-	return 0;
+        return 0;
 }
 
 static void test_allocate_memory(void)
@@ -144,7 +144,7 @@ label_1:
                 puts("List already exist. Do you want to destroy it and create"
                      "new one? y/n");
                 char answer = '\0';
-	        scanf("%c", &answer);
+                scanf("%c", &answer);
                 fflush_stdin();
                 if ((answer != 'y') && (answer != 'n')) {
                         puts("Invalid answer. Please, try again:");
@@ -202,34 +202,34 @@ static int switch_operation(const int operation, int *n, CAR **list_of_cars)
         assert(list_of_cars);
         switch (operation) {
                 case 1 : {
-	                case_allocate(n, list_of_cars);
-		        break;
-		}
-		case 2: {
-		        input(*list_of_cars);
-		        break;
-		}
-		case 3: {
-		        output(*list_of_cars);
-		        break;
-		}
-		case 4: {
+                        case_allocate(n, list_of_cars);
+                        break;
+                }
+                case 2: {
+                        input(*list_of_cars);
+                        break;
+                }
+                case 3: {
+                        output(*list_of_cars);
+                        break;
+                }
+                case 4: {
                         case_search(*list_of_cars);
-		        break;
-		}
-		case 5: {
+                        break;
+                }
+                case 5: {
                         case_edit(*list_of_cars);
-		        break;
-	        }
-		case 6: {
+                        break;
+                }
+                case 6: {
                         case_swap(*list_of_cars);
                         break;
-		}
-		case 7: {
-		        sort(*list_of_cars);
-		        break;
-		}
-		case 8: {
+                }
+                case 7: {
+                        sort(*list_of_cars);
+                        break;
+                }
+                case 8: {
                         case_destroy(list_of_cars);
                         break;
                 }
@@ -249,18 +249,18 @@ static void test_switch_operation(void)
 
 static void show_menu(void)
 {
-	puts("\t\t ___MENU___ ");
-	puts("1. Create a new list of cars;");
-	puts("2. Input the list of cars from the keyboard;");
-	puts("3. Output the list of cars on the screen;");
-	puts("4. Search a car by the name of the model;");
-	puts("5. Edit some data about a car;");
-	puts("6. Swap two cars;");
-	puts("7. Sort the list of cars in ascending order by price;");
-	puts("8. Destroy the existing list of cars;");
-	puts("9. Exit the program.");
-	puts("");
-	puts("Select an operation to be performed (type a number):");
+        puts("\t\t ___MENU___ ");
+        puts("1. Create a new list of cars;");
+        puts("2. Input the list of cars from the keyboard;");
+        puts("3. Output the list of cars on the screen;");
+        puts("4. Search a car by the name of the model;");
+        puts("5. Edit some data about a car;");
+        puts("6. Swap two cars;");
+        puts("7. Sort the list of cars in ascending order by price;");
+        puts("8. Destroy the existing list of cars;");
+        puts("9. Exit the program.");
+        puts("");
+        puts("Select an operation to be performed (type a number):");
 }
 
 static void fflush_stdin(void)
@@ -281,14 +281,14 @@ static void case_edit(CAR *list_of_cars)
         scanf("%s", name);
         fflush_stdin();
         CAR *p1 = NULL;
-	p1 = search(list_of_cars, name);
-	if (!p1) {
+        p1 = search(list_of_cars, name);
+        if (!p1) {
                 puts("Such a car does not exist.");
                 return;
         }
         puts("Model found!");
         edit(p1);
-	puts("Modifying complete.");
+        puts("Modifying complete.");
 }
 
 static void test_case_edit(void)
@@ -313,7 +313,7 @@ static void case_swap(CAR *list_of_cars)
         scanf("%s", name);
         fflush_stdin();
         CAR *p2 = search(list_of_cars, name);
-	if (!p2) {
+        if (!p2) {
                 puts("Such a car does not exist.");
                 puts("Press any key to continue:");
                 return;
