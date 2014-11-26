@@ -42,164 +42,164 @@ int main(void)
         CAR new_element = { .date = 1};
         CAR *head2 = NULL;
 
-	char name[20] = {'\0'};
+        char name[20] = {'\0'};
         char answer = '\0';
         char name2[20] = {'\0'};
         int n = 0, operation = 0, if_succeded = 0, input_performed = 0;
-	while (1) {
-		show_menu();
-		fflush(stdin);
-		scanf("%d", &operation);
-		switch (operation) {
-		        case 1 : {
-				if (g_head) {
+        while (1) {
+                show_menu();
+                fflush(stdin);
+                scanf("%d", &operation);
+                switch (operation) {
+                        case 1 : {
+                                if (g_head) {
 label_1:
                                         puts("List already exist. Do you want "
                                              "to destroy it and create new one"
                                              "? y/n");
-					fflush(stdin);
-					scanf("%c", &answer);
-			if ((answer != 'y') && (answer != 'n')) {
+                                        fflush(stdin);
+                                        scanf("%c", &answer);
+                        if ((answer != 'y') && (answer != 'n')) {
                                 puts("Invalid answer. Please, try again:");
                                 goto label_1;
                         }
-			if (answer == 'y') {
+                        if (answer == 'y') {
                                 free_list();
                         } else {
                                 goto label_2;
-			}
-			puts("Give the number of cars:");
-			fflush(stdin);
-			scanf("%d", &n);
-			if (n == 0) {
+                        }
+                        puts("Give the number of cars:");
+                        fflush(stdin);
+                        scanf("%d", &n);
+                        if (n == 0) {
                                 puts("You introduced 0.");
                                 goto label_2;
                         }
-			if_succeded = allocate_memory(n);
-			if (if_succeded) {
+                        if_succeded = allocate_memory(n);
+                        if (if_succeded) {
                                 puts("Allocation succeded.");
                         } else {
                                 puts("Error . Memory not allocated.");
                         }
 label_2:
                                         puts("Press any key to continue;");
-				        break;
-			        }
-		        case 2: {
-				if (!g_head) {
+                                        break;
+                                }
+                        case 2: {
+                                if (!g_head) {
                                         puts("List is empty.");
                                         break;
                                 }
-				if (input_performed) {
+                                if (input_performed) {
 label_3:    puts("The list already contain data. Do you want to rewrite it ? y/n");
-				     fflush(stdin);
-				     scanf("%c",&answer);
-				     if (answer!='y' && answer!='n') {puts("Unknown answer, please try again:"); goto label_3; }
-				     if (answer=='n') break;
+                                     fflush(stdin);
+                                     scanf("%c",&answer);
+                                     if (answer!='y' && answer!='n') {puts("Unknown answer, please try again:"); goto label_3; }
+                                     if (answer=='n') break;
                  }
-				input();
-				//test_input();
-				input_performed=1;
-				puts("Input completed. Press any key to continue.");
-				break;
-			}
-		case 3:
-			{
-				// system("CLS");
-				if (!g_head || !input_performed) {puts("List is empty."); break; }
-				output();
-				break;
-			}
-		case 4:
-			{
-				// system("CLS");
-				if (!g_head || !input_performed) {puts("List is empty."); break; }
-				puts("Give the name of model of car you want to search:");
-				fflush(stdin);
-				scanf("%s",name);
-				if_succeded=search(name,&p1);
-				if (if_succeded)
-				{
-					puts("Model found! Here is the info about it:");
-				    printf("Model: %s \n",p1->model);
-				    printf("Country: %s \n",p1->country);
-				    printf("Capacity of engine: %d \n",p1->capacity);
-				    printf("Year of manufacturing: %d \n",p1->date);
-				    printf("Price: %d \n",p1->cost);
-				}
-				else
-				{
-				    puts("Model not found.");
-				}
-				p1=NULL;
-				break;
-			}
-		case 5:
-			{
-				// system("CLS");
-				if (!g_head || !input_performed) {puts("List is empty."); break; }
-				puts("Introduce the name of model you want to edit:");
-				fflush(stdin);
-				scanf("%s",name);
-				if_succeded=search(name,&p1);
-				if (!if_succeded) {puts("Such a car does not exist."); break;}
-				puts("Model found!");
-				edit(p1);
-				puts("Modifying complete.");
-				break;
-			}
-		case 6:
-			{
-				// system("CLS");
-				if (!g_head || !input_performed) {puts("List is empty."); break; }
-				puts("Introduce the name of the first model to swap:");
-				fflush(stdin);
-				scanf("%s",name);
-				if_succeded=search(name,&p1);
-				if (!if_succeded) {puts("Such a car does not exist."); puts("Press any key to continue:"); break; }
-				puts("Introduce the name of the second model to swap:");
-				fflush(stdin);
-				scanf("%s",name2);
-				if_succeded=search(name2,&p2);
-				if (!if_succeded) {puts("Such a car does not exist."); puts("Press any key to continue:");  break; }
-				swap(p1,p2);
-				puts("Cars swapped.");
-				p1=NULL;
-				p2=NULL;
-				break;
-			}
-		case 7:
-			{
-				// system("CLS");
-				if (!g_head || !input_performed) {puts("List is empty."); break; }
-				if_succeded=sort();
-				if (!if_succeded) puts("Error while sorting.");
-				else puts("Sorting completed. Press any key to continue:");
-				break;
-			}
-		case 8:
-			{
-				// system("CLS");
-				puts("Are you sure you want to destroy the existing list ? y/n");
-				fflush(stdin);
-				scanf("%c",&answer);
-				if ((answer!='y') && (answer!='n')) { puts("Invalid answer.");}
-				if (answer=='y') {free_list(); puts("Memory is free.");  }
-				input_performed=0;
-				break;
-			}
+                                input();
+                                //test_input();
+                                input_performed=1;
+                                puts("Input completed. Press any key to continue.");
+                                break;
+                        }
+                case 3:
+                        {
+                                // system("CLS");
+                                if (!g_head || !input_performed) {puts("List is empty."); break; }
+                                output();
+                                break;
+                        }
+                case 4:
+                        {
+                                // system("CLS");
+                                if (!g_head || !input_performed) {puts("List is empty."); break; }
+                                puts("Give the name of model of car you want to search:");
+                                fflush(stdin);
+                                scanf("%s",name);
+                                if_succeded=search(name,&p1);
+                                if (if_succeded)
+                                {
+                                        puts("Model found! Here is the info about it:");
+                                    printf("Model: %s \n",p1->model);
+                                    printf("Country: %s \n",p1->country);
+                                    printf("Capacity of engine: %d \n",p1->capacity);
+                                    printf("Year of manufacturing: %d \n",p1->date);
+                                    printf("Price: %d \n",p1->cost);
+                                }
+                                else
+                                {
+                                    puts("Model not found.");
+                                }
+                                p1=NULL;
+                                break;
+                        }
+                case 5:
+                        {
+                                // system("CLS");
+                                if (!g_head || !input_performed) {puts("List is empty."); break; }
+                                puts("Introduce the name of model you want to edit:");
+                                fflush(stdin);
+                                scanf("%s",name);
+                                if_succeded=search(name,&p1);
+                                if (!if_succeded) {puts("Such a car does not exist."); break;}
+                                puts("Model found!");
+                                edit(p1);
+                                puts("Modifying complete.");
+                                break;
+                        }
+                case 6:
+                        {
+                                // system("CLS");
+                                if (!g_head || !input_performed) {puts("List is empty."); break; }
+                                puts("Introduce the name of the first model to swap:");
+                                fflush(stdin);
+                                scanf("%s",name);
+                                if_succeded=search(name,&p1);
+                                if (!if_succeded) {puts("Such a car does not exist."); puts("Press any key to continue:"); break; }
+                                puts("Introduce the name of the second model to swap:");
+                                fflush(stdin);
+                                scanf("%s",name2);
+                                if_succeded=search(name2,&p2);
+                                if (!if_succeded) {puts("Such a car does not exist."); puts("Press any key to continue:");  break; }
+                                swap(p1,p2);
+                                puts("Cars swapped.");
+                                p1=NULL;
+                                p2=NULL;
+                                break;
+                        }
+                case 7:
+                        {
+                                // system("CLS");
+                                if (!g_head || !input_performed) {puts("List is empty."); break; }
+                                if_succeded=sort();
+                                if (!if_succeded) puts("Error while sorting.");
+                                else puts("Sorting completed. Press any key to continue:");
+                                break;
+                        }
+                case 8:
+                        {
+                                // system("CLS");
+                                puts("Are you sure you want to destroy the existing list ? y/n");
+                                fflush(stdin);
+                                scanf("%c",&answer);
+                                if ((answer!='y') && (answer!='n')) { puts("Invalid answer.");}
+                                if (answer=='y') {free_list(); puts("Memory is free.");  }
+                                input_performed=0;
+                                break;
+                        }
         case 9 :
-			{
-			    // system("CLS");
+                        {
+                            // system("CLS");
                 if (!g_head || !input_performed) {puts("List is empty."); break;};
-			    printf("The length of the list is: %d", list_length());
-				break;
-			}
-		case 0 :
-			{
-			    free_list();
-				return 0;
-			}
+                            printf("The length of the list is: %d", list_length());
+                                break;
+                        }
+                case 0 :
+                        {
+                            free_list();
+                                return 0;
+                        }
         case 10:
         {
           // system("CLS");
@@ -307,37 +307,37 @@ label_3:    puts("The list already contain data. Do you want to rewrite it ? y/n
              puts("0. Continue work with first list; ");
              fflush(stdin);
              scanf("%s",name);
-		     operation=atoi(name);
-		     switch (operation)
-		     {
-		         case 0:
-		         {
-		             break;
-		         }
-		         case 1:
-		         {
-		             if (!g_head) puts("List is empty.");
-		             output();
-		             // getch();
-		             goto label_4;
-		             break;
-		         }
-		         case 2:
-		         {
-		             n=0;
-		             p2=head2;
-		             while (p2)
-		             {
-		                 puts("");
-		                 printf("Info about car No %d", n+1);
-		                 printf("\nAdress of the current element: %p",p2);
-		                 printf("\nAdress of the next element: %p",p2->next);
-		                 printf("\nModel: %s", p2->model);
+                     operation=atoi(name);
+                     switch (operation)
+                     {
+                         case 0:
+                         {
+                             break;
+                         }
+                         case 1:
+                         {
+                             if (!g_head) puts("List is empty.");
+                             output();
+                             // getch();
+                             goto label_4;
+                             break;
+                         }
+                         case 2:
+                         {
+                             n=0;
+                             p2=head2;
+                             while (p2)
+                             {
+                                 puts("");
+                                 printf("Info about car No %d", n+1);
+                                 printf("\nAdress of the current element: %p",p2);
+                                 printf("\nAdress of the next element: %p",p2->next);
+                                 printf("\nModel: %s", p2->model);
                          printf("\nCountry: %s", p2->country);
                          printf("\nYear of manufacturing: %d", p2->date);
                          printf("\nPrice of model: %d",p2->cost);
                          printf("\nCapacity of engine: %d", p2->capacity);
-		                 puts("");
+                                 puts("");
                          p2=p2->next;
                          n++;
                     }
@@ -345,69 +345,69 @@ label_3:    puts("The list already contain data. Do you want to rewrite it ? y/n
                     // getch();
                      goto label_4;
                      break;
-		         }
-		         default:
-		         {
-		             puts("Unknown command. Please, try again:");
-		             // getch();
+                         }
+                         default:
+                         {
+                             puts("Unknown command. Please, try again:");
+                             // getch();
                     goto label_4;
-		         }
-		     }
-		     // getch();
-		     break;
+                         }
+                     }
+                     // getch();
+                     break;
         }
         case 15:
-		{
-		    // system("CLS");
-		    if (!g_head || !input_performed || !head2) {puts("One of the lists is empty."); break; }
+                {
+                    // system("CLS");
+                    if (!g_head || !input_performed || !head2) {puts("One of the lists is empty."); break; }
           concat_lists(head2);
           puts("Concatenated the list that was separated in operation 14 back to first link list.");
           break;
-		}
-		case 16:
-		{
-		     // system("CLS");
-		    if (!g_head || !input_performed) {puts("List is empty ."); break; }
-		    puts("Give the name of the file :");
-		    fflush(stdin);
-		    scanf("%s",name);
-		  if (!strcmp(name,"Chetrusca3.h") || !strcmp(name,"Chetrusca3.c") || !strcmp(name,"main.c"))
-		  {
-		       puts("Bad file name.");
-		       break;
-		  }
-		    if_succeded=write_to_file(name);
-		    if (!if_succeded) puts("Error while writting in file.");
-		    else puts("Info saved in file.");
+                }
+                case 16:
+                {
+                     // system("CLS");
+                    if (!g_head || !input_performed) {puts("List is empty ."); break; }
+                    puts("Give the name of the file :");
+                    fflush(stdin);
+                    scanf("%s",name);
+                  if (!strcmp(name,"Chetrusca3.h") || !strcmp(name,"Chetrusca3.c") || !strcmp(name,"main.c"))
+                  {
+                       puts("Bad file name.");
+                       break;
+                  }
+                    if_succeded=write_to_file(name);
+                    if (!if_succeded) puts("Error while writting in file.");
+                    else puts("Info saved in file.");
             break;
-		}
-		case 17:
-		{
-		    // system("CLS");
-		    if (g_head) {puts("First, free the existent list, then read from file."); break; }
-		    puts("Give the name of the file:");
-		    fflush(stdin);
-		    scanf("%s",name);
-		    if_succeded=read_from_file(name);
-		    if (!if_succeded) { puts("Error while reading from file"); input_performed=0; }
-		    else { puts("Data read from file."); input_performed=1; }
+                }
+                case 17:
+                {
+                    // system("CLS");
+                    if (g_head) {puts("First, free the existent list, then read from file."); break; }
+                    puts("Give the name of the file:");
+                    fflush(stdin);
+                    scanf("%s",name);
+                    if_succeded=read_from_file(name);
+                    if (!if_succeded) { puts("Error while reading from file"); input_performed=0; }
+                    else { puts("Data read from file."); input_performed=1; }
             break;
-		}
+                }
 
 
 
-		default :
-			{
-			    // system("CLS");
-				puts("Unknown command, please try again:");
-				// getch();
-			}
-		}
+                default :
+                        {
+                            // system("CLS");
+                                puts("Unknown command, please try again:");
+                                // getch();
+                        }
+                }
 
-	}
+        }
 
-	// getch();
-	return 0;
+        // getch();
+        return 0;
 }
 
 
@@ -416,50 +416,50 @@ label_3:    puts("The list already contain data. Do you want to rewrite it ? y/n
 
 void show_menu(void)
 {
-	// system("CLS");
-	puts("\t\t ___MENU___ ");
-	puts("1. Create a new list of cars;");
-	puts("2. Input the list of cars from the keyboard;");
-	puts("3. Output the list of cars on the screen;");
-	puts("4. Search a car by the name of the model;");
-	puts("5. Edit some data about a car;");
-	puts("6. Swap two cars;");
-	puts("7. Sort the list of cars in ascending order by price;");
-	puts("8. Destroy the existing list of cars;");
-	puts("9. Find how many cars are in the list; ");
-	puts("10. Add a new car at the end; ");
-	puts("11. Delete a car; ");
-	puts("12. Insert a car; ");
-	puts("13. Output the adress of the last element; ");
-	puts("14. Divide the list into two; ");
-	puts("15. Merge two lists of cars; ");
-	puts("16. Write info about cars in file; ");
-	puts("17. Read data from file; ");
+        // system("CLS");
+        puts("\t\t ___MENU___ ");
+        puts("1. Create a new list of cars;");
+        puts("2. Input the list of cars from the keyboard;");
+        puts("3. Output the list of cars on the screen;");
+        puts("4. Search a car by the name of the model;");
+        puts("5. Edit some data about a car;");
+        puts("6. Swap two cars;");
+        puts("7. Sort the list of cars in ascending order by price;");
+        puts("8. Destroy the existing list of cars;");
+        puts("9. Find how many cars are in the list; ");
+        puts("10. Add a new car at the end; ");
+        puts("11. Delete a car; ");
+        puts("12. Insert a car; ");
+        puts("13. Output the adress of the last element; ");
+        puts("14. Divide the list into two; ");
+        puts("15. Merge two lists of cars; ");
+        puts("16. Write info about cars in file; ");
+        puts("17. Read data from file; ");
     puts("0. Exit the program.");
-	puts("");
-	puts("Select an operation to be performed ( type a number):");
+        puts("");
+        puts("Select an operation to be performed ( type a number):");
 }
 //------------------------------------------------------
 
 void test_input(void)
 {
-	int i=1;
-	CAR *current=g_head;
-	if (!current) { puts("Error!"); return; }
-	while (current)
-	{
-		current->capacity=i;
-		current->cost=rand()%10;
-		puts("Give the country");
-		fflush(stdin);
-		scanf("%s",current->country);
-		current->date=i;
-		puts("Give the model");
-		fflush(stdin);
-		scanf("%s",current->model);
-		current=current->next;
-		i++;
-	}
+        int i=1;
+        CAR *current=g_head;
+        if (!current) { puts("Error!"); return; }
+        while (current)
+        {
+                current->capacity=i;
+                current->cost=rand()%10;
+                puts("Give the country");
+                fflush(stdin);
+                scanf("%s",current->country);
+                current->date=i;
+                puts("Give the model");
+                fflush(stdin);
+                scanf("%s",current->model);
+                current=current->next;
+                i++;
+        }
 }
 //------------------------------------------------------
 // END OF FILE./////////////////////////////////////////
