@@ -10,10 +10,10 @@
 
 typedef struct {
         char model[10];  // what model is the car
-	char country[15];  // where is it produced
-	int date;  // year of manufacturing
-	int capacity;  // of the engine
-	int cost;
+        char country[15];  // where is it produced
+        int date;  // year of manufacturing
+        int capacity;  // of the engine
+        int cost;
 }CAR;
 // a small test function for our structure.
 static void test_CAR(void);
@@ -84,27 +84,27 @@ int main(void)
         // return 0;
 
         CAR *cars = NULL;
-	int n = 0, operation = 0;
+        int n = 0, operation = 0;
         while (1) {
-	        puts("Press any key to continue");
-	        puts("      Menu :");
-	        puts("1. Dynamic memory allocation");
-	        puts("2. Input array from keyboard");
-	        puts("3. Searching for a specific element");
-	        puts("4. Sorting");
+                puts("Press any key to continue");
+                puts("      Menu :");
+                puts("1. Dynamic memory allocation");
+                puts("2. Input array from keyboard");
+                puts("3. Searching for a specific element");
+                puts("4. Sorting");
                 puts("5. Editing a specified element");
-	        puts("6. Adding a new element in the end ");
-        	puts("7. Deleting the specified element from array ");
-        	puts("8. Inserting a new element. ");
-        	puts("9. Writing the array to a file. ");
-        	puts("10.Reading the array from a file. ");
-        	puts("11.Output on the screen. ");
-        	puts("12.Clearing the allocated memory for array. ");
-        	puts("0. Exit from the program.");
-        	printf("\n \n ");
+                puts("6. Adding a new element in the end ");
+                puts("7. Deleting the specified element from array ");
+                puts("8. Inserting a new element. ");
+                puts("9. Writing the array to a file. ");
+                puts("10.Reading the array from a file. ");
+                puts("11.Output on the screen. ");
+                puts("12.Clearing the allocated memory for array. ");
+                puts("0. Exit from the program.");
+                printf("\n \n ");
                 fflush(stdout);
-        	puts("Enter the operation to be performed:");
-        	int fills = scanf("%d", &operation);
+                puts("Enter the operation to be performed:");
+                int fills = scanf("%d", &operation);
                 assert(fills == 1);
                 fflush_stdin();
                 if (!switch_operation(operation, &n, &cars)) break;
@@ -125,31 +125,31 @@ static void input(const int n, CAR *cars)
 {
         assert(cars);
         assert(n > 0);
-	for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < n; ++i) {
                 printf("\nGive the information about the %d car:\n", i+1);
                 fflush(stdout);
-	        puts("Name of the model");
-	        scanf("%9s", cars[i].model);
+                puts("Name of the model");
+                scanf("%9s", cars[i].model);
                 fflush_stdin();
-	        puts("Write the country");
-	        scanf("%14s", cars[i].country);
+                puts("Write the country");
+                scanf("%14s", cars[i].country);
                 fflush_stdin();
-	        puts("What is the year of manufacturing ?");
-	        int fills = scanf("%d", &cars[i].date);
+                puts("What is the year of manufacturing ?");
+                int fills = scanf("%d", &cars[i].date);
                 assert(fills = 1);
                 fflush_stdin();
                 assert(cars[i].date > 0);
-	        puts("What is the capacity of engine?");
-	        int fills1 = scanf("%d", &cars[i].capacity);
+                puts("What is the capacity of engine?");
+                int fills1 = scanf("%d", &cars[i].capacity);
                 assert(fills1 == 1);
                 fflush_stdin();
                 assert(cars[i].capacity > 0);
-	        puts("What is the cost ?");
-	        int fills2 = scanf("%d", &cars[i].cost);
+                puts("What is the cost ?");
+                int fills2 = scanf("%d", &cars[i].cost);
                 assert(fills2 == 1);
                 fflush_stdin();
                 assert(cars[i].cost > 0);
-	}
+        }
 }
 
 static void test_input(void)
@@ -204,10 +204,10 @@ static int search(const int n, const char *wanted, const CAR *cars)
         assert(wanted);
         assert(strlen(wanted) > 0);
         for (int i = 0; i < n; ++i) {
-	        if (strcmp(cars[i].model, wanted) == 0) {
-		        puts("Model found!");
-		        return i;
-	        }
+                if (strcmp(cars[i].model, wanted) == 0) {
+                        puts("Model found!");
+                        return i;
+                }
         }
         puts("Model not found.");
         return -1;
@@ -227,8 +227,8 @@ static void internal_for(const int n, const int i, CAR *cars)
         for (int j = 0; j < n - i - 1; ++j) {
                 if (cars[j].cost > cars[j + 1].cost) {
                         car = cars[j];
-		        cars[j] = cars[j + 1];
-			cars[j + 1] = car;
+                        cars[j] = cars[j + 1];
+                        cars[j + 1] = car;
                 }
         }
 }
@@ -239,7 +239,7 @@ static void sort(const int n, CAR *cars)
         assert(n > 0);
         for (int i = 0; i < n - 1; ++i) {
                 internal_for(n, i, cars);
-	}
+        }
 }
 
 static void test_sort(void)
@@ -253,53 +253,53 @@ static void edit(const int n, const int k, CAR *cars) {
         assert(k < n);
         char ans = '\0';
 
-	puts("Do you want to change the name of model? y/n");
-	scanf("%c", &ans);
+        puts("Do you want to change the name of model? y/n");
+        scanf("%c", &ans);
         fflush_stdin();
-	if (ans == 'y') {
-	        puts("Introduce the new name of model:");
-		scanf("%9s", cars[k].model);
+        if (ans == 'y') {
+                puts("Introduce the new name of model:");
+                scanf("%9s", cars[k].model);
                 fflush_stdin();
-	}
-	puts("Do you want to change the country of model? y/n");
-	scanf("%c", &ans);
+        }
+        puts("Do you want to change the country of model? y/n");
+        scanf("%c", &ans);
         fflush_stdin();
-	if (ans == 'y') {
-		puts("Introduce the new name of country:");
-		scanf("%14s", cars[k].country);
+        if (ans == 'y') {
+                puts("Introduce the new name of country:");
+                scanf("%14s", cars[k].country);
                 fflush_stdin();
-	}
-	puts("Do you want to change the date of manufacturing of model? y/n");
-	scanf("%c", &ans);
+        }
+        puts("Do you want to change the date of manufacturing of model? y/n");
+        scanf("%c", &ans);
         fflush_stdin();
-	if (ans == 'y') {
-		puts("Introduce the new date of manufacturing:");
-	        int fills = scanf("%d", &cars[k].date);
+        if (ans == 'y') {
+                puts("Introduce the new date of manufacturing:");
+                int fills = scanf("%d", &cars[k].date);
                 assert(fills == 1);
                 fflush_stdin();
                 assert(cars[k].date > 0);
-	}
-	puts("Do you want to change the capacity of manufacturing of model?"
+        }
+        puts("Do you want to change the capacity of manufacturing of model?"
              " y/n");
-	scanf("%c", &ans);
+        scanf("%c", &ans);
         fflush_stdin();
-	if (ans == 'y') {
-		puts("Introduce the new capacity of the car:");
-		int fills = scanf("%d", &cars[k].capacity);
+        if (ans == 'y') {
+                puts("Introduce the new capacity of the car:");
+                int fills = scanf("%d", &cars[k].capacity);
                 assert(fills == 1);
                 fflush_stdin();
                 assert(cars[k].capacity > 0);
-	}
-	puts("Do you want to change the cost of manufacturing of model? y/n");
-	scanf("%c", &ans);
+        }
+        puts("Do you want to change the cost of manufacturing of model? y/n");
+        scanf("%c", &ans);
         fflush_stdin();
-	if (ans == 'y') {
-		puts("Introduce the new cost of car:");
-	        int fills = scanf("%d", &cars[k].cost);
+        if (ans == 'y') {
+                puts("Introduce the new cost of car:");
+                int fills = scanf("%d", &cars[k].cost);
                 assert(fills == 1);
                 fflush_stdin();
                 assert(cars[k].cost > 0);
-	}
+        }
 }
 
 static void test_edit(void)
@@ -326,31 +326,31 @@ static void add(const int pos, CAR **cars, int *n)
         assert(*n > 0);
         assert(pos >= 0);
         assert(pos < (*n) + 1);
-	(*n)++;
-	*cars = (CAR*)realloc(*cars, (*n) * sizeof(CAR));
+        (*n)++;
+        *cars = (CAR*)realloc(*cars, (*n) * sizeof(CAR));
         assert(*cars);
-	for (int i = (*n); i >= pos; --i) {
-		(*cars)[i] = (*cars)[i - 1];
-	}
-	puts("Give the information about new car:");
-	puts("Type the model");
-	scanf("%9s", (*cars)[pos].model);
+        for (int i = (*n); i >= pos; --i) {
+                (*cars)[i] = (*cars)[i - 1];
+        }
+        puts("Give the information about new car:");
+        puts("Type the model");
+        scanf("%9s", (*cars)[pos].model);
         fflush_stdin();
-	puts("Write the country");
-	scanf("%14s", (*cars)[pos].country);
+        puts("Write the country");
+        scanf("%14s", (*cars)[pos].country);
         fflush_stdin();
-	puts("Type the year of manufacturing with numbers ");
-	int fills = scanf("%d", &(*cars)[pos].date);
+        puts("Type the year of manufacturing with numbers ");
+        int fills = scanf("%d", &(*cars)[pos].date);
         assert(fills == 1);
         fflush_stdin();
         assert((*cars)[pos].date > 0);
-	puts("What is the capacity of engine?");
-	int fills1 = scanf("%d", &(*cars)[pos].capacity);
+        puts("What is the capacity of engine?");
+        int fills1 = scanf("%d", &(*cars)[pos].capacity);
         assert(fills1 == 1);
         fflush_stdin();
         assert((*cars)[pos].capacity > 0);
-	puts("What is the price?");
-	int fills2 = scanf("%d", &(*cars)[pos].cost);
+        puts("What is the price?");
+        int fills2 = scanf("%d", &(*cars)[pos].cost);
         assert(fills2 == 1);
 
         fflush_stdin();
@@ -366,12 +366,12 @@ static CAR* read_file(const char *filename, CAR *cars, int *n)
         assert(cars);
         assert(*n > 0);
         assert(filename);
-	FILE *f = NULL;
-	f = fopen(filename, "r");
+        FILE *f = NULL;
+        f = fopen(filename, "r");
         assert(f);
-	cars = (CAR*)realloc(cars, sizeof(CAR));
+        cars = (CAR*)realloc(cars, sizeof(CAR));
         assert(cars);
-	int fills = fscanf(f,
+        int fills = fscanf(f,
                            "%9s %14s %d %d %d",
                            cars[0].model,
                            cars[0].country,
@@ -383,11 +383,11 @@ static CAR* read_file(const char *filename, CAR *cars, int *n)
         assert(cars[0].capacity > 0);
         assert(cars[0].cost > 0);
         int i = 0;
-	while (!feof(f)) {
+        while (!feof(f)) {
                 i++;
-		cars = (CAR*)realloc(cars, (i + 1) * sizeof(CAR));
-	        assert(cars);
-		int filled = fscanf(f,
+                cars = (CAR*)realloc(cars, (i + 1) * sizeof(CAR));
+                assert(cars);
+                int filled = fscanf(f,
                                     "%9s %14s %d %d %d",
                                     cars[i].model,
                                     cars[i].country,
@@ -401,11 +401,11 @@ static CAR* read_file(const char *filename, CAR *cars, int *n)
                 assert(cars[i].date > 0);
                 assert(cars[i].capacity > 0);
                 assert(cars[i].cost > 0);
-	}
-	puts("File successfully scaned.");
-	(*n) = i;
-	fclose(f);
-	return cars;
+        }
+        puts("File successfully scaned.");
+        (*n) = i;
+        fclose(f);
+        return cars;
 }
 
 static void test_read_file(void)
@@ -438,7 +438,7 @@ static void get_info(const int n, const CAR *cars)
         assert(n > 0);
         char model[15] = {'\0'};
         puts("What model are you interested in ?");
-	scanf("%9s", model);
+        scanf("%9s", model);
         fflush_stdin();
         int k = search(n, model, (const CAR*)cars);
         if (k >= 0) {
@@ -456,13 +456,13 @@ static void edit_some_car(const int n, CAR *cars)
         assert(cars);
         assert(n > 0);
         char model[15] = {'\0'};
-	puts("Introduce the model you want to edit:");
-	scanf("%9s", model);
+        puts("Introduce the model you want to edit:");
+        scanf("%9s", model);
         fflush_stdin();
         int k = search(n, model, (const CAR*)cars);
-	if (k >= 0) {
-	        edit(n, k, cars);
-	}
+        if (k >= 0) {
+                edit(n, k, cars);
+        }
 }
 
 static void test_edit_some_car(void)
@@ -475,19 +475,19 @@ static void delete_a_car(int *n, CAR **cars)
         assert(*cars);
         assert(n);
         assert(*n > 0);
-	puts("Write what element you want to delete:");
+        puts("Write what element you want to delete:");
         int k = 0;
-	int fills = scanf("%d", &k);
+        int fills = scanf("%d", &k);
         assert(fills == 1);
         fflush_stdin();
         assert(k > 0);
         assert(k < *n);
-	k--;
-	for (int i = k; i < *n - 1; ++i) {
-	        (*cars)[i] = (*cars)[i + 1];
-	}
-	(*n)--;
-	*cars = (CAR*)realloc((*cars), (*n) * sizeof(CAR));
+        k--;
+        for (int i = k; i < *n - 1; ++i) {
+                (*cars)[i] = (*cars)[i + 1];
+        }
+        (*n)--;
+        *cars = (CAR*)realloc((*cars), (*n) * sizeof(CAR));
         assert(cars);
 }
 
@@ -499,15 +499,15 @@ static void write_to_file(const int n, const CAR *cars)
 {
         assert(cars);
         assert(n > 0);
-	puts("What is the name of file ? ");
+        puts("What is the name of file ? ");
         char filename[15];
-	scanf("%14s", filename);
+        scanf("%14s", filename);
         fflush_stdin();
         FILE *f = NULL;
-	f = fopen(filename, "w");
+        f = fopen(filename, "w");
         assert(f);
-	for (int i = 0; i < n; ++i) {
-        	fprintf(f,
+        for (int i = 0; i < n; ++i) {
+                fprintf(f,
                         "%s %s %d %d %d\n",
                         cars[i].model,
                         cars[i].country,
@@ -516,8 +516,8 @@ static void write_to_file(const int n, const CAR *cars)
                         cars[i].cost);
                 fflush(f);
         }
-	fclose(f);
-	puts("Done writting in file.");
+        fclose(f);
+        puts("Done writting in file.");
 }
 
 static void test_write_to_file(void)
@@ -528,7 +528,7 @@ static int switch_operation(const int operation, int *n, CAR **cars)
 {
         assert(cars);
         switch (operation) {
-	        case 1 : {
+                case 1 : {
                         puts("For how many cars do you need memory ?");
                         int fills = scanf("%d", n);
                         assert(fills == 1);
@@ -537,74 +537,74 @@ static int switch_operation(const int operation, int *n, CAR **cars)
                         *cars = (CAR*)calloc(*n, sizeof(CAR));
                         assert(*cars);
                         break;
-		}
-	        case 2 : {
+                }
+                case 2 : {
                         assert(*cars);
-	                input(*n, *cars);
+                        input(*n, *cars);
                         break;
-		}
-	        case 3 : {
+                }
+                case 3 : {
                         get_info(*n, *cars);
-			break;
-		}
-		case 4 : {
+                        break;
+                }
+                case 4 : {
                         assert(*cars);
-			puts("Sorted the cars by price.");
-			sort(*n, *cars);
-			break;
-		}
-		case 5 : {
+                        puts("Sorted the cars by price.");
+                        sort(*n, *cars);
+                        break;
+                }
+                case 5 : {
                         edit_some_car(*n, *cars);
-		        break;
-		}
-		case 6 : {
+                        break;
+                }
+                case 6 : {
                         assert(*cars);
-		        add(*n, cars, n);
-			break;
-		}
-		case 7 : {
+                        add(*n, cars, n);
+                        break;
+                }
+                case 7 : {
                         delete_a_car(n, cars);
                         break;
-		}
-		case 8 : {
+                }
+                case 8 : {
                         assert(*cars);
-		        puts("Give the possition of new element:");
+                        puts("Give the possition of new element:");
                         int k = 0;
-	 		int fills = scanf("%d", &k);
+                         int fills = scanf("%d", &k);
                         assert(fills == 1);
                         fflush_stdin();
-			add(k - 1, cars, n);
-			break;
-		}
-		case 9 : {
+                        add(k - 1, cars, n);
+                        break;
+                }
+                case 9 : {
                         write_to_file(*n, *cars);
                         break;
-		}
-		case 10 : {
-		        puts("Introduce the name of the file:");
+                }
+                case 10 : {
+                        puts("Introduce the name of the file:");
                         char filename[10] = {'\0'};
-			scanf("%9s", filename);
+                        scanf("%9s", filename);
                         fflush_stdin();
-			*cars = read_file(filename, *cars, n);
-			break;
-		}
-		case 11 : {
+                        *cars = read_file(filename, *cars, n);
+                        break;
+                }
+                case 11 : {
                          assert(*cars);
-		         output(*n, (const CAR*)*cars);
-			 break;
-		}
-	        case 12: {
-		        *cars = (CAR*)realloc(*cars, 0);
+                         output(*n, (const CAR*)*cars);
+                         break;
+                }
+                case 12: {
+                        *cars = (CAR*)realloc(*cars, 0);
                         *cars = NULL;
-			puts("Memory deallocated.");
-			break;
-		}
-		case 0 : {
-			return 0;
-		}
+                        puts("Memory deallocated.");
+                        break;
+                }
+                case 0 : {
+                        return 0;
+                }
                 default : {
-		        puts("Unknown command.");
-		}
+                        puts("Unknown command.");
+                }
         }
         return 1;
 }

@@ -57,10 +57,10 @@ int main(void)
                      "elements \n 3.Filling the array with random elements \n "
                       "4.Sorting the   elements from columns in decreasing "
                       "order ");
-	        puts(" 5.Output the array elements \n 6.Clearing the "
-               "allocated memory \n 0.Exit the program \n \n Enter the "
-               "number of operation you want to be performed:");
-	        int fills = scanf("%d"ANY_AND_NEWLINE, &operation);
+                puts(" 5.Output the array elements \n 6.Clearing the "
+                     "allocated memory \n 0.Exit the program \n \n Enter the "
+                     "number of operation you want to be performed:");
+                int fills = scanf("%d"ANY_AND_NEWLINE, &operation);
                 assert(fills == 1);
                 if (!switch_operation(operation, &n, &m, &a)) break;
         }
@@ -195,8 +195,8 @@ static void internal_for(const int i, const int k, const int n, float **a)
         for (int j = i + 1; j < n; ++j) {
                 if (a[j][k] > a[i][k]) {
                         aux = a[j][k];
-		        a[j][k] = a[i][k];
-		        a[i][k] = aux;
+                        a[j][k] = a[i][k];
+                        a[i][k] = aux;
                 }
         }
 }
@@ -239,38 +239,38 @@ static int switch_operation(const int operation, int *n, int *m, float ***a)
                 case 0 :  {
                         return 0;
                 }
-	        case 1 : {
+                case 1 : {
                         puts("Give n and m:");
                         int fills = scanf("%d%d"ANY_AND_NEWLINE, n, m);
                         assert(fills == 2);
                         *a = allocate(*n, *m);
-	        	break;
+                        break;
                 }
-	        case 2 : {
+                case 2 : {
                         input(*n, *m, *a);
                         break;
                 }
-	        case 3 : {
+                case 3 : {
                         fill_rand(*n, *m, *a);
                         break;
                 }
-	        case 4 : {
+                case 4 : {
                         sort(*n, *m, *a);
                         break;
                 }
-	        case 5 : {
+                case 5 : {
                         output(*n, *m, (const float**)*a);
                         break;
                 }
-	        case 6 : {
+                case 6 : {
                         clear(*n, a);
                         break;
                 }
-	        default : {
+                default : {
                         puts("Unknown command.");
                         puts("Press any key");
                 }
-	 }
+        }
         return 1;
 }
 

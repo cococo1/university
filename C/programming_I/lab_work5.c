@@ -24,11 +24,11 @@ int main(void)
         a[0] = strtok(s, " ");
         int n = 0;
         while (a[n] != NULL) {
-	        ++n;
+                ++n;
                 a[n] = strtok(NULL, " ");
         }
         for (int i = 0; i < n - 1; ++i) {
-	        internal_for(n, a);
+                internal_for(n, a);
         }
         for (int i = 0; i < n; ++i) {
                 puts(a[i]);
@@ -45,10 +45,10 @@ static void internal_for(const int n, char **a)
         assert(n > 0);
         char *aux = NULL;
         for (int j = 0; j < n - 1; ++j) {
-	        if (strlen(a[j]) < strlen(a[j + 1])) {
+                if (strlen(a[j]) < strlen(a[j + 1])) {
                         aux = a[j];
-		        a[j] = a[j + 1];
-		        a[j + 1] = aux;
+                        a[j] = a[j + 1];
+                        a[j + 1] = aux;
                 }
-	}
+        }
 }
