@@ -2,8 +2,8 @@
 // car_adt3.h
 // Data Structures & Algorithms, 2011
 
-//This is a header file to car_adt3.c
-//It is created for some operations on a car linked list.
+// This is a header file to car_adt3.c
+// It is created for some operations on a car linked list.
 // Max Chetrusca, Mar 10, 2011
 
 typedef struct CAR {
@@ -40,10 +40,11 @@ int list_length(void);
 // returns 0 if elements do not exist;
 int swap(CAR *a, CAR* b);
 int sort(void);
-//Inserts the new_element after_this_address; returns 0 if something is wrong;
+// Inserts the new_element after_this_address and allocates memory for it;
+//  returns 0 if something is wrong;
 int insert(const CAR *new_element, CAR *after_this_address);
 // Deletes the element with indicated adress.
-int remove(CAR *adress);
+int remove_car(CAR *adress);
 // Records the list into a file: each row contain fields of an element
 // separated by a space.
 int write_to_file(const char *filename);
