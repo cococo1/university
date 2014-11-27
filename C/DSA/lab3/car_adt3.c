@@ -1,4 +1,5 @@
-// TODO: Check for logical errors (stopped at insert());
+// TODO: Correct reading from file.
+// TODO: Check for logical errors (stopped at free_list());
 // TODO: Check if the function has more than 3 levels of identation;
 // TODO: Check if the function is longer than 40 lines;
 // TODO: Check general style;
@@ -187,7 +188,7 @@ four:
         }
         if (answer == 'y') {
                 puts("Introduce the new price of this model:");
-                filled = scanf("%d", &model_to_modify->cost);
+                int filled = scanf("%d", &model_to_modify->cost);
                 assert(filled == 1);
                 fflush_stdin();
                 assert(model_to_modify->cost > 0);
@@ -203,7 +204,7 @@ five:
         }
         if (answer == 'y') {
                 puts("Introduce the new year of manufacturing of this model:");
-                filled = scanf("%d", &model_to_modify->date);
+                int filled = scanf("%d", &model_to_modify->date);
                 assert(filled == 1);
                 fflush_stdin();
                 assert(model_to_modify->date > 0);
@@ -282,7 +283,7 @@ int insert(const CAR *new_element, CAR *after_this_address)
         return 1;
 }
 
-int remove(CAR *address)
+int remove_car(CAR *address)
 {
         assert(g_head);
         assert(address);
@@ -338,40 +339,39 @@ int read_from_file(const char *filename)
         FILE *f = NULL;
         CAR *c = NULL;
         CAR *previous = NULL;
-        char capacity[10] = {'\0'};
-        char cost[10] = {'\0'};
-        char date[10]= {'\0'};
         f = fopen(filename, "r");
         assert(f);
-        while (!feof(f)) {
+        char model[10] = {'\0'};
+        char country[10] = {'\0'};
+        int capacity = 0;
+        int cost = 0;
+        int date = 0;
+        while(5 == fscanf(f,
+                          "%9s %9s %d %d %d",
+                          model,
+                          country,
+                          &capacity,
+                          &cost,
+                          &date)) {
                 if (i == 0) {
                     g_head = (CAR*)malloc(sizeof(CAR));
                     assert(g_head);
-                    g_head->next = NULL;
-                        int filled = fscanf(f,
-                                            "%9s %9s %d %d %d",
-                                            g_head->model,
-                                            g_head->country,
-                                            g_head->capacity,
-                                            g_head->cost,
-                                            g_head->date);
-                        assert(filled == 5);
-                        previous = g_head;
+                    c = g_head;
+                    previous = g_head;
                 } else {
                         c = (CAR*)malloc(sizeof(CAR));
                         assert(c);
-                        c->next = NULL;
-                        int filled = fscanf(f,
-                                            "%9s %9s %d %d %d",
-                                            c->model,
-                                            c->country,
-                                            c->capacity,
-                                            c->cost,
-                                            c->date);
-                        assert(filled == 5);
                         previous->next = c;
                         previous = c;
                 }
+                c->next = NULL;
+                c->model[0] = '\0';
+                strncat(c->model, model, strlen(model));
+                c->country[0] = '\0';
+                strncat(c->country, country, strlen(country));
+                c->capacity = capacity;
+                c->cost = cost;
+                c->date = date;
                 ++i;
         }
         return 1;
@@ -424,5 +424,5 @@ void concat_lists(const CAR* head2)
         while (current->next) {
                 current = current->next;
         }
-        current->next = head2;
+        current->next = (CAR *)head2;
 }
