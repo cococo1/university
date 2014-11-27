@@ -1,4 +1,3 @@
-// TODO: Change tabs into spaces.
 
 // Copyright Max Chetrusca, modified Nov 12, 2014
 // car_adt3_test.c
@@ -9,6 +8,9 @@
 // Max Chetrusca, Mar 10, 2011
 
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <time.h>
 
 #include "car_adt3.h"
 
@@ -223,7 +225,7 @@ label_3:    puts("The list already contain data. Do you want to rewrite it ? y/n
 
           p1=address_of_last();
           if (!p1) {puts("Error!"); break; }
-          if_succeded=insert(p1,new_element);
+          if_succeded=insert(p1, &new_element);
           if (!if_succeded) puts("Something's wrong!");
           else  puts("New element added.");
           p1=NULL;
@@ -238,7 +240,7 @@ label_3:    puts("The list already contain data. Do you want to rewrite it ? y/n
             scanf("%s",name);
             if_succeded=search(name,&p1);
             if (!if_succeded || !p1) {puts("Model not found."); break;}
-            if_succeded=remove(p1);
+            if_succeded=remove_car(p1);
             if(!if_succeded) puts("Error!");
             else puts("Element deleted.");
             break;
@@ -270,7 +272,7 @@ label_3:    puts("The list already contain data. Do you want to rewrite it ? y/n
           scanf("%s",name);
           if_succeded=search(name,&p1);
           if (!if_succeded || !p1) {puts("Model not found. Press any key to continue:"); break; }
-          if_succeded=insert(p1,new_element);
+          if_succeded=insert(p1, &new_element);
           if (!if_succeded) puts("Error!");
           else puts("Element inserted. Press any key to continue:");
           p1=NULL;
@@ -281,9 +283,9 @@ label_3:    puts("The list already contain data. Do you want to rewrite it ? y/n
         {
             // system("CLS");
             if (!g_head) {puts("List is empty (memory not allocated).");  break; }
-            p1=adress_of_last();
+            p1=address_of_last();
             if (!p1) puts("Error!");
-            else printf("The adress of the last element is : %p",p1);
+            else printf("The address of the last element is : %p",p1);
             p1=NULL;
          // getch();
           break;
@@ -306,8 +308,7 @@ label_3:    puts("The list already contain data. Do you want to rewrite it ? y/n
              puts("2. Output second link list; ");
              puts("0. Continue work with first list; ");
              fflush(stdin);
-             scanf("%s",name);
-                     operation=atoi(name);
+             scanf("%d", &operation);
                      switch (operation)
                      {
                          case 0:
@@ -409,6 +410,7 @@ label_3:    puts("The list already contain data. Do you want to rewrite it ? y/n
         // getch();
         return 0;
 }
+}
 
 
 
@@ -430,7 +432,7 @@ void show_menu(void)
         puts("10. Add a new car at the end; ");
         puts("11. Delete a car; ");
         puts("12. Insert a car; ");
-        puts("13. Output the adress of the last element; ");
+        puts("13. Output the address of the last element; ");
         puts("14. Divide the list into two; ");
         puts("15. Merge two lists of cars; ");
         puts("16. Write info about cars in file; ");
@@ -446,6 +448,7 @@ void test_input(void)
         int i=1;
         CAR *current=g_head;
         if (!current) { puts("Error!"); return; }
+        srand(time(NULL));
         while (current)
         {
                 current->capacity=i;
