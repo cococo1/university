@@ -1,9 +1,3 @@
-// TODO: Correct reading from file.
-// TODO: Check for logical errors (stopped at free_list());
-// TODO: Check if the function has more than 3 levels of identation;
-// TODO: Check if the function is longer than 40 lines;
-// TODO: Check general style;
-
 // Copyright Max Chetrusca, Nov 12, 2014
 // car_adt3.c
 // Data Structures & Algorithms, 2011
@@ -240,6 +234,17 @@ int swap(CAR *a, CAR* b)
         return 1;
 }
 
+static void internal_for(const int n, const int i, CAR *one, CAR *two)
+{
+        for (int j = 0; j < n - i - 1; ++j) {
+                if (one->cost > two->cost) {
+                        swap(one, two);
+                }
+                one = one->next;
+                two = two->next;
+        }
+}
+
 int sort(void)
 {
         assert(g_head);
@@ -249,13 +254,7 @@ int sort(void)
         for (int i = 0; i < n - 1; ++i) {
                 one = current;
                 two = current->next;
-                for (int j = 0; j < n - i - 1; ++j) {
-                        if (one->cost > two->cost) {
-                                swap(one, two);
-                        }
-                        one = one->next;
-                        two = two->next;
-                }
+                internal_for(n, i, one, two);
         }
         return 1;
 }
@@ -272,9 +271,7 @@ int insert(const CAR *new_element, CAR *after_this_address)
         current->capacity = new_element->capacity;
         current->cost = new_element->cost;
         current->model[0] = '\0';
-        strncat(current->model,
-                new_element->model,
-                strlen(new_element->model));
+        strncat(current->model, new_element->model, strlen(new_element->model));
         current->country[0] = '\0';
         strncat(current->country,
                 new_element->country,
@@ -354,10 +351,10 @@ int read_from_file(const char *filename)
                           &cost,
                           &date)) {
                 if (i == 0) {
-                    g_head = (CAR*)malloc(sizeof(CAR));
-                    assert(g_head);
-                    c = g_head;
-                    previous = g_head;
+                        g_head = (CAR*)malloc(sizeof(CAR));
+                        assert(g_head);
+                        c = g_head;
+                        previous = g_head;
                 } else {
                         c = (CAR*)malloc(sizeof(CAR));
                         assert(c);
@@ -392,7 +389,7 @@ void free_list(void)
 
 CAR* address_of_last(void)
 {
-        assert(g_head);
+        if (!g_head) return NULL;
         CAR *current = g_head;
         while (current->next) {
                 current = current->next;
