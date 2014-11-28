@@ -217,41 +217,37 @@ void add(const int pos, CAR **cars, int *n)
 
 CAR* read(const char *filename, CAR** cars, int *n)
 {
-        assert(cars);
         assert(filename);
         //Reads from a file info about an array of cars
         FILE *f = NULL;
         f = fopen(filename, "r");
         assert(f);
-        (*cars) = (CAR*)realloc((*cars), sizeof(CAR));
-        assert(*cars);
-        int filled = fscanf(f,
-                            "%9s %14s %d %d %d",
-                            (*cars)[0].model,
-                            (*cars)[0].country,
-                            &(*cars)[0].date,
-                            &(*cars)[0].capacity,
-                            &(*cars)[0].cost);
-        assert(filled == 5);
-        assert((*cars)[0].date > 0);
-        assert((*cars)[0].capacity > 0);
-        assert((*cars)[0].cost > 0);
+        char model[10] = {'\0'};
+        char country[10] = {'\0'};
+        int date = 0;
+        int capacity = 0;
+        int cost = 0;
         int i = 0;
-        while (1) {
-                i++;
+        while (5 == fscanf(f,
+                           "%9s %14s %d %d %d",
+                           model,
+                           country,
+                           &date,
+                           &capacity,
+                           &cost)) {
+                assert(date > 0);
+                assert(capacity > 0);
+                assert(cost > 0);
                 (*cars) = (CAR*)realloc((*cars), (i + 1) * sizeof(CAR));
                 assert((*cars));
-                int filled = fscanf(f,
-                                    "%9s %14s %d %d %d",
-                                    (*cars)[i].model, 
-                                    (*cars)[i].country,
-                                    &(*cars)[i].date,
-                                    &(*cars)[i].capacity,
-                                    &(*cars)[i].cost);
-                assert(filled == 5);
-                assert((*cars)[i].date > 0);
-                assert((*cars)[i].capacity > 0);
-                assert((*cars)[i].cost > 0);
+                (*cars)[i].model[0] = '\0';
+                strncat((*cars)[i].model, model, strlen(model));
+                (*cars)[i].country[0] = '\0';
+                strncat((*cars)[0].country, country, strlen(country));
+                (*cars)[i].date = date;
+                (*cars)[i].capacity = capacity;
+                (*cars)[i].cost = cost;
+                i++;
         }
         puts("File successfully scaned.");
         (*n) = i;
