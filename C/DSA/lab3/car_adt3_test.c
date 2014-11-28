@@ -1,4 +1,12 @@
-
+// TODO: Test logic;
+// TODO: 40-lines max;
+// TODO: 3-levels identation max;
+// TODO: flush input buffer where necessary;
+// TODO: flush output buffer where necessary;
+// TODO: eliminate fflush(stdin) if found;
+// TODO: Check scanf return value where necessary;
+// TODO: Make functions static;
+// TODO: Test app.
 // Copyright Max Chetrusca, modified Nov 12, 2014
 // car_adt3_test.c
 // Data Structures & Algorithms, 2011
